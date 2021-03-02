@@ -298,8 +298,8 @@ pwnbox (){
 	mkdir /usr/share/themes/HackTheBox && cp /opt/PwnBox-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
 	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
 	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
-   	cp  ./General/banner /opt/PwnBox-Kali/htb
-    cp  ./General/banner.sh /opt/PwnBox-Kali/htb
+   	cp $PWD/General/banner /opt/PwnBox-Kali/htb
+        cp $PWD/General/banner.sh /opt/PwnBox-Kali/htb
     
     }
 
