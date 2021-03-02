@@ -178,7 +178,7 @@ tools () {
 # Evil-winrm
 	cd /opt/Tools/C2
 	echo -e "\n [+] Installing Evil-winrm"
-	git clone https://github.com/Hackplayers/evil-winrm.git
+	git clone --branch dev https://github.com/Hackplayers/evil-winrm.git
 	cd evil-winrm
 	bundle install
 	gem install rubyntlm
