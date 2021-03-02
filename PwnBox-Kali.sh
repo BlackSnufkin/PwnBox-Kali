@@ -25,7 +25,7 @@ else
     echo -e "[!] root login enabled \n";
     sleep 1;
     UN=$USER 
-    cp -R /home/$UN/*
+    cp -R /home/$UN/* /root/
 
 	
 	
