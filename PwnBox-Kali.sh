@@ -25,8 +25,8 @@ else
     passwd root;
     echo -e "[!] root login enabled \n";
     sleep 1;
-    user = (echo $USER )
-    eval cp -Rvf /home/kali/.* /home/kali/* /root >/dev/null 2>&1
+    UN=$USER 
+    eval cp -Rvf /home/$UN/.* /home/$UN/* /root >/dev/null 2>&1
     eval chown -R root:root /root
 
 	
