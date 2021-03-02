@@ -63,10 +63,10 @@ shared_folder () {
 	cp ./Wallpapers/wallpaper1.jpg /usr/share/backgrounds
 
 	cp -R ./Wallpapers/* /root/Pictures/
-	cd /usr/share/desktop-base/kali-theme/login/
+	
 	cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login
-	mv background background.original
-	mv loginscreen.jpg background
+	mv /usr/share/desktop-base/kali-theme/login/background /usr/share/desktop-base/kali-theme/login/background.original
+	mv /usr/share/desktop-base/kali-theme/login/loginscreen.jpg /usr/share/desktop-base/kali-theme/login/background
 	
 	xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorVirtual1/workspace0/last-image --set /root/Pictures/wallpaper1.jpg
 
@@ -295,9 +295,8 @@ pwnbox (){
 	echo -e "\n [+] Installing Pwnbox Stuff"
 	mkdir /opt/PwnBox-Kali && mkdir /opt/PwnBox-Kali/gitclones 
 	cd /opt/PwnBox-Kali/gitclones
-	git clone https://github.com/theGuildHall/pwnbox.git
-	cd /opt/PwnBox-Kali/gitclones/pwnbox
-	cp -R bloodhound/ /opt/Tools/Enumeration && cp -R htb/ /opt/PwnBox-Kali && cp -R icons/ /opt/PwnBox-Kali/htb && cp banner /opt/PwnBox-Kali/htb && cp *.sh /opt/PwnBox-Kali/htb
+	git clone https://github.com/theGuildHall/pwnbox.git opt/PwnBox-Kali/gitclones
+	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/bloodhound/ /opt/Tools/Enumeration && cp -R /opt/PwnBox-Kali/gitclones/pwnbox/htb /opt/PwnBox-Kali && cp -R /opt/PwnBox-Kali/gitclones/pwnbox/icons /opt/PwnBox-Kali/htb && cp /opt/PwnBox-Kali/gitclones/pwnbox/banner /opt/PwnBox-Kali/htb && cp /opt/PwnBox-Kali/gitclones/pwnbox/*.sh /opt/PwnBox-Kali/htb
 	apt install -y powershell
 	mkdir ~/.config/powershell/
 	cp /opt/PwnBox-Kali/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
