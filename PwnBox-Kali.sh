@@ -139,6 +139,7 @@ tools () {
 	git clone https://github.com/Hackplayers/evil-winrm.git
 	cd evil-winrm
 	bundle install
+	gem install rubyntlm
 
 # dnscat
 	cd /opt/Tools/C2
@@ -306,8 +307,8 @@ pwnbox (){
 	mkdir /usr/share/themes/HackTheBox && cp /opt/PwnBox-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
 	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
 	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
-   	cp  $PWD/General/banner /opt/PwnBox-Kali/htb
-    cp  $PWD/General/banner.sh /opt/PwnBox-Kali/htb
+   	cp  $HOME/PwnBox-Kali/General/banner /opt/PwnBox-Kali/htb
+    cp  $HOME/General/banner.sh /opt/PwnBox-Kali/htb
     
     }
 
