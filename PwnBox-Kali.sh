@@ -25,7 +25,14 @@ else
     passwd root;
     echo -e "[!] root login enabled \n";
     sleep 1; 
-    cp -R /home/sudoer/*  /root
+    
+    finduser=$(logname)
+    raw_xfce="https://raw.githubusercontent.com/Dewalt-arch/pimpmyi3-config/main/xfce4/xfce4-power-manager.xml"
+    eval wget $raw_xfce -O /root/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+    eval wget $raw_xfce -O /home/$finduser/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+    
+    eval cp -Rvf  /home/$finduser/* /root >/dev/null 2>&1
+    eval chown -R root:root /root
 
 	
 	
@@ -50,16 +57,17 @@ shared_folder () {
 
 	cp  ./General/.zshrc /root/
 	cp  ./General/.bashrc /root/ 
-	
-	mv replace.py /opt/Tools/General
+	mv ./replace.py /opt/Tools/General
 	ln -s /opt/Tools/General/replace.py /usr/bin/replace-line
-	
+
 	cp ./Wallpapers/wallpaper1.jpg /usr/share/backgrounds
+
 	cp -R ./Wallpapers/* /root/Pictures/
 	cd /usr/share/desktop-base/kali-theme/login/
 	cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login
 	mv background background.original
 	mv loginscreen.jpg background
+	
 	xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorVirtual1/workspace0/last-image --set /root/Pictures/wallpaper1.jpg
 
 	}
@@ -131,7 +139,7 @@ tools () {
 	git clone https://github.com/Hackplayers/evil-winrm.git
 	cd evil-winrm
 	bundle install
-	gem install rubyntlm
+
 # dnscat
 	cd /opt/Tools/C2
 	echo -e "\n [+] Installing dnscat2"
@@ -298,8 +306,8 @@ pwnbox (){
 	mkdir /usr/share/themes/HackTheBox && cp /opt/PwnBox-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
 	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
 	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
-   	cp $PWD/General/banner /opt/PwnBox-Kali/htb
-        cp $PWD/General/banner.sh /opt/PwnBox-Kali/htb
+   	cp  $PWD/General/banner /opt/PwnBox-Kali/htb
+    cp  $PWD/General/banner.sh /opt/PwnBox-Kali/htb
     
     }
 
