@@ -131,7 +131,7 @@ tools () {
 	git clone https://github.com/Hackplayers/evil-winrm.git
 	cd evil-winrm
 	bundle install
-
+	gem install rubyntlm
 # dnscat
 	cd /opt/Tools/C2
 	echo -e "\n [+] Installing dnscat2"
