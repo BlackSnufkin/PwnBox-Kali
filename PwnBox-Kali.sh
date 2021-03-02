@@ -51,16 +51,15 @@ shared_folder () {
 	cp  ./General/.zshrc /root/
 	cp  ./General/.bashrc /root/ 
 	
+	mv replace.py /opt/Tools/General
+	ln -s /opt/Tools/General/replace.py /usr/bin/replace-line
+	
 	cp ./Wallpapers/wallpaper1.jpg /usr/share/backgrounds
-
 	cp -R ./Wallpapers/* /root/Pictures/
 	cd /usr/share/desktop-base/kali-theme/login/
 	cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login
 	mv background background.original
 	mv loginscreen.jpg background
-	
-	mv replace.py /opt/Tools/General
-	ln -s /opt/Tools/General/replace.py /usr/bin/replace-line
 	xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorVirtual1/workspace0/last-image --set /root/Pictures/wallpaper1.jpg
 
 	}
