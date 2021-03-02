@@ -2,8 +2,9 @@
 
 fix_update () {
 
-	eval apt -y update  && apt -y full-upgrade && apt -y autoremove    
-	eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev
+	
+    eval apt -y update  && apt -y full-upgrade && apt -y autoremove    
+    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev
 
 }
 
@@ -17,14 +18,14 @@ apt -qq list kali-root-login | grep 'installed' &> /dev/null
 if [ $?  == 0 ]; then
 	true;
 else
-	systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target;
-   	fix_update 
+    systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target;
+    fix_update 
     apt update --fix-missing && apt full-upgrade -y && apt autoremove -y;
     echo -e "\n[+] Enabling Root Login Give root a password";
     passwd root;
     echo -e "[!] root login enabled \n";
     sleep 1;
-    UN=$USER 
+    UN=$USERNAME 
     cp -R /home/$UN/* /root/
 
 	
@@ -341,12 +342,15 @@ fix_stuff () {
 
 
     sed -i 's/.*AutomaticLoginEnable =.*/AutomaticLoginEnable = true/' /etc/gdm3/daemon.conf
-	sed -i 's/.*AutomaticLogin =.*/AutomaticLogin = root/' /etc/gdm3/daemon.conf
+    sed -i 's/.*AutomaticLogin =.*/AutomaticLogin = root/' /etc/gdm3/daemon.conf
     apt update && apt full-upgrade -y && apt autoremove -y && reboot
 
 
 
 	}
+
+
+
 
 
 systemctl enable docker
