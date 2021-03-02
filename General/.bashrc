@@ -148,7 +148,7 @@ alias fuck='sudo $(history -p !!)'
 alias nmap-VulnScan='nmap --script nmap-vulners/vulners,vulscan/vulscan --script-args vulscandb=exploitdb.csv -sV -sC -O -p-'
 alias nmap-miniVulnScan='nmap --script nmap-vulners/vulners -sV -sC -O -p- '
 alias web-srv='python3 -m http.server 8002'
-
+alias Joplin='/root/.joplin/Joplin.AppImage --no-sandbox'
 
 
 # Alias definitions.
