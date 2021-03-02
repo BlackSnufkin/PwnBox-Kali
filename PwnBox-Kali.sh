@@ -238,6 +238,26 @@ tools () {
 	echo 'exec /opt/Tools/Enumeration/BloodHound/BloodHound-linux-x64/BloodHound --no-sandbox' > /usr/bin/bloodhound
 	chmod +x /usr/bin/bloodhound
 
+# Bloodhound.py 
+    cd /opt/Tools/Enumeration
+    git clone https://github.com/fox-it/BloodHound.py.git
+    cd BloodHound.py 
+    pip install .
+
+# Proxychains
+	mkdir /opt/Tools/Tunneling 
+	cd /opt/Tools/Tunneling 
+	apt purge proxychains4 -y && apt purge proxychains
+	git clone https://github.com/rofl0r/proxychains-ng.git
+	cd proxychains-ng
+	./configure --prefix=/usr --sysconfdir=/etc
+  	make
+  	make install-config
+  	ln -s $PWD/proxychains4 /usr/bin/proxychains
+  	replace-line "socks5 127.0.0.1:1080" 159 /etc/proxychains.conf
+  	echo "sock4 127.0.0.1:9050" >> /etc/proxychains.conf
+
+
 # Enum4linux-ng
 	cd /opt/Tools/Enumeration
 	echo -e "\n [+] Installing Enum4linux-ng"
