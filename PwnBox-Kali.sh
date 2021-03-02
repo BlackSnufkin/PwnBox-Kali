@@ -316,9 +316,8 @@ tools () {
 	cd poor-mans-pentest
 	replace-line '    xte "key F12"' 15 functions.sh
 	replace-line 'call_cmd "/usr/bin/script -qc /bin/bash /dev/null"' 6 stabilize_zsh_shell.sh
-	replace-line 'source "/opt/Tools/poor-mans-pentest/functions.sh"' 3 stabilize_zsh_shell.sh
-	echo 'call_cmd "exec clear"' >> stabilize_zsh_shell.sh
 	replace-line 'source "/opt/Tools/General/poor-mans-pentest/functions.sh"' 3 stabilize_zsh_shell.sh
+	echo 'call_cmd "exec clear"' >> stabilize_zsh_shell.sh
 	ln -s /opt/Tools/poor-mans-pentest/stabilize_zsh_shell.sh /usr/bin/stabilize_shell
 
 # bat
