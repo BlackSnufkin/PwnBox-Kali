@@ -45,6 +45,7 @@ shared_folder () {
 
 	mkdir /root/HTB
 	mkdir /root/OpenVPN
+	mkdir /root/PT
 
 	mkdir /opt/Tools
 	mkdir /opt/Tools/BruteForce
@@ -149,6 +150,13 @@ chrome () {
 tools () {
 # Tools
 
+#Joplin
+    cd /tmp	
+    wget  https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh -O Joplin_install_and_update.sh
+    chmod +x Joplin_install_and_update.sh
+    ./Joplin_install_and_update.sh --allow-root
+    rm Joplin_install_and_update
+    
 # Dirsearc
 	echo -e "\n [+] Installing dirsearch"
 	cd /opt/Tools/Web
@@ -303,6 +311,7 @@ tools () {
 	cd Zerologon
 	git clone https://github.com/Privia-Security/ADZero.git
 	git clone https://github.com/dirkjanm/CVE-2020-1472.git
+	wget "https://raw.githubusercontent.com/SecuraBV/CVE-2020-1472/master/zerologon_tester.py" -O zerologon_tester.py
 
 # ysoserial
 	cd /opt/Tools/Payloads_gen
@@ -373,6 +382,7 @@ fix_stuff () {
 
     sed -i 's/.*AutomaticLoginEnable =.*/AutomaticLoginEnable = true/' /etc/gdm3/daemon.conf
     sed -i 's/.*AutomaticLogin =.*/AutomaticLogin = root/' /etc/gdm3/daemon.conf
+    echo -e "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
     apt update && apt full-upgrade -y && apt autoremove -y && reboot
 
 
