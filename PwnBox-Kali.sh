@@ -79,22 +79,22 @@ pwnbox (){
 # Pwnbox
 	
 	echo -e "\n [+] Installing Pwnbox Stuff"
-	mkdir /opt/PwnBox-Kali && mkdir /opt/PwnBox-Kali/gitclones 
-	cd /opt/PwnBox-Kali/gitclones
+	mkdir /opt/Customize-Kali && mkdir /opt/Customize-Kali/gitclones 
+	cd /opt/Customize-Kali/gitclones
 	git clone https://github.com/theGuildHall/pwnbox.git 
-	cd /opt/PwnBox-Kali/gitclones/pwnbox
-	cp -R bloodhound/ /opt/Tools/Enumeration && cp -R htb/ /opt/PwnBox-Kali && cp -R icons/ /opt/PwnBox-Kali/htb && cp banner /opt/PwnBox-Kali/htb && cp *.sh /opt/PwnBox-Kali/htb
+	cd /opt/Customize-Kali/gitclones/pwnbox
+	cp -R bloodhound/ /opt/Tools/Enumeration && cp -R htb/ /opt/Customize-Kali && cp -R icons/ /opt/Customize-Kali/htb && cp banner /opt/Customize-Kali/htb && cp *.sh /opt/Customize-Kali/htb
 	apt install -y powershell
 	mkdir ~/.config/powershell/
-	cp /opt/PwnBox-Kali/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
-	cp /opt/PwnBox-Kali/gitclones/pwnbox/htb.jpg /usr/share/backgrounds/
-	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/Material-Black-Lime-Numix-FLAT/ /usr/share/icons/
-	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/htb /usr/share/icons/
-	mkdir /usr/share/themes/HackTheBox && cp /opt/PwnBox-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
+	cp /opt/Customize-Kali/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 $HOME/.config/powershell/Microsoft.PowerShell_profile.ps1
+	cp /opt/Customize-Kali/gitclones/pwnbox/htb.jpg /usr/share/backgrounds/
+	cp -R /opt/Customize-Kali/gitclones/pwnbox/Material-Black-Lime-Numix-FLAT/ /usr/share/icons/
+	cp -R /opt/Customize-Kali/gitclones/pwnbox/htb /usr/share/icons/
+	mkdir /usr/share/themes/HackTheBox && cp /opt/Customize-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
 	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
 	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
-    cp  $HOME/PwnBox-Kali/General/banner /opt/PwnBox-Kali/htb
-    cp  $HOME/PwnBox-Kali/General/banner.sh /opt/PwnBox-Kali/htb
+    cp  $HOME/PwnBox-Kali/General/banner /opt/Customize-Kali/htb
+    cp  $HOME/PwnBox-Kali/General/banner.sh /opt/Customize-Kali/htb
     
     }
 
