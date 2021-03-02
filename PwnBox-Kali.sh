@@ -25,7 +25,7 @@ else
     passwd root;
     echo -e "[!] root login enabled \n";
     sleep 1; 
-    touch ~/.hushlogin
+    
     finduser=$(logname)
     
     eval cp -Rvf  /home/$finduser/* /home/$finduser/.* /root >/dev/null 2>&1
@@ -358,7 +358,7 @@ fix_stuff () {
 
 	}
 
-
+touch ~/.hushlogin
 systemctl enable docker
 systemctl enable openvpn
 updatedb
