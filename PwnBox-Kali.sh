@@ -26,8 +26,7 @@ else
     echo -e "[!] root login enabled \n";
     sleep 1;
     UN=$USER 
-    eval cp -Rvf /home/$UN/.* /home/$UN/* /root >/dev/null 2>&1
-    eval chown -R root:root /root
+    cp -R /home/$UN/*
 
 	
 	
