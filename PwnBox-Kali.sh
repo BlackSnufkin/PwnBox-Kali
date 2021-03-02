@@ -60,6 +60,7 @@ shared_folder () {
 	cp  ./General/.zshrc /root/
 	cp  ./General/.bashrc /root/ 
 	mv ./replace.py /opt/Tools/General
+	chmod +x /opt/Tools/General/replace.py
 	ln -s /opt/Tools/General/replace.py /usr/bin/replace-line
 
 	cp ./Wallpapers/wallpaper1.jpg /usr/share/backgrounds
@@ -138,8 +139,8 @@ chrome () {
 	dpkg -i ./google-chrome*.deb
 	apt-get install -f -y
 	rm google-chrome-stable_current_amd64.deb
-	sudo replace-line 'deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main' 3 /etc/apt/sources.list.d/google-chrome.list  
-	sudo replace-line '# exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --test-type --no-sandbox' 49 /opt/google/chrome/google-chrome 
+	replace-line 'deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main' 3 /etc/apt/sources.list.d/google-chrome.list  
+	replace-line '# exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --test-type --no-sandbox' 49 /opt/google/chrome/google-chrome 
 	echo 'exec -a "$0" "$HERE/chrome" "$@" --no-sandbox' >> /opt/google/chrome/google-chrome
 	
 	}
