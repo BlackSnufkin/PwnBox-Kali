@@ -9,7 +9,7 @@ echo -e '\e[34m ╚══════╝╚═╝  ╚═══╝ ╚═══�
 echo " "
 echo -e '\e[37m                      V  I  R  T  U  A  L   -   H  A  C  K  I  N  G   -   L  A  B '
 echo " "
-cat /opt/PwnBox-Kali/htb/banner | /usr/games/lolcat -S 33
+cat /opt/Customize-Kali/htb/banner | /usr/games/lolcat -S 33
 
 read -r -p "Press ENTER key to close. " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
