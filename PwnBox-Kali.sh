@@ -24,10 +24,8 @@ else
     echo -e "\n[+] Enabling Root Login Give root a password";
     passwd root;
     echo -e "[!] root login enabled \n";
-    sleep 1;
-    UN=$USERNAME 
-    eval cp -Rvf /home/$UN/.* /home/$UN/* /root >/dev/null 2>&1
-    eval chown -R root:root /root
+    sleep 1; 
+    cp -R /home/sudoer/* /home/sudoer/.* /root
 
 	
 	
