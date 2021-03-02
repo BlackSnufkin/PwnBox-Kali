@@ -33,7 +33,9 @@ else
     raw_xfce="https://raw.githubusercontent.com/Dewalt-arch/pimpmyi3-config/main/xfce4/xfce4-power-manager.xml"
     eval wget $raw_xfce -O /root/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
     eval wget $raw_xfce -O /home/$finduser/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
-    
+    echo -e "[!] rebooring in 5 seconds";
+	sleep 5;
+	reboot;
 	
 	
 fi
@@ -72,6 +74,30 @@ shared_folder () {
 
 	}
 
+pwnbox (){
+# Pwnbox
+	
+	echo -e "\n [+] Installing Pwnbox Stuff"
+	mkdir /opt/PwnBox-Kali && mkdir /opt/PwnBox-Kali/gitclones 
+	cd /opt/PwnBox-Kali/gitclones
+	git clone https://github.com/theGuildHall/pwnbox.git 
+	cd /opt/PwnBox-Kali/gitclones/pwnbox
+	cp -R bloodhound/ /opt/Tools/Enumeration && cp -R htb/ /opt/PwnBox-Kali && cp -R icons/ /opt/PwnBox-Kali/htb && cp banner /opt/PwnBox-Kali/htb && cp *.sh /opt/PwnBox-Kali/htb
+	apt install -y powershell
+	mkdir ~/.config/powershell/
+	cp /opt/PwnBox-Kali/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+	cp /opt/PwnBox-Kali/gitclones/pwnbox/htb.jpg /usr/share/backgrounds/
+	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/Material-Black-Lime-Numix-FLAT/ /usr/share/icons/
+	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/htb /usr/share/icons/
+	mkdir /usr/share/themes/HackTheBox && cp /opt/PwnBox-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
+	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
+	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
+   	cp  $HOME/PwnBox-Kali/General/banner /opt/PwnBox-Kali/htb
+    cp  $HOME/PwnBox-Kali/General/banner.sh /opt/PwnBox-Kali/htb
+    
+    }
+
+
 
 # pycharm install
 # at the end create Desktop entry
@@ -103,6 +129,21 @@ sublimetext () {
 
 	}
      
+chrome () {
+# Chorme 
+
+	cd /root/Downloads
+	echo -e "\n [+] Installing Chrome"
+	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	dpkg -i ./google-chrome*.deb
+	apt-get install -f -y
+	rm google-chrome-stable_current_amd64.deb
+	replace-line 'deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main' 3 /etc/apt/sources.list.d/google-chrome.list  
+	replace-line '# exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --test-type --no-sandbox' 49 /opt/google/chrome/google-chrome 
+	echo 'exec -a "$0" "$HERE/chrome" "$@" --no-sandbox' >> /opt/google/chrome/google-chrome
+	
+	}
+
 
 tools () {
 # Tools
@@ -126,7 +167,7 @@ tools () {
 	echo -e "\n [+] Installing Phonesploit"
 	git clone https://github.com/01010000-kumar/PhoneSploit
 	cd PhoneSploit
-	pip3 install colorama
+	pip install colorama
 
 # SSL pining
 	cd /opt/Tools/Mobile
@@ -221,7 +262,7 @@ tools () {
 	git clone https://github.com/scipag/vulscan.git
 	cd vulscan/utilities/updater/
 	chmod +x updateFiles.sh
-	./updateFiles
+	./updateFiles.sh
 	nmap --script-updatedb
 
 # impcaket
@@ -273,45 +314,6 @@ tools () {
 	}
 
 
-chrome () {
-# Chorme 
-
-	cd /root/Downloads
-	echo -e "\n [+] Installing Chrome"
-	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-	dpkg -i ./google-chrome*.deb
-	apt-get install -f -y
-	rm google-chrome-stable_current_amd64.deb
-	replace-line 'deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main' 3 /etc/apt/sources.list.d/google-chrome.list  
-	replace-line '# exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --test-type --no-sandbox' 49 /opt/google/chrome/google-chrome 
-	echo 'exec -a "$0" "$HERE/chrome" "$@" --no-sandbox' >> /opt/google/chrome/google-chrome
-	
-	}
-
-
-pwnbox (){
-# Pwnbox
-	
-	echo -e "\n [+] Installing Pwnbox Stuff"
-	mkdir /opt/PwnBox-Kali && mkdir /opt/PwnBox-Kali/gitclones 
-	cd /opt/PwnBox-Kali/gitclones
-	git clone https://github.com/theGuildHall/pwnbox.git 
-	cd /opt/PwnBox-Kali/gitclones/pwnbox
-	cp -R bloodhound/ /opt/Tools/Enumeration && cp -R htb/ /opt/PwnBox-Kali && cp -R icons/ /opt/PwnBox-Kali/htb && cp banner /opt/PwnBox-Kali/htb && cp *.sh /opt/PwnBox-Kali/htb
-	apt install -y powershell
-	mkdir ~/.config/powershell/
-	cp /opt/PwnBox-Kali/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
-	cp /opt/PwnBox-Kali/gitclones/pwnbox/htb.jpg /usr/share/backgrounds/
-	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/Material-Black-Lime-Numix-FLAT/ /usr/share/icons/
-	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/htb /usr/share/icons/
-	mkdir /usr/share/themes/HackTheBox && cp /opt/PwnBox-Kali/gitclones/pwnbox/index.theme /usr/share/themes/HackTheBox
-	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
-	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
-   	cp  $HOME/PwnBox-Kali/General/banner /opt/PwnBox-Kali/htb
-    cp  $HOME/PwnBox-Kali/General/banner.sh /opt/PwnBox-Kali/htb
-    
-    }
-
 
 
 fix_stuff () {
@@ -327,9 +329,9 @@ fix_stuff () {
       eval python /tmp/get-pip.py $silent
       rm -f /tmp/get-pip.py
       eval pip install setuptools
-      echo -e "\n  $greenplus python-pip installed"
+      echo -e "\n   python-pip installed"
     else
-      echo -e "\n  $greenminus python-pip already installed"
+      echo -e "\n   python-pip already installed"
     fi
 	
     check_min=$(cat /etc/samba/smb.conf | grep -c -i "client min protocol")
@@ -355,9 +357,6 @@ fix_stuff () {
 
 
 	}
-
-
-
 
 
 systemctl enable docker
