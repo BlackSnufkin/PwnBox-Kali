@@ -25,7 +25,7 @@ else
     passwd root;
     echo -e "[!] root login enabled \n";
     sleep 1; 
-    cp -R /home/sudoer/* /home/sudoer/.* /root
+    cp -R /home/sudoer/*  /root
 
 	
 	
