@@ -25,10 +25,10 @@ else
     passwd root;
     echo -e "[!] root login enabled \n";
     sleep 1; 
-    
+    touch ~/.hushlogin
     finduser=$(logname)
     
-    eval cp -Rvf  /home/$finduser/* /root >/dev/null 2>&1
+    eval cp -Rvf  /home/$finduser/* /home/$finduser/.* /root >/dev/null 2>&1
     eval chown -R root:root /root
     raw_xfce="https://raw.githubusercontent.com/Dewalt-arch/pimpmyi3-config/main/xfce4/xfce4-power-manager.xml"
     eval wget $raw_xfce -O /root/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
