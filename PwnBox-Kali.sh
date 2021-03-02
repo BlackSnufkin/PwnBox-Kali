@@ -27,13 +27,13 @@ else
     sleep 1; 
     
     finduser=$(logname)
+    
+    eval cp -Rvf  /home/$finduser/* /root >/dev/null 2>&1
+    eval chown -R root:root /root
     raw_xfce="https://raw.githubusercontent.com/Dewalt-arch/pimpmyi3-config/main/xfce4/xfce4-power-manager.xml"
     eval wget $raw_xfce -O /root/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
     eval wget $raw_xfce -O /home/$finduser/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
     
-    eval cp -Rvf  /home/$finduser/* /root >/dev/null 2>&1
-    eval chown -R root:root /root
-
 	
 	
 fi
@@ -295,8 +295,9 @@ pwnbox (){
 	echo -e "\n [+] Installing Pwnbox Stuff"
 	mkdir /opt/PwnBox-Kali && mkdir /opt/PwnBox-Kali/gitclones 
 	cd /opt/PwnBox-Kali/gitclones
-	git clone https://github.com/theGuildHall/pwnbox.git opt/PwnBox-Kali/gitclones
-	cp -R /opt/PwnBox-Kali/gitclones/pwnbox/bloodhound/ /opt/Tools/Enumeration && cp -R /opt/PwnBox-Kali/gitclones/pwnbox/htb /opt/PwnBox-Kali && cp -R /opt/PwnBox-Kali/gitclones/pwnbox/icons /opt/PwnBox-Kali/htb && cp /opt/PwnBox-Kali/gitclones/pwnbox/banner /opt/PwnBox-Kali/htb && cp /opt/PwnBox-Kali/gitclones/pwnbox/*.sh /opt/PwnBox-Kali/htb
+	git clone https://github.com/theGuildHall/pwnbox.git 
+	cd /opt/PwnBox-Kali/gitclones/pwnbox
+	cp -R bloodhound/ /opt/Tools/Enumeration && cp -R htb/ /opt/PwnBox-Kali && cp -R icons/ /opt/PwnBox-Kali/htb && cp banner /opt/PwnBox-Kali/htb && cp *.sh /opt/PwnBox-Kali/htb
 	apt install -y powershell
 	mkdir ~/.config/powershell/
 	cp /opt/PwnBox-Kali/gitclones/pwnbox/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
@@ -307,7 +308,7 @@ pwnbox (){
 	xfconf-query -c xsettings -p /Net/IconThemeName -s Material-Black-Lime-Numix-FLAT
 	xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
    	cp  $HOME/PwnBox-Kali/General/banner /opt/PwnBox-Kali/htb
-    cp  $HOME/General/banner.sh /opt/PwnBox-Kali/htb
+    cp  $HOME/PwnBox-Kali/General/banner.sh /opt/PwnBox-Kali/htb
     
     }
 
