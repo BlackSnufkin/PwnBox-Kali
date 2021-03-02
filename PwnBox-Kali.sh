@@ -55,7 +55,7 @@ shared_folder () {
 
 	cp -R ./Wallpapers/* /root/Pictures/
 	cd /usr/share/desktop-base/kali-theme/login/
-	cp root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login
+	cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login
 	mv background background.original
 	mv loginscreen.jpg background
 	
