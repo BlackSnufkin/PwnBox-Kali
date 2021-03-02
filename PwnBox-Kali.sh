@@ -36,8 +36,8 @@ fi
 # Share Folder
 shared_folder () {
 
-	mkdir root/HTB
-	mkdir root/OpenVPN
+	mkdir /root/HTB
+	mkdir /root/OpenVPN
 
 	mkdir /opt/Tools
 	mkdir /opt/Tools/BruteForce
@@ -50,12 +50,12 @@ shared_folder () {
 	mkdir /opt/Tools/Active_Directory
 	mkdir /opt/Tools/General
 
-	cp  ./General/.zshrc root/
-	cp  ./General/.bashrc root/ 
+	cp  ./General/.zshrc /root/
+	cp  ./General/.bashrc /root/ 
 	
 	cp ./Wallpapers/wallpaper1.jpg /usr/share/backgrounds
 
-	cp -R ./Wallpapers/* root/Pictures/
+	cp -R ./Wallpapers/* /root/Pictures/
 	cd /usr/share/desktop-base/kali-theme/login/
 	cp root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login
 	mv background background.original
@@ -63,7 +63,7 @@ shared_folder () {
 	
 	mv replace.py /opt/Tools/General
 	ln -s /opt/Tools/General/replace.py /usr/bin/replace-line
-	xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorVirtual1/workspace0/last-image --set root/Pictures/wallpaper1.jpg
+	xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorVirtual1/workspace0/last-image --set /root/Pictures/wallpaper1.jpg
 
 	}
 
@@ -73,7 +73,7 @@ shared_folder () {
 pycharm () {
 
 	echo '[+] Download Pycharm-community'
-	cd root/Downloads
+	cd /root/Downloads
 	wget  https://download.jetbrains.com/python/pycharm-community-2020.2.2.tar.gz
 	tar xvzf ~/Downloads/pycharm-community*.tar.gz -C /tmp/
 	chown -R root:root /tmp/pycharm*
@@ -113,7 +113,7 @@ tools () {
 	git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
 	cd Mobile-Security-Framework-MobSF
 	docker build -t mobsf . 
-	echo 'docker run -it --rm -p 8000:8000 mobsf' >> /usr/bin/start-mobsf
+	echo 'docker run -it --rm -p 8000:8000 mobsf' >> /usr/bin/mobsf-start
 	chmod +x /usr/bin/mobsf
 
 # Phonesploit
@@ -256,9 +256,9 @@ tools () {
 	cd ~
 	echo -e "\n [+] Installing bat"
 	cargo install --locked bat
-	ln -s root/.cargo/bin/bat /usr/bin/bat
+	ln -s /root/.cargo/bin/bat /usr/bin/bat
 	bat --generate-config-file
-	echo '--pager="cat"' >  root/.config/bat/config 
+	echo '--pager="cat"' >  /root/.config/bat/config 
 
 	#Rockyou
 	cd /usr/share/wordlists
@@ -270,7 +270,7 @@ tools () {
 chrome () {
 # Chorme 
 
-	cd root/Downloads
+	cd /root/Downloads
 	echo -e "\n [+] Installing Chrome"
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	dpkg -i ./google-chrome*.deb
@@ -351,9 +351,6 @@ fix_stuff () {
 	}
 
 
-
-
-sudo su root
 systemctl enable docker
 systemctl enable openvpn
 updatedb
