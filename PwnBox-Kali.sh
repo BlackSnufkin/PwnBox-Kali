@@ -2,9 +2,8 @@
 
 fix_update () {
 
-	
 	eval apt -y update  && apt -y full-upgrade && apt -y autoremove    
-    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev
+	eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev
 
 }
 
