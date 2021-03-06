@@ -294,6 +294,22 @@ tools () {
 	./updateFiles.sh
 	nmap --script-updatedb
 
+# Nmap Visulize Network
+	cd /opt/Tools/Enumeration
+	git clone https://github.com/tedsluis/nmap.git
+	mv nmap Nmap_Network-visualization                 
+	cd Nmap_Network-visualization
+	wget https://gojs.net/latest/release/go.js
+	
+# Envizon 
+	cd /opt/Tools/Enumeration
+	apt install docker-compose -y 
+	git clone https://github.com/evait-security/envizon
+	cd envizon/docker/envizon_local
+	echo SECRET_KEY_BASE="$(echo $(openssl rand -hex 64) | tr -d '\n')" > .envizon_secret.env
+	
+
+
 # impcaket
 	cd /opt/Tools/Active_Directory
 	echo -e "\n [+] Installing impacket"
