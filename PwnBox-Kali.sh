@@ -285,11 +285,6 @@ tools () {
    	rm -r nmap 
     eval wget https://raw.githubusercontent.com/onomastus/pentest-tools/master/fixed-http-shellshock.nse -O /usr/share/nmap/scripts/http-shellshock.nse 
     echo -e "\n[+] /usr/share/nmap/script as updated"
-	cd /usr/share/nmap/scripts/
-	wget https://raw.githubusercontent.com/psc4re/NSE-scripts/master/http-custom-title.nse -O http-custom-title.nse
-	wget https://raw.githubusercontent.com/psc4re/NSE-scripts/master/cve-2020-1350.nse -O CVE-2020-1350.nse 
-	wget https://raw.githubusercontent.com/psc4re/NSE-scripts/master/cve-2020-0796.nse -O CVE-2020-0796.nse  
-	wget https://raw.githubusercontent.com/psc4re/NSE-scripts/master/CVE-2021-21972.nse -O CVE-2021-21972.nse
 	
 	echo -e "\n [+] Installing nmap-vulners, vulscan"
 	git clone https://github.com/vulnersCom/nmap-vulners.git
@@ -297,6 +292,20 @@ tools () {
 	cd vulscan/utilities/updater/
 	chmod +x updateFiles.sh
 	./updateFiles.sh
+	
+	cd /opt/Tools/
+	git clone https://github.com/s4n7h0/NSE.git
+	cd NSE
+	cp *.nse /usr/share/nmap/scripts
+	
+	cd /opt/Tools/
+	git clone https://github.com/psc4re/NSE-scripts.git
+	cd NSE-scripts
+	cp *.nse /usr/share/nmap/scripts
+	cd /opt/
+	
+	rm -r /opt/Tools/NSE-script
+	rm -r /opt/Tools/NSE
 	nmap --script-updatedb
 
 # Nmap Visulize Network
