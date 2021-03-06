@@ -4,7 +4,7 @@ fix_update () {
 
 	
     eval apt -y update  && apt -y full-upgrade && apt -y autoremove    
-    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev
+    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login golang docker-compose python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev
 
 }
 
@@ -315,12 +315,6 @@ tools () {
 	cd Nmap_Network-visualization
 	wget https://gojs.net/latest/release/go.js
 	
-# Envizon 
-	cd /opt/Tools/Enumeration
-	apt install docker-compose -y 
-	git clone https://github.com/evait-security/envizon
-	cd envizon/docker/envizon_local
-	echo SECRET_KEY_BASE="$(echo $(openssl rand -hex 64) | tr -d '\n')" > .envizon_secret.env
 	
 
 
