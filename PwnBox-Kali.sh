@@ -304,7 +304,7 @@ tools () {
 	cp *.nse /usr/share/nmap/scripts
 	cd /opt/
 	
-	rm -r /opt/Tools/NSE-script
+	rm -r /opt/Tools/NSE-scripts
 	rm -r /opt/Tools/NSE
 	nmap --script-updatedb
 
