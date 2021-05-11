@@ -223,6 +223,7 @@ alias nmap-VulnScan='nmap --script nmap-vulners/vulners,vulscan/vulscan --script
 alias nmap-miniVulnScan='nmap --script nmap-vulners/vulners -sV -sC -O -p- '
 alias web-srv='python3 -m http.server 8002'
 alias Joplin='/root/.joplin/Joplin.AppImage --no-sandbox'
+alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
 
 
 # enable auto-suggestions based on the history
