@@ -217,14 +217,14 @@ alias set-python2='ln -sfn /usr/bin/python2 /usr/bin/python'
 alias set-python3='ln -sfn /usr/bin/python3 /usr/bin/python'   
 alias cat='bat'
 alias bloodhound-up='/opt/Tools/Enumeration/bloodhound/startBH.sh'
-alias impacket-env='source /opt/Tools/impacket/impacket-env/bin/activate'
+alias impacket-env='source /opt/Tools/Active_Directory/impacket/impacket-env/bin/activate'
+alias PrintNightmare-env='source /opt/Tools/Active_Directory/PrintNightmare/PrintNightmare-env/bin/activate'
 alias fuck='sudo $(history -p !!)'
 alias nmap-VulnScan='nmap --script nmap-vulners/vulners,vulscan/vulscan --script-args vulscandb=exploitdb.csv -sV -sC -O -p-'
 alias nmap-miniVulnScan='nmap --script nmap-vulners/vulners -sV -sC -O -p- '
 alias web-srv='python3 -m http.server 8002'
-alias Joplin='/root/.joplin/Joplin.AppImage --no-sandbox'
 alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
-
+alias obsidian='obsidian --no-sandbox'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then

@@ -4,7 +4,7 @@ fix_update () {
 
 	
     eval apt -y update  && apt -y full-upgrade && apt -y autoremove    
-    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login gufw golang docker-compose python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake starkiller open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev libpcap-dev python3-pip bettercap
+    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login gufw golang docker-compose python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake starkiller open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev libpcap-dev python3-pip bettercap npm
     eval apt -y purge powershell-empire
  
 
@@ -99,7 +99,7 @@ utils () {
 	# at the end create Desktop entry
 	echo '[+] Download Pycharm-community'
 	cd /root/Downloads
-	wget  https://download.jetbrains.com/python/pycharm-community-2020.2.2.tar.gz
+	wget  https://download.jetbrains.com/python/pycharm-community-2021.2.1.tar.gz
 	tar xvzf ~/Downloads/pycharm-community*.tar.gz -C /tmp/
 	chown -R root:root /tmp/pycharm*
 	mv /tmp/pycharm-community* /opt/pycharm-community
@@ -128,7 +128,7 @@ utils () {
 	
 	# Obsidian
 	cd /tmp
-	wget "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.5/Obsidian-0.12.5.AppImage" -O obsidian
+	wget "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/Obsidian-0.12.15.AppImage" -O obsidian
     chmod +x obsidian
     mv obsidian /usr/bin/obsidian
 	
@@ -329,9 +329,9 @@ tools () {
 	apt update
 	apt install neo4j=1:4.0.8 -y
 	cd BloodHound
-	wget https://github.com/BloodHoundAD/BloodHound/releases/download/4.0.3/BloodHound-darwin-x64.zip
-	unzip BloodHound-darwin-x64.zip
-	rm BloodHound-darwin-x64.zip
+	wget https://github.com/BloodHoundAD/BloodHound/releases/download/4.0.3/BloodHound-linux-arm64.zip
+	unzip BloodHound-linux-arm64.zip
+	rm BloodHound-linux-arm64.zip
 	echo 'exec /opt/Tools/Enumeration/BloodHound/BloodHound-linux-x64/BloodHound --no-sandbox' > /usr/bin/bloodhound
 	chmod +x /usr/bin/bloodhound
 
@@ -355,8 +355,8 @@ tools () {
   	make
   	make install-config
   	ln -s $PWD/proxychains4 /usr/bin/proxychains
-  	replace-line "socks5 127.0.0.1:1080" 159 /etc/proxychains.conf
-  	echo "sock4 127.0.0.1:9050" >> /etc/proxychains.conf
+  	replace-line "socks5 127.0.0.1 1080" 159 /etc/proxychains.conf
+  	echo "# sock4 127.0.0.1 9050" >> /etc/proxychains.conf
   	cd /opt/Tools/Tunneling 
   	wget https://github.com/jpillora/chisel/releases/download/v1.7.6/chisel_1.7.6_windows_amd64.gz
   	gunzip chisel_1.7.6_windows_amd64.gz
@@ -406,8 +406,8 @@ tools () {
 	mkdir PrintNightmare
 	echo -e "\n [+] Installing PrintNightmare"
 	cd PrintNightmare
-	python3 -m venv PrintNightmare
-	source PrintNightmare/bin/activate
+	python3 -m venv PrintNightmare-env
+	source PrintNightmare-env/bin/activate
 	
 	git clone https://github.com/cube0x0/CVE-2021-1675.git
 	cd CVE-2021-1675
@@ -428,6 +428,7 @@ tools () {
 	git clone https://github.com/topotam/PetitPotam.git
 
 
+	
 	
 
 # Payload Generetor
