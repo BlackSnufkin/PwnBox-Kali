@@ -6,4 +6,4 @@ Just a script to automate all the process of twiking and installing tools on new
 <br>Some of the code was borrowed form the great work of [Dewalt-arch](https://github.com/Dewalt-arch/pimpmykali) on **pimpmykali**
 <br> And also to automate the process of making it look a like **HTB pwnbox** based on the work of [theGuildHall](https://github.com/theGuildHall/pwnbox)
 
-## [Twiking Guide](https://github.com/BlackSnufkin/PwnBox-Kali/blob/main/Twiking.md)
+## [Twiking Guide](Twiking.md)
