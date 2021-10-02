@@ -124,7 +124,13 @@ check_reboot () {
         echo  -e ' \n[+] No reboot required'
         true
     fi
-    }
+}
+
+Update-Tools (){
+
+    cd /opt/Tools
+    find . -type d -name .git -exec sh -c "cd \"{}\"/../&& sleep 1; echo  && pwd &&  git pull" \;
+}
 
 cl() { cd "$@" && ls -la; }
 
@@ -139,16 +145,19 @@ alias c='clear'
 alias off='shutdown -h now'
 alias rr='reboot'
 alias fix-vm='apt reinstall open-vm-tools-desktop open-vm-tools fuse && reboot'
+alias fix-loginscreen='cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login'
 alias set-python2='ln -sfn /usr/bin/python2 /usr/bin/python'
 alias set-python3='ln -sfn /usr/bin/python3 /usr/bin/python'   
 alias cat='bat'
-alias bloodhound-up='/opt/Tools/Enumeration/bloodhound/startBH.sh'
-alias impacket-env='source /opt/Tools/impacket/impacket-env/bin/activate'
+alias bloodhound-up='/opt/Tools/Enumeration/start-bloodhound/startBH.sh'
+alias impacket-env='source /opt/Tools/Active_Directory/impacket/impacket-env/bin/activate'
+alias PrintNightmare-env='source /opt/Tools/Active_Directory/PrintNightmare/PrintNightmare-env/bin/activate'
 alias fuck='sudo $(history -p !!)'
 alias nmap-VulnScan='nmap --script nmap-vulners/vulners,vulscan/vulscan --script-args vulscandb=exploitdb.csv -sV -sC -O -p-'
 alias nmap-miniVulnScan='nmap --script nmap-vulners/vulners -sV -sC -O -p- '
-alias web-srv='python3 -m http.server 8002'
-alias Joplin='/root/.joplin/Joplin.AppImage --no-sandbox'
+alias web-srv='python3 -m http.server 8888'
+alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
+alias obsidian='obsidian --no-sandbox'
 
 
 # Alias definitions.
