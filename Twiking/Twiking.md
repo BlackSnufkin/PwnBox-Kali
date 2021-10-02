@@ -1,6 +1,10 @@
 # PwnBox-Kali Twiking Guide:
 
-## Panel Configuration:  
+## Panel Configuration:
+### CPU Graph:
+![](Panel_Edit-1.png)
+
+
   
 Right click on the panel bat on the top of the screen  
 select panel and click on add new item  
