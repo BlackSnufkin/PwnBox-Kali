@@ -1,37 +1,5 @@
-# PwnBox-Kali Twiking Guide:
-
-## Panel Configuration:
-### CPU Graph:
-* Right clikc on the panel and select add new item <br>
-![](Twiking_Pic/Panel_Edit-1.png)
-
-* Select CPU graph <br>
-![](Twiking_Pic/Panel_Edit-2.png)
-
-* Plase it on the panel where you like <br>
-![](Twiking_Pic/Panel_Edit-3.png)
-
-* Right click on the graph icon and select properties <br>
-![](Twiking_Pic/Panel_Edit-4.png)
-
-* Set this properties <br>
-![](Twiking_Pic/CPU-Graph_propertis-2.png)
-<br>
-![](Twiking_Pic/CPU-Graph_propertis-3.png)
-
-* Remove Workspace-switcher <br>
- ![](Twiking_Pic/Panel_Edit-5.png)
-
-### Separators
-* Change seperator properties from transparent to separator <br>
-![](Twiking_Pic/separator-1.png)
-<br>
-![](Twiking_Pic/separator-2.png)
-<br>
-![](Twiking_Pic/separator-3.png)
-<br>
-
-
+Panel Configuration:  
+  
 Right click on the panel bat on the top of the screen  
 select panel and click on add new item  
   
@@ -231,4 +199,4 @@ and this is how it look like in the end
 Terminal Preference:  
 ![Twiking_Pic/5-47.png](Twiking_Pic/5-47.png)  
   
-![Twiking_Pic/5-48.png](Twiking_Pic/5-48.png)  
+![Twiking_Pic/5-48.png](Twiking_Pic/5-48.png) 
