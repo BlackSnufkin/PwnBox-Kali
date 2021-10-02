@@ -1,4 +1,6 @@
 #!/bin/python3
+# Python script to replace line in given file 
+# replace.py <string> <line number> <path/to/file>
 
 import sys
 def main():
