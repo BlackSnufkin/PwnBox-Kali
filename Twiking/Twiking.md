@@ -17,7 +17,7 @@
 * Set this properties <br>
 ![](Twiking_Pic/CPU-Graph_propertis-2.png)
 <br>
-![](Twiking_Pic/CPU-Graph_propertis-3.png)
+![ ](Twiking_Pic/CPU-Graph_propertis-3.png)
 
 * Remove Workspace-switcher <br>
  ![](Twiking_Pic/Panel_Edit-5.png)
