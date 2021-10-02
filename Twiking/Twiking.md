@@ -6,29 +6,29 @@
 ![](Twiking_Pic/Panel_Edit-1.png)
 
 * Select CPU graph
-![](Panel_Edit-2.png)
+![](Twiking_Pic/Panel_Edit-2.png)
 
 * Plase it on the panel where you like
-![](Panel_Edit-3.png)
+![](Twiking_Pic/Panel_Edit-3.png)
 
 * Right click on the graph icon and select properties
-![](Panel_Edit-4.png)
+![](Twiking_Pic/Panel_Edit-4.png)
 
 * Set this properties
-![](CPU-Graph_propertis-2.png)
+![](Twiking_Pic/CPU-Graph_propertis-2.png)
 <br>
-![](CPU-Graph_propertis-3.png)
+![](Twiking_Pic/CPU-Graph_propertis-3.png)
 
 * Remove Workspace-switcher
- ![](Panel_Edit-5.png)
+ ![](Twiking_Pic/Panel_Edit-5.png)
 
 ### Separators
 * Change seperator properties from transparent to separator
-![](separator-1.png)
+![](Twiking_Pic/separator-1.png)
 
-![](separator-2.png)
+![](Twiking_Pic/separator-2.png)
 
-![](separator-3.png)
+![](Twiking_Pic/separator-3.png)
 
 
 
