@@ -63,7 +63,7 @@ right click and select properties
   
 change to this settings  
 the command is  
-/opt/PwnBox-Kali/htb/vpnpanel.sh  
+/opt/Customize-Kali/htb/vpnpanel.sh  
 unselect the label box  
 set the period time to 0.25  
 change the font to hack regular  
@@ -149,7 +149,7 @@ click again on add and set guake go on startup
   
 and set welcome banner to load on start up  
 click on add again  
-and set the command gnome-terminal -e /opt/PwnBox-Kali/htb/banner.sh  
+and set the command gnome-terminal -e /opt/Customize-Kali/htb/banner.sh  
 ![Twiking_Pic/5-36.png](Twiking_Pic/5-36.png)  
   
 Banner on login:  
