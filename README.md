@@ -5,5 +5,7 @@ Bash-script to automate the process of setting up a new Kali Linux virtual machi
 Just a script to automate all the process of twiking and installing tools on new kali linux VM
 <br>Some of the code was borrowed form the great work of [Dewalt-arch](https://github.com/Dewalt-arch/pimpmykali) on **pimpmykali**
 <br> And also to automate the process of making it look a like **HTB pwnbox** based on the work of [theGuildHall](https://github.com/theGuildHall/pwnbox)
-
+ 
+ * It's mostly done for me
+ 
 ## [Twiking Guide](Twiking/Twiking.md)
