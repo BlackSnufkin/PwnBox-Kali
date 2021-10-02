@@ -3,7 +3,7 @@
 ## Panel Configuration:
 ### CPU Graph:
 * Right clikc on the panel and select add new item
-![1](Panel_Edit-1.png)
+![](Twiking_Pic\Panel_Edit-1.png)
 
 * Select CPU graph
 ![](Panel_Edit-2.png)
