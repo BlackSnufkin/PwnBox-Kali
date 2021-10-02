@@ -1,18 +1,15 @@
 # Panel Configuration:  
   
-* Right click on the panel bat on the top of the screen  select panel and click on add new item  
+* Right click on the panel bat on the top of the screen  select panel and click on add new item <br>
   
 ![Twiking_Pic/5-1.png](Twiking_Pic/5-1.png)  
   
   
-On the search bar search for cpu  
-and select CPU graph  
-and click add  
+* On the search bar search for cpu and select CPU graph and click add <br> 
 ![Twiking_Pic/5-2.png](Twiking_Pic/5-2.png)  
   
   
-right click on the top right corner on the graf icon  
-select properties  
+* right click on the top right corner on the graf icon and select properties <br>  
   
 ![Twiking_Pic/5-3.png](Twiking_Pic/5-3.png)  
   
