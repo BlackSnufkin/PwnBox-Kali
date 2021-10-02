@@ -5,31 +5,31 @@
 * Right clikc on the panel and select add new item <br>
 ![](Twiking_Pic/Panel_Edit-1.png)
 
-* Select CPU graph
+* Select CPU graph <br>
 ![](Twiking_Pic/Panel_Edit-2.png)
 
-* Plase it on the panel where you like
+* Plase it on the panel where you like <br>
 ![](Twiking_Pic/Panel_Edit-3.png)
 
-* Right click on the graph icon and select properties
+* Right click on the graph icon and select properties <br>
 ![](Twiking_Pic/Panel_Edit-4.png)
 
-* Set this properties
+* Set this properties <br>
 ![](Twiking_Pic/CPU-Graph_propertis-2.png)
 <br>
 ![](Twiking_Pic/CPU-Graph_propertis-3.png)
 
-* Remove Workspace-switcher
+* Remove Workspace-switcher <br>
  ![](Twiking_Pic/Panel_Edit-5.png)
 
 ### Separators
-* Change seperator properties from transparent to separator
+* Change seperator properties from transparent to separator <br>
 ![](Twiking_Pic/separator-1.png)
-
+<br>
 ![](Twiking_Pic/separator-2.png)
-
+<br>
 ![](Twiking_Pic/separator-3.png)
-
+<br>
 
 
 Right click on the panel bat on the top of the screen  
