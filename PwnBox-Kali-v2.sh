@@ -174,7 +174,7 @@ Pycharm () {
     mv /tmp/pycharm-community* /opt/pycharm-community
     ln -s /opt/pycharm-community/bin/pycharm.sh /usr/local/bin/pycharm
     ln -s /opt/pycharm-community/bin/inspect.sh /usr/local/bin/inspect
-    rm -r pycharm-community-2021.2.1.tar.gz 
+    rm -r pycharm-community-2021.2.2.tar.gz 
     echo -e "$greenplus Pycharm successfully installed"
 }
 
