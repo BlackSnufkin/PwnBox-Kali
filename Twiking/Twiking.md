@@ -1,7 +1,6 @@
-Panel Configuration:  
+# Panel Configuration:  
   
-Right click on the panel bat on the top of the screen  
-select panel and click on add new item  
+* Right click on the panel bat on the top of the screen  select panel and click on add new item  
   
 ![Twiking_Pic/5-1.png](Twiking_Pic/5-1.png)  
   
