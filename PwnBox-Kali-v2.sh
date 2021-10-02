@@ -169,7 +169,7 @@ Pycharm () {
     echo -e "\n$greenplus Installing Pycharm"
     cd  $HOME/Downloads
     wget  https://download.jetbrains.com/python/pycharm-community-2021.2.2.tar.gz
-    tar xvzf ~/Downloads/pycharm-community*.tar.gz -C /tmp/ &> /dev/null
+    tar xvzf $HOME/Downloads/pycharm-community*.tar.gz -C /tmp/ &> /dev/null
     chown -R $finduser:$finduser /tmp/pycharm*
     mv /tmp/pycharm-community* /opt/pycharm-community
     ln -s /opt/pycharm-community/bin/pycharm.sh /usr/local/bin/pycharm
