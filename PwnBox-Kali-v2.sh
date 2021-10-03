@@ -732,6 +732,7 @@ Payloads-Tools (){
     echo -e "$greenplus ysoserial successfully installed"
     
     # Invoke-Stealth
+    cd /opt/Tools/Payloads_gen
     echo -e "\n$greenplus Installing Invoke-Stealth"
     if ! (git clone https://github.com/JoelGMSec/Invoke-Stealth.git) then
             echo -e "$redexclaim Error while donwloading, trying again in 10 seconds";sleep 10;git clone https://github.com/JoelGMSec/Invoke-Stealth.git
