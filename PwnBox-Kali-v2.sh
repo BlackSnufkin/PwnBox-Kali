@@ -1113,7 +1113,8 @@ else
     raw_xfce="https://raw.githubusercontent.com/Dewalt-arch/pimpmyi3-config/main/xfce4/xfce4-power-manager.xml"
     eval wget $raw_xfce -O /root/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
     eval wget $raw_xfce -O /home/$finduser/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
-    echo -e "$redexclaim rebooring in 5 seconds";
+    echo -e "$redexclaim rebooting in 20 seconds...";
+    sleep 20
     reboot;
     
 fi
