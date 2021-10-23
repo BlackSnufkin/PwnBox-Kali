@@ -11,5 +11,5 @@ Bash-script to automate the process of setting up a new Kali Linux virtual machi
  
 
  
-## ![[Twiking Guide]](Twiking/Twiking.md)
+## [Twiking Guide](Twiking/Twiking.md)
 
