@@ -416,14 +416,11 @@ C2-Tools (){
     echo -e "\n$greenplus Installing Evil-winrm"
 
     if ! (git clone --branch dev https://github.com/Hackplayers/evil-winrm.git) then
-        echo -e "$redexclaim Error while donwloading, trying again in 10 seconds";sleep 10;git clone --branch dev https://github.com/Hackplayers/evil-winrm.git
+        echo -e "$redexclaim Error while donwloading, trying again in 10 seconds";sleep 10;git clone https://github.com/Hackplayers/evil-winrm.git
     else
         true;
     fi  
-    
-    cd evil-winrm
-    bundle install
-    gem install rubyntlm
+    gem install rubyntlm winrm winrm-fs stringio logger fileutils
     echo -e "$greenplus Evil-winrm successfully installed"
 
     # dnscat
