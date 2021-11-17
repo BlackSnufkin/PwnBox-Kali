@@ -78,9 +78,10 @@ First_Update () {
     ./pimpmykali.sh --upgrade
     cd $HOME
     rm -rf pimpmykali    
-    eval apt -y install dkms build-essential linux-headers-amd64 kali-root-login gufw golang xrdp lcab docker-compose build-essential checkinstall autoconf automake autotools-dev m4 python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake starkiller open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev libpcap-dev python3-pip bettercap npm adb gcc-mingw-w64 libc6-dev 
-    eval apt -y remove powershell-empire
-    eval apt -y purge powershell-empire
+    apt install dkms build-essential linux-headers-amd64 kali-root-login gufw golang xrdp lcab docker-compose build-essential checkinstall autoconf automake autotools-dev m4 python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake starkiller open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev libpcap-dev python3-pip bettercap npm adb gcc-mingw-w64 libc6-dev python3.9-venv -y 
+    apt remove powershell-empire -y
+    apt purge powershell-empire -y
+    apt install kali-root-login -y
 }
 
 
