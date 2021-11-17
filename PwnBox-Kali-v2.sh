@@ -68,6 +68,16 @@ disable_power_gnome() {
 
 First_Update () {
 
+    apt update     
+    apt install dkms build-essential linux-headers-amd64 gufw golang xrdp lcab -y
+    apt install docker-compose build-essential checkinstall autoconf automake autotools-dev m4 -y
+    apt install python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake -y
+    apt install starkiller open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python2-dev libpcap-dev -y
+    apt install python3-pip bettercap npm adb gcc-mingw-w64 libc6-dev python3.9-venv python3.9-dev -y 
+    apt remove powershell-empire -y
+    apt purge powershell-empire -y
+    apt install kali-root-login -y
+
     cd $HOME
     if ! (git clone https://github.com/Dewalt-arch/pimpmykali.git) then 
         echo -e "\n $redexclaim Error while donwloading, trying again in 10 seconds";sleep 10;git clone https://github.com/Dewalt-arch/pimpmykali.git
@@ -77,15 +87,10 @@ First_Update () {
     cd pimpmykali 
     ./pimpmykali.sh --upgrade
     cd $HOME
-    rm -rf pimpmykali    
-    apt install dkms build-essential linux-headers-amd64 gufw golang xrdp lcab -y
-    apt install docker-compose build-essential checkinstall autoconf automake autotools-dev m4 -y
-    apt install python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake -y
-    apt install starkiller open-vm-tools open-vm-tools-desktop fuse libssl-dev libffi-dev python-dev libpcap-dev -y
-    apt install python3-pip bettercap npm adb gcc-mingw-w64 libc6-dev python3.9-venv python3.9-dev -y 
-    apt remove powershell-empire -y
-    apt purge powershell-empire -y
-    apt install kali-root-login -y
+    rm -rf pimpmykali 
+    apt update
+    apt full-upgrade -y 
+    apt autoremove -y
 }
 
 
