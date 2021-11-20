@@ -68,7 +68,9 @@ disable_power_gnome() {
 
 First_Update () {
 
-    apt update     
+    apt update
+    apt full-upgrade -y 
+    apt autoremove -y
     apt install dkms build-essential linux-headers-amd64 gufw golang xrdp lcab -y
     apt install docker-compose build-essential checkinstall autoconf automake autotools-dev m4 -y
     apt install python3-venv gnome-terminal plank cargo docker.io tor lolcat xautomation guake -y
