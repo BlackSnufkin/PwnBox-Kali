@@ -205,9 +205,23 @@ Obsdian () {
 
     echo -e "\n$greenplus Installing Obsidian"
     cd /tmp
-    wget "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/Obsidian-0.12.15.AppImage" -O obsidian
-    chmod +x obsidian
-    mv obsidian /usr/bin/obsidian
+    set -euo pipefail
+    icon_url="https://cdn.discordapp.com/icons/686053708261228577/1361e62fed2fee55c7885103c864e2a8.png"
+    dl_url="https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.19/Obsidian-0.12.19.AppImage"
+    curl --location --output Obsidian.AppImage "$dl_url"
+    curl --location --output obsidian.png "$icon_url"
+    mkdir --parents /usr/share/obsidian
+    mv Obsidian.AppImage /usr/share/obsidian
+    chmod u+x /usr/share/obsidian/Obsidian.AppImage
+    mv obsidian.png /usr/share/obsidian
+    ln -s /usr/share/obsidian/obsidian.png /usr/share/pixmaps
+    echo "[Desktop Entry]
+    Type=Application
+    Name=Obsidian
+    Exec=/usr/share/obsidian/Obsidian.AppImage --no-sandbox
+    Icon=obsidian
+    Terminal=false" > /usr/share/applications/obsidian.desktop
+    update-desktop-database /usr/share/applications
     echo -e "$greenplus Obsdian successfully installed"
 }
 
