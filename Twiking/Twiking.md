@@ -68,6 +68,7 @@
 
 * Remove Root terminal Launcher and powershell right click on the terminal icon 
 <br>
+
 ![](Twiking_Pic/launc_del_root.png)
 
 
@@ -84,6 +85,7 @@
 * from the list select `Application icon` and select kali-menu  <br>
 
 ![](Twiking_Pic/terminal-3.png)
+
 <br>
 
 ### VPN Monitor:
@@ -103,12 +105,16 @@
 * Change Menu Icon <br>
 ![](Twiking_Pic/menu_prob.png)
 <br>
+
 ![](Twiking_Pic/menu_icon2.png)
 <br>
+
 ![](Twiking_Pic/menu_icon.png)
+
 <br>
 
 ![](Twiking_Pic/full_panel.png)
+
 <br>
 
 ---
