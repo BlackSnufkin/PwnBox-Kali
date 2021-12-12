@@ -2,44 +2,39 @@
 
 ## Panel Configuration:
 
-### CPU Graph:
-* Right click on the panel and select `Add New Item` <br>
-
-![](Twiking_Pic/Panel_Edit-1.png)
-
-* On the search bar search CPU graph and click add <br>
-
-![](Twiking_Pic/Panel_Edit-2.png)
+### CPU Graph:)
 
 * Right click on the `Graph` icon and move it to the left side of the panael <br>
-![](Twiking_Pic/Panel_Edit-3.png)
+![](Twiking_Pic/cpu_graph_move.png)
 
 * Right click on the `Graph` icon and change the properties to: <br>
 
-![](Twiking_Pic/CPU-Graph_properties-2.png)
+![](Twiking_Pic/cpu_graph_prop.png)
 
 <br>
 
-![](Twiking_Pic/CPU-Graph_properties-3.png)
+![](Twiking_Pic/cpu_graph_colors.png)
 
 * Remove workspace-switcher <br>
-![](Twiking_Pic/Panel_Edit-5.png) 
+![](Twiking_Pic/ws_remove.png) 
 
 ### Separators:
 * Right click on the seperator and change is properits <br>
-![](Twiking_Pic/separator-3.png)
+![](Twiking_Pic/separetor-1.png)
+<br>
+![](Twiking_Pic/separetor-1-change.png)
 
 * Move the seperator to the right side of the panael <br>
 
-![](Twiking_Pic/separator-4.png)
+![](Twiking_Pic/sperator_netx2cpu.png)
 
 <br>
 
 ![](Twiking_Pic/separator-5.png)
 
-* Do the same to the second separator and place it next to the cpu graph on the right side <br>
+* Do the same to the second separator and place it next to the cpu graph on the left side <br>
 
-![](Twiking_Pic/separator-7.png)
+![](Twiking_Pic/separetor-2-move.png)
 
 * Add New separator and place it next to the clock icon <br>
 
@@ -49,53 +44,40 @@
 ### Clock Format:
 * Right click on the clock icon and select properties <br>
 
-![](Twiking_Pic/5-12.png)
+![](Twiking_Pic/clock-format.png)
 
 ### Panel Icons:
 
 * Remove show desktop icon <br>
 
-![](Twiking_Pic/icon-1.png)
+![](Twiking_Pic/remove_show_desk.png)
 
 * change directory menu properties by right click <br>
 
-![](Twiking_Pic/icon-2.png)
+![](Twiking_Pic/dir.png)
 
 * change them to: <br>
 
-![](Twiking_Pic/icon-4.png)
+![](Twiking_Pic/dir-1.png)
 
 * Remove gedit launcher and Internet icon by right click and select remove <br>
 
-![](Twiking_Pic/icon-5.png)
+![](Twiking_Pic/remove_text_editor.png)
 
+
+* Remove Root terminal Launcher and powershell right click on the terminal icon 
 <br>
+![](Twiking_Pic/launcger-del_root.png)
 
-![](Twiking_Pic/icon-6.png)
 
-* add new item and search for laucher <br>
+* Search on the menu for powershell and add it to the panel 
 
-![](Twiking_Pic/launcher-1.png) 
+![](Twiking_Pic/pwsh_laun-2.png)
 
-* Change launcher properties by right click <br>
-![](Twiking_Pic/launcher-3.png)
+* change the icon by clicking it and select from the list `image file` and eneter the following path `/opt/pwnbox/htb`  <br>
 
-* Click on the `+` icon and search firefox <br>
+![](Twiking_Pic/pwsh_laun-4.png)
 
-![](Twiking_Pic/launcher-4.png)
-
-<br>
-
-![](Twiking_Pic/firefox.png)
-
-* add new launcher and insted of click on `+` click on `paper and +` icon <br>
-* add the following command: `gnome-terminal -e pwsh` <br>
-
-![](Twiking_Pic/pwsh-1.png)
-
-* change the icon by clicking it and select from the list `image file` and eneter the following path `/opt/Customize-Kali/htb`  <br>
-
-![](Twiking_Pic/icons.png)
 
 * change termial icon by right click select properites click on icon  <br>
 * from the list select `Application icon` and select kali-menu  <br>
@@ -108,13 +90,24 @@
 ![](Twiking_Pic/vpnpanel.png)
 
 * Right click on the `xxx` icon and change propeties <br>
-* set the command `/opt/Customize-Kali/htb/vpnpanel.sh` <br> 
+* set the command `/opt/pwnbox/vpnpanel.sh` <br> 
 
-![](Twiking_Pic/5-16.png)
+![](Twiking_Pic/htb_vpn.png)
 
 <br>
 
 ![](Twiking_Pic/final-panel.png)
+
+* Change Menu Icon <br>
+![](Twiking_Pic/menu_prob.png)
+<br>
+![](Twiking_Pic/menu_iconpng.png)
+<br>
+![](Twiking_Pic/menu_icon.png)
+<br>
+
+![](Twiking_Pic/full_panel.png)
+<br>
 
 ---
 
@@ -144,9 +137,9 @@
 
 ![](Twiking_Pic/plank-doc.png)
 
-* Set up login banner by clicking on `+` icon and set the command `gnome-terminal -e /opt/Customize-Kali/htb/banner.sh` <br> 
+* Set up login banner by clicking on `+` icon and set the command `gnome-terminal -e /opt/pwnbox/banner.sh` <br> 
 
-![](Twiking_Pic/login-banner.png)
+![](Twiking_Pic/login_banner.png)
 
 * Set up guake termianl startup by clicking on `+` icon and set the command `guake` <br> 
 
@@ -162,11 +155,11 @@
 
 * In `General` tab set the following config: <br> 
 
-![](Twiking_Pic/guake-3.png)
+![](Twiking_Pic/guake_general.png)
 
 * In `Main Windows` tab set the following config: <br> 
 
-![](Twiking_Pic/guake-5.png)
+![](Twiking_Pic/guake_main.png)
 
 * In `Appearence` tab set the following config: <br> 
 
@@ -174,7 +167,7 @@
 
 * In `keyborad Shortcuts` tab set the following config: <br> 
 
-![](Twiking_Pic/guake-9.png)
+![](Twiking_Pic/guake_short.png)
 
 ---
 
@@ -206,4 +199,4 @@
 
 ---
 
-![](Twiking_Pic/banner.png)
+![](Twiking_Pic/final.png)

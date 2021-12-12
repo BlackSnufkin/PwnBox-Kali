@@ -1,0 +1,14 @@
+Welcome to your Pwnbox-Kali desktop!
+
+subject to the following:
+1. This instance is meant to perform Penetration-Testing or Red Team engagement.
+2. Before activating any of the tools or scripts in production environment try them first in a controlled virtual environment
+3. Take a snapshot, all data can be lost
+4. Encrypt all sensitive information stored on this box
+
+
+Legal disclaimer:
+Usage of theese Scripts/Executables for attacking targets without prior mutual consent is illegal. 
+It's the end user's responsibility to obey all applicable local, state and federal laws. 
+Developers assume no liability and are not responsible for any misuse or damage caused by this program. 
+Only use for educational purposes.
