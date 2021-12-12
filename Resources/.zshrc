@@ -248,12 +248,38 @@ i() {
 	fi
 }
 
+i() {
+	netdevice=$(ip r | grep default | awk '/default/ {print $5}')
+	ip=$(ip addr | grep $netdevice | grep inet | grep 1* | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1)
+	if ! [[ $ip == *"169."* ]]
+	then
+	   gwip=$(ip route | grep eth0 | grep via | cut -d " " -f 3)
+	   ping=$(ping -c 1 $gwip -W 1 | sed '$!d;s|.*/\([0-9.]*\)/.*|\1|' | cut -c1-4)
+	   netmask=$(ip -o -f inet addr show "$netdevice"| awk '/scope global/{sub(/[^.]+\//,"0/",$4);print $4}')
+	   DNS_SRV=$(cat /etc/resolv.conf |grep -i '^nameserver'|head -n1|cut -d ' ' -f2)
+		echo "Interface: $netdevice: " | lolcat
+		echo "	IP: $ip [$ping ms] " | lolcat
+		echo "	Subnet: $netmask" | lolcat
+		echo "	Default GW: $gwip " | lolcat
+		echo "	DNS Server: $DNS_SRV" | lolcat
+	else
+	   echo "Disconnected"
+	fi
+}
+
 alias chrome='google-chrome-stable %u'
 alias update='apt update && apt full-upgrade -y && apt autoremove -y && check_reboot'
+<<<<<<< HEAD:Resources/.zshrc
 alias enum4linux-ng='python3 /opt/Red-Team-Toolkit/Active_Directory/Enumeration/enum4linux-ng/enum4linux-ng.py'
 alias dirsearch='python3 /opt/Red-Team-Toolkit/Web/dirsearch/dirsearch.py'
 alias rustscan='/opt/Red-Team-Toolkit/Recon/RustScan/target/release/rustscan -a'    
 alias evil-winrm='ruby /opt/Red-Team-Toolkit/C2/evil-winrm/evil-winrm.rb'
+=======
+alias enum4linux-ng='python3 /opt/Tools/Enumeration/enum4linux-ng/enum4linux-ng.py'
+alias dirsearch='python3 /opt/Tools/Web/dirsearch/dirsearch.py'
+alias rustscan='/opt/Tools/Enumeration/RustScan/target/release/rustscan -a'    
+alias evil-winrm='ruby /opt/Tools/C2/evil-winrm/evil-winrm.rb'
+>>>>>>> 12233c0ffd30a1550db3d7f7bf07591cec34df1a:General/.zshrc
 alias c='clear'   
 alias off='shutdown -h now'
 alias rr='reboot'
