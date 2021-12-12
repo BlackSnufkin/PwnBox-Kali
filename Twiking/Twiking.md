@@ -67,7 +67,7 @@
 
 * Remove Root terminal Launcher and powershell right click on the terminal icon 
 <br>
-![](Twiking_Pic/launcger-del_root.png)
+![](Twiking_Pic/launc_del_root.png)
 
 
 * Search on the menu for powershell and add it to the panel 
@@ -83,6 +83,7 @@
 * from the list select `Application icon` and select kali-menu  <br>
 
 ![](Twiking_Pic/terminal-3.png)
+<br>
 
 ### VPN Monitor:
 * add new item and select `Generic Monitor`  <br>
@@ -101,7 +102,7 @@
 * Change Menu Icon <br>
 ![](Twiking_Pic/menu_prob.png)
 <br>
-![](Twiking_Pic/menu_iconpng.png)
+![](Twiking_Pic/menu_icon2.png)
 <br>
 ![](Twiking_Pic/menu_icon.png)
 <br>
@@ -115,11 +116,11 @@
 
 * Right click on the dekstop and select dekstop settings <br> 
 
-![](Twiking_Pic/desktop-settings-1.png)
+![](Twiking_Pic/desktop-settings.png)
 
 * Go to the icon tab and chage to the following: <br> 
 
-![](Twiking_Pic/desktop-settings-3.png)
+![](Twiking_Pic/desktop_settings-1.png)
 
 ---
 
@@ -183,7 +184,7 @@
 
 * On the terminal type plank and hit enter and edit this has you like this is mine: <br> 
 
-![](Twiking_Pic/plankdoc-2.png)
+![](Twiking_Pic/plank-doc.png)
 
 ---
 
