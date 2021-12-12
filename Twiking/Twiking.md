@@ -22,6 +22,7 @@
 * Right click on the seperator and change is properits <br>
 ![](Twiking_Pic/separetor-1.png)
 <br>
+
 ![](Twiking_Pic/separetor-1-change.png)
 
 * Move the seperator to the right side of the panael <br>
