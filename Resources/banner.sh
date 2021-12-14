@@ -32,18 +32,27 @@ if ! [[ $ip == *"169."* ]];then
     
     wget -q --spider https://google.com
     if [ $? -eq 0 ]; then
-        echo "Yes" | lolcat
+        echo "YES" | lolcat
     else
-        echo -n "No" | lolcat
+        echo -n "NO" | lolcat
     fi
-    echo -n "  Internet via Ping: " | lolcat
-    ping -q -w 1 -c 1 8.8.8.8 | grep default | cut -d ' ' -f 3 > /dev/null && echo "Yes" | lolcat || echo "No" | lolcat
+        echo -n "  Internet via Ping: " | lolcat
+
+    ping -c1 "8.8.8.8" &>"/dev/null"
+
+    if [[ "${?}" -ne 0 ]]; then
+        echo "NO"
+    elif [[ "${#args[@]}" -eq 0 ]]; then
+        echo "YES"
+    fi
 
 
 else
     echo "Disconnected"
 fi
+
 echo " "
+
 read -r -p "Press ENTER key to close. " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then

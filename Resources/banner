@@ -1,9 +1,14 @@
 Welcome to your Pwnbox-Kali desktop!
 
 subject to the following:
+
 1. This instance is meant to perform Penetration-Testing or Red Team engagement.
-2. Before activating any of the tools or scripts in production environment try them first in a controlled virtual environment
+
+2. Before activating any of the tools or scripts in production environment,
+first try them in a controlled virtual environment
+
 3. Take a snapshot, all data can be lost
+
 4. Encrypt all sensitive information stored on this box
 
 
