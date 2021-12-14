@@ -284,7 +284,7 @@ alias nmap-miniVulnScan='nmap --script nmap-vulners/vulners -sV -sC -O -p- '
 alias web-srv='python3 -m http.server 8888'
 alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
 alias obsidian='/usr/share/obsidian/Obsidian.AppImage --no-sandbox'
-alias Pcredz='/opt/Red-Team-Toolkit/Network/PCredz/Pcredz'
+alias Pcredz='python3 /opt/Red-Team-Toolkit/Network/PCredz/Pcredz'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
