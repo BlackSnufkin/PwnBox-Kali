@@ -1310,6 +1310,33 @@ Active_Directory_Offensive-Tools (){
 
 }
 
+Exploits () {
+
+    echo -e "\n$greenplus Downloading & Installing Exploits"
+
+    # Log4J
+    echo -e "\n$greenplus Installing Log4J aka Log4Shell Tools and utils"
+    mkdir /opt/Red-Team-Toolkit/Exploits/Log4Shell
+    cd /opt/Red-Team-Toolkit/Exploits/Log4Shell
+    
+    #log4j scanner
+    GetTool https://github.com/fullhunt/log4j-scan.git
+
+    # log4j RCE
+    GetTool https://github.com/cyberstruggle/L4sh.git
+
+    # JNDI-Exploit-Ki 
+    GetTool https://github.com/pimps/JNDI-Exploit-Kit.git
+
+    # log4rce
+    GetTool https://github.com/alexandre-lavoie/python-log4rce.git
+
+    echo -e "\n$greenplus Log4J aka Log4Shell Tools and utils successfully installed"
+
+}
+
+
+
 
 
 
@@ -1419,6 +1446,8 @@ if [ $? == 0 ]; then
     ActiveDirectory_CredentialDumping-Tools
 
     Active_Directory_Offensive-Tools
+
+    Exploits
 
     Utils-Tools
 
