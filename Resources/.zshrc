@@ -269,17 +269,14 @@ i() {
 
 alias chrome='google-chrome-stable %u'
 alias update='apt update && apt full-upgrade -y && apt autoremove -y && check_reboot'
-<<<<<<< HEAD:Resources/.zshrc
 alias enum4linux-ng='python3 /opt/Red-Team-Toolkit/Active_Directory/Enumeration/enum4linux-ng/enum4linux-ng.py'
 alias dirsearch='python3 /opt/Red-Team-Toolkit/Web/dirsearch/dirsearch.py'
 alias rustscan='/opt/Red-Team-Toolkit/Recon/RustScan/target/release/rustscan -a'    
 alias evil-winrm='ruby /opt/Red-Team-Toolkit/C2/evil-winrm/evil-winrm.rb'
-=======
-alias enum4linux-ng='python3 /opt/Tools/Enumeration/enum4linux-ng/enum4linux-ng.py'
-alias dirsearch='python3 /opt/Tools/Web/dirsearch/dirsearch.py'
-alias rustscan='/opt/Tools/Enumeration/RustScan/target/release/rustscan -a'    
-alias evil-winrm='ruby /opt/Tools/C2/evil-winrm/evil-winrm.rb'
->>>>>>> 12233c0ffd30a1550db3d7f7bf07591cec34df1a:General/.zshrc
+alias enum4linux-ng='python3 /opt/Red-Team-Toolkit/Enumeration/enum4linux-ng/enum4linux-ng.py'
+alias dirsearch='python3 /opt/Red-Team-Toolkit/Web/dirsearch/dirsearch.py'
+alias rustscan='/opt/Red-Team-Toolkit/Enumeration/RustScan/target/release/rustscan -a'    
+alias evil-winrm='ruby /opt/Red-Team-Toolkit/C2/evil-winrm/evil-winrm.rb'
 alias c='clear'   
 alias off='shutdown -h now'
 alias rr='reboot'
@@ -297,7 +294,7 @@ alias nmap-miniVulnScan='nmap --script nmap-vulners/vulners -sV -sC -O -p- '
 alias web-srv='python3 -m http.server 8888'
 alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
 alias obsidian='/usr/share/obsidian/Obsidian.AppImage --no-sandbox'
-alias Pcredz='/opt/Tools/Network/PCredz/Pcredz'
+alias Pcredz='/opt/Red-Team-Toolkit/Network/PCredz/Pcredz'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
