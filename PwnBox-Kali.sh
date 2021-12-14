@@ -199,7 +199,7 @@ Update_and_install () {
     apt install upx powershell libpcap0.8 -y
     apt install mingw-w64-tools mingw-w64-common libffi-dev -y
     apt install g++-mingw-w64 upx-ucl osslsigncode -y
-    apt remove proxychains4 crackmapexec spiderfoot king-phisher -y
+    apt remove proxychains4 spiderfoot king-phisher -y
 
     # pimpmykali
     cd $HOME
@@ -1270,17 +1270,30 @@ Active_Directory_Offensive-Tools (){
     GetTool https://github.com/ollypwn/PrintNightmare.git PrintNightmare-py
     echo -e "\n$greenplus PrintNightmare-py successfully installed"
 
-    #PetitPotam
+    # PetitPotam
     cd /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools
     GetTool https://github.com/topotam/PetitPotam.git
     cd PetitPotam
     GetTool https://github.com/ollypwn/PetitPotam.git PetitPotam-py
     echo -e "\n$greenplus PetitPotam successfully installed"
 
-    # CrackMapExec
-    echo -e "\n$greenplus installing CrackMapExec"
-    pipx install crackmapexec
-    echo -e "\n$greenplus CrackMapExec successfully installed"
+
+    # kdc bamboozling
+    cd /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools
+    echo -e "\n$greenplus Installing All CVE-2021-42278 aka KDC Bamboozling Tools AND Utils "
+    mkdir KDC_Bamboozling
+    
+    # Pachine
+    cd /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools/KDC_Bamboozling
+    GetTool https://github.com/ly4k/Pachine.git
+    echo -e "\n$greenplus Pachine successfully installed"
+
+    # sam the admin
+    cd /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools/KDC_Bamboozling
+    GetTool https://github.com/WazeHell/sam-the-admin
+    echo -e "\n$greenplus sam-the-admin successfully installed"
+
+
 
     # Windows Binary, powershell scripts, and exploits
     cd /opt/Red-Team-Toolkit/Active_Directory
