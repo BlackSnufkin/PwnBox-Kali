@@ -55,11 +55,13 @@ Fix_SourceList(){
 Install_pkg () {
 
     REQUIRED_PKG="$1"
+    echo -e "\n$greenplus Checking PKG: $REQUIRED_PKG"
     dpkg --status $REQUIRED_PKG &> /dev/null
     if [ $? -eq 0 ]; then
-        echo -e "\n$redexclaim $REQUIRED_PKG: Already installed"
+        echo -e "\n$greenplus $REQUIRED_PKG Status: Installed"
+        echo -e "\n$redstar Skiping to next pkg..."
     else
-        echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
+        echo -e "\n$redexclaim $REQUIRED_PKG Status: Not Installed.\n$redstar Installing: $REQUIRED_PKG."
         apt-get install -y $REQUIRED_PKG
         sleep 0.5
     fi
@@ -199,7 +201,8 @@ Update_and_install () {
 
     Fix_SourceList
     Update
-    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "upx" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "osslsigncode")
+    echo -e "\n$greenplus Starting to install dependencies"
+    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "osslsigncode")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
     apt remove proxychains4 spiderfoot king-phisher -y
 
