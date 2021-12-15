@@ -32,6 +32,17 @@ finduser=$(logname)
 detected_env=""
 
 
+Install_pkg () {
+    REQUIRED_PKG="$1"
+    PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+    echo Checking for $REQUIRED_PKG: $PKG_OK
+    if [ "" = "$PKG_OK" ]; then
+      echo -e "\n$greenminus $REQUIRED_PKG is no installed. \n$greenplus Installing: $REQUIRED_PKG."
+      apt-get -y install $REQUIRED_PKG
+    fi
+
+}
+
 GetTool () {
 
     if [ "$#" -eq 1 ]; then
@@ -182,23 +193,8 @@ disable_power_checkde() {
 Update_and_install () {
 
     Update
-    apt install dkms build-essential linux-headers-amd64 -y
-    apt install gufw golang xrdp -y
-    apt install docker-compose lcab -y
-    apt install checkinstall autoconf automake -y 
-    apt install python2-dev autotools-dev m4 -y
-    apt install python3-venv gnome-terminal plank -y
-    apt install cargo docker.io tor torbrowser-launcher -y
-    apt install lolcat xautomation guake -y
-    apt install starkiller open-vm-tools open-vm-tools-desktop -y
-    apt install fuse3 libssl-dev libffi-dev  -y
-    apt install python3-pip bettercap npm -y
-    apt install python3.9-dev libpcap-dev adb -y
-    apt install gcc-mingw-w64 libc6-dev python3.9-venv -y 
-    apt install python3-pyqt5 libssl-dev figlet toilet -y
-    apt install upx powershell libpcap0.8 -y
-    apt install mingw-w64-tools mingw-w64-common libffi-dev -y
-    apt install g++-mingw-w64 upx-ucl osslsigncode -y
+    pkgs=(dkms build-essential linux-headers-amd64 gufw golang xrdp docker-compose lcab checkinstall autoconf automake python2-dev autotools-dev m4 python3-venv gnome-terminal plank cargo docker.io tor torbrowser-launcher lolcat xautomation guake starkiller open-vm-tools open-vm-tools-desktop fuse3 libssl-dev libffi-dev python3-pip bettercap npm python3.9-dev libpcap-dev adb gcc-mingw-w64 libc6-dev python3.9-venv python3-pyqt5 libssl-dev figlet toilet upx powershell libpcap0.8 mingw-w64-tools mingw-w64-common libffi-dev g++-mingw-w64 upx-ucl osslsigncode)
+    for i in "${pkgs[@]}"; do Install_pkg "$i"; done
     apt remove proxychains4 spiderfoot king-phisher -y
 
     # pimpmykali
