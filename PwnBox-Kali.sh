@@ -33,6 +33,25 @@ finduser=$(logname)
 detected_env=""
 
 
+Fix_SourceList(){
+  check_space=$(cat /etc/apt/sources.list | grep -c "# deb-src http://.*/kali kali-rolling.*")
+  check_nospace=$(cat /etc/apt/sources.list | grep -c "#deb-src http://.*/kali kali-rolling.*")
+  get_current_mirror=$(cat /etc/apt/sources.list | grep "deb-src http://.*/kali kali-rolling.*" | cut -d "/" -f3)
+    if [[ $check_space = 0 && $check_nospace = 0 ]]; then
+      echo -e "\n  $greenminus # deb-src or #deb-sec not found - skipping"
+    elif [ $check_space = 1 ]; then
+      echo -e "\n  $greenplus # deb-src with space found in sources.list uncommenting and enabling deb-src"
+      sed 's/\# deb-src http\:\/\/.*\/kali kali-rolling.*/\deb-src http\:\/\/'$get_current_mirror'\/kali kali-rolling main contrib non\-free''/' -i /etc/apt/sources.list
+      echo -e "\n  $greenplus new /etc/apt/sources.list written with deb-src enabled"
+    elif [ $check_nospace = 1 ]; then
+      echo -e "\n  $greenplus #deb-src without space found in sources.list uncommenting and enabling deb-src"
+      sed 's/\#deb-src http\:\/\/.*\/kali kali-rolling.*/\deb-src http\:\/\/'$get_current_mirror'\/kali kali-rolling main contrib non\-free''/' -i /etc/apt/sources.list
+      echo -e "\n  $greenplus new /etc/apt/sources.list written with deb-src enabled"
+    fi
+  echo "deb https://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
+}
+
+
 Install_pkg () {
     REQUIRED_PKG="$1"
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG 2> /dev/null|grep "install ok installed.")
@@ -165,6 +184,7 @@ disable_power_gnome() {
 
 # 06.18.2021 - disable_power_xfce rev 1.2.9 replaces fix_xfce_power fix_xfce_user and fix_xfce_root functions
 disable_power_xfce() {
+    Fix_hushlogin
     raw_xfce="https://raw.githubusercontent.com/Dewalt-arch/pimpmyi3-config/main/xfce4/xfce4-power-manager.xml"
     if [ $finduser = "root" ]
      then
@@ -195,6 +215,7 @@ disable_power_checkde() {
 
 Update_and_install () {
 
+    Fix_SourceList
     Update
     pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "upx" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "osslsigncode")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
