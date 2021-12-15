@@ -39,6 +39,7 @@ Install_pkg () {
     if [ "" = "$PKG_OK" ]; then
       echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
       DEBIAN_FRONTEND=noninteractive apt-get --yes install $REQUIRED_PKG
+      sleep 0.5
     fi
 
 }
