@@ -1386,15 +1386,11 @@ Twiking () {
     ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --smb; \
     ./pimpmykali.sh --grub; \
-    ./pimpmykali.sh --nmap; \
     ./pimpmykali.sh --mirrors; \
     echo -e "\n$greenplus pimpmykali successfully installed"
     
     #replace-line "autologin-user=root" 126 /etc/lightdm/lightdm.conf
     #replace-line "autologin-user-timeout=" 127 /etc/lightdm/lightdm.conf
-
-    echo -e "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-    echo -e "\n$greenplus Terminal Beep Silenced! /etc/modprobe.d/nobeep.conf \n"
     
     updatedb
     msfdb init
