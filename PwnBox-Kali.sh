@@ -1383,7 +1383,7 @@ Twiking () {
     wget -q --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/pypa/get-pip/3843bff3a0a61da5b63ea0b7d34794c5c51a2f11/2.7/get-pip.py -O /tmp/get-pip.py
     python /tmp/get-pip.py &> /dev/null
     rm -f /tmp/get-pip.py
-    pip install setuptools --quiet
+    pip --no-python-version-warning install setuptools --quiet
     [[ ! -f /usr/bin/pip3 ]] && echo -n "\n  $greenplus installing python3-pip"; apt -y reinstall python3-pip || echo -e "\n  $greenplus python3-pip exists in /usr/bin/pip3"
     echo -e "\n  $greenplus python-pip installed"
 
