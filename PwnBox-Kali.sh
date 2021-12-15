@@ -51,16 +51,25 @@ Fix_SourceList(){
   
 }
 
+    REQUIRED_PKG="$1"
+    dpkg --status $REQUIRED_PKG &> /dev/null
+    if [ $? -eq 0 ]; then
+    echo -e "\n$redexclaim $REQUIRED_PKG: Already installed"
+    else
+    echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
+    apt-get install -y $REQUIRED_PKG
+    fi
 
 Install_pkg () {
+
     REQUIRED_PKG="$1"
-    PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG |grep "install ok installed.")
-    if [ "" = "$PKG_OK" ]; then
-        echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
-        apt-get --yes install $REQUIRED_PKG
-        sleep 0.5
+    dpkg --status $REQUIRED_PKG &> /dev/null
+    if [ $? -eq 0 ]; then
+    echo -e "\n$redexclaim $REQUIRED_PKG: Already installed"
     else
-        echo -e "\n$redexclaim $REQUIRED_PKG Status: $PKG_OK"
+    echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
+    apt-get install -y $REQUIRED_PKG
+    sleep 0.5
     fi
 
 }
