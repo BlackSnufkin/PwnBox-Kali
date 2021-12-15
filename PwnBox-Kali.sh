@@ -1428,6 +1428,7 @@ if [ $? == 0 ]; then
     
     disable_power_checkde
     systemctl enable docker
+    systemctl enable postgresql
 
     SpinUp_Workspace
     
