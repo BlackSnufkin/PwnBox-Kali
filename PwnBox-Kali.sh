@@ -57,11 +57,11 @@ Install_pkg () {
     REQUIRED_PKG="$1"
     dpkg --status $REQUIRED_PKG &> /dev/null
     if [ $? -eq 0 ]; then
-    echo -e "\n$redexclaim $REQUIRED_PKG: Already installed"
+        echo -e "\n$redexclaim $REQUIRED_PKG: Already installed"
     else
-    echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
-    apt-get install -y $REQUIRED_PKG
-    sleep 0.5
+        echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
+        apt-get install -y $REQUIRED_PKG
+        sleep 0.5
     fi
 
 }
