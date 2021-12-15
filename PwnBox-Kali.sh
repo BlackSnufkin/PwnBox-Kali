@@ -35,7 +35,7 @@ detected_env=""
 Install_pkg () {
     REQUIRED_PKG="$1"
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-    echo Checking for $REQUIRED_PKG: $PKG_OK
+    echo -e "\n$redexclaim Checking for $REQUIRED_PKG: $PKG_OK"
     if [ "" = "$PKG_OK" ]; then
       echo -e "\n$greenminus $REQUIRED_PKG is no installed. \n$greenplus Installing: $REQUIRED_PKG."
       apt-get -y install $REQUIRED_PKG
