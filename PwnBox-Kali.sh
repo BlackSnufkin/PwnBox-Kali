@@ -1373,29 +1373,14 @@ Twiking () {
     bat --generate-config-file
     echo '--pager="cat"' >  /root/.config/bat/config
     echo -e "\n$greenplus BAT successfully installed" 
-    
-
-    # pip for python 2.7
-    echo -e "\n$greenplus Fixing Pip For python 2.7 "
-    echo -e "\n$greenplus installing pip"
-    # 01.26.2021 - get-pip.py throwing an error, commented out and pointed wget directly to the python2.7 get-pip.py
-    # eval curl curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py $silent
-    wget -q --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/pypa/get-pip/3843bff3a0a61da5b63ea0b7d34794c5c51a2f11/2.7/get-pip.py -O /tmp/get-pip.py
-    python /tmp/get-pip.py &> /dev/null
-    rm -f /tmp/get-pip.py
-    pip --no-python-version-warning install setuptools --quiet
-    [[ ! -f /usr/bin/pip3 ]] && echo -n "\n  $greenplus installing python3-pip"; apt -y reinstall python3-pip || echo -e "\n  $greenplus python3-pip exists in /usr/bin/pip3"
-    echo -e "\n  $greenplus python-pip installed"
 
     # pimpmykali
     cd /opt/Red-Team-Toolkit/Resources
     GetTool https://github.com/Dewalt-arch/pimpmykali.git
     cd pimpmykali
     ./pimpmykali.sh --smb; \
-    ./pimpmykali.sh --go; \
     ./pimpmykali.sh --grub; \
-    ./pimpmykali.sh --flameshot; \
-    ./pimpmykali.sh --impacket; \
+    ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --nmap; \
     ./pimpmykali.sh --mirrors; \
     echo -e "\n$greenplus pimpmykali successfully installed"
