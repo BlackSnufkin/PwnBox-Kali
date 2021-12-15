@@ -62,8 +62,11 @@ Install_pkg () {
         echo -e "\n$redstar Skiping to next pkg..."
     else
         echo -e "\n$redexclaim $REQUIRED_PKG Status: Not Installed.\n$redstar Installing: $REQUIRED_PKG."
-        apt-get install -y $REQUIRED_PKG
-        sleep 0.5
+        if ! (apt-get install -y $REQUIRED_PKG) then
+            echo -e "$redexclaim Error while donwloading $REQUIRED_PKG, \n$redstar trying again in 30 seconds";sleep 30;apt-get install -y $REQUIRED_PKG
+        else 
+            echo -e "\n$greenplus $REQUIRED_PKG Installed Successfully\n";  
+        sleep 1
     fi
 
 }
