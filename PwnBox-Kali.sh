@@ -65,7 +65,8 @@ Install_pkg () {
         if ! (apt-get install -y $REQUIRED_PKG) then
             echo -e "$redexclaim Error while donwloading $REQUIRED_PKG, \n$redstar trying again in 30 seconds";sleep 30;apt-get install -y $REQUIRED_PKG
         else 
-            echo -e "\n$greenplus $REQUIRED_PKG Installed Successfully\n";  
+            echo -e "\n$greenplus $REQUIRED_PKG Installed Successfully\n";
+        fi
         sleep 1
     fi
 
