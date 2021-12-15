@@ -18,6 +18,7 @@ BASH_XTRACEFD="5"
 PS4='$LINENO: '
 set -x
 
+export DEBIAN_FRONTEND=noninteractive
 
 # status indicators
 greenplus='\e[1;33m[++]\e[0m'
@@ -35,11 +36,12 @@ detected_env=""
 Install_pkg () {
     REQUIRED_PKG="$1"
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-    echo -e "\n$redexclaim $REQUIRED_PKG Status: $PKG_OK"
     if [ "" = "$PKG_OK" ]; then
-      echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
-      DEBIAN_FRONTEND=noninteractive apt-get --yes install $REQUIRED_PKG
-      sleep 0.5
+        echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
+        apt-get --yes install $REQUIRED_PKG
+        sleep 0.5
+    else
+        echo -e "\n$redexclaim $REQUIRED_PKG Status: $PKG_OK"
     fi
 
 }
