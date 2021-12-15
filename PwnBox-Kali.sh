@@ -596,10 +596,10 @@ Recon-Tools () {
     
     cd NSE-scripts
     cp *.nse /usr/share/nmap/scripts
-    
+    cd /opt/Red-Team-Toolkit/Recon/Nmap-Utils 
     rm /usr/share/nmap/scripts/ssl-enum-ciphers.nse
     rm -rf /opt/Red-Team-Toolkit/Recon/Nmap-Utils/NSE-scripts
-    rm -rf /opt/Red-Team-Toolkit/Recon/Nmap-Utils
+    rm -rf /opt/Red-Team-Toolkit/Recon/Nmap-Utils/NSE 
     nmap --script-updatedb
     echo -e "\n$greenplus Nmap NSE-scripts successfully installed"
 
@@ -1197,6 +1197,14 @@ ActiveDirectory_CredentialDumping-Tools () {
     cd lsassy
     python3 setup.py install
     echo -e "\n$greenplus lsassy successfully installed"
+
+    # nanodump
+    cd /opt/Red-Team-Toolkit/Active_Directory/Credential_Dumping
+    GetTool https://github.com/helpsystems/nanodump.git
+    cd nanodump
+    rm -f compiled/*.*
+    make
+    echo -e "\n$greenplus nanodump successfully installed"
 
     sleep 0.5
     echo -e "\n$greenplus Active-Directory Credential Dumping Tools successfully installed"

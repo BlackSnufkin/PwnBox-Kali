@@ -8,9 +8,9 @@ echo -e '\e[34m ██╔═══╝ ██║███╗██║██║╚
 echo -e '\e[34m ██║     ╚███╔███╔╝██║ ╚████║██████╔╝╚██████╔╝██╔╝ ██╗     \e[31m ██║  ██╗██║  ██║███████╗██║ '
 echo -e '\e[34m ╚═╝      ╚══╝╚══╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝     \e[31m ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝ '
 echo " "
-echo -e '\e[37m                           H A C K - T H E - P L A N E T '
+echo -e '\e[37m                                 J U S T - H A C K - I T  '
 echo " "
-echo -e '\e[37m                               Made by BlackSnufkin '
+echo -e '\e[37m                                 Made by @BlackSnufkin '
 echo " "                                                                                     
 
 
@@ -53,7 +53,7 @@ fi
 
 echo " "
 
-read -r -p "Press ENTER key to close. " response
+read -r -p "Press ENTER key to Hack The Planet =). " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     exit
