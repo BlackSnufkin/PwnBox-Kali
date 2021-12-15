@@ -333,6 +333,8 @@ SpinUp_Workspace () {
     cp  ./Resources/banner.sh /opt/pwnbox/ 
     cp  ./Resources/net.sh /opt/pwnbox/ 
     cp ./Resources/Microsoft.PowerShell_profile.ps1 $HOME/.config/powershell/Microsoft.PowerShell_profile.ps1
+    chmod +x /opt/pwnbox/banner.sh
+    chmod +x /opt/pwnbox/net.sh 
     cd /opt/pwnbox
     cp /opt/pwnbox/htb.jpg /usr/share/backgrounds/
     echo -e "\n$greenplus Setting HackTheBox theme"
