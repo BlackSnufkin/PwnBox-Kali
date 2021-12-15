@@ -54,7 +54,7 @@ Fix_SourceList(){
 
 Install_pkg () {
     REQUIRED_PKG="$1"
-    PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG |grep "install ok installed.") 2> /dev/null
+    PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG |grep "install ok installed.")
     if [ "" = "$PKG_OK" ]; then
         echo -e "\n$greenminus $REQUIRED_PKG is not installed. \n$greenplus Installing: $REQUIRED_PKG."
         apt-get --yes install $REQUIRED_PKG
