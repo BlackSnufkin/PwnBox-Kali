@@ -194,7 +194,7 @@ disable_power_checkde() {
 Update_and_install () {
 
     Update
-    pkgs=(dkms build-essential linux-headers-amd64 gufw golang xrdp docker-compose lcab checkinstall autoconf automake python2-dev autotools-dev m4 python3-venv gnome-terminal plank cargo docker.io tor torbrowser-launcher lolcat xautomation guake starkiller open-vm-tools open-vm-tools-desktop fuse3 libssl-dev libffi-dev python3-pip bettercap npm python3.9-dev libpcap-dev adb gcc-mingw-w64 libc6-dev python3.9-venv python3-pyqt5 libssl-dev figlet toilet upx powershell libpcap0.8 mingw-w64-tools mingw-w64-common libffi-dev g++-mingw-w64 upx-ucl osslsigncode)
+    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "upx" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "osslsigncode")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
     apt remove proxychains4 spiderfoot king-phisher -y
 
