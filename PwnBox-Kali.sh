@@ -1383,16 +1383,12 @@ Twiking () {
     cd /opt/Red-Team-Toolkit/Resources
     GetTool https://github.com/Dewalt-arch/pimpmykali.git
     cd pimpmykali
+    ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --smb; \
     ./pimpmykali.sh --grub; \
-    ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --nmap; \
     ./pimpmykali.sh --mirrors; \
     echo -e "\n$greenplus pimpmykali successfully installed"
-
-    echo -e "\n$greenplus gunzip /usr/share/wordlists/rockyou.txt.gz\n"
-    gzip -dq /usr/share/wordlists/rockyou.txt.gz
-    
     
     #replace-line "autologin-user=root" 126 /etc/lightdm/lightdm.conf
     #replace-line "autologin-user-timeout=" 127 /etc/lightdm/lightdm.conf
