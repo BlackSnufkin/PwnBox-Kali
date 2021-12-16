@@ -190,7 +190,7 @@ alias bloodhound-up='/opt/Red-Team-Toolkit/Active_Directory/Enumeration/BloodHou
 alias impacket-env='source /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools/impacket/impacket-env/bin/activate'
 alias PrintNightmare-env='source /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools/PrintNightmare/PrintNightmare-env/bin/activate'
 alias fuck='sudo $(history -p !!)'
-alias nmap-VulScan="nmap --script vulscan/vulscan --script-args vulscanoutput='ID: {id} - Title: {title} ({matches})\n',vulscandb=exploitdb.csv -sV -sC -O -p- -f "
+alias nmap-VulScan="nmap --script vulscan/scipag_vulscan/vulscan.nse --script-args=vulscanoutput='ID: {id} - Title: {title} ({matches})\n' --script-args=vulscan/vulscandb=exploitdb.csv -sV -sC -O -p- -f "
 alias nmap-Vulners='nmap -sV --script vulners --script-args mincvss=5.0 -O -p- -f '
 alias web-srv='python3 -m http.server 8888'
 alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
