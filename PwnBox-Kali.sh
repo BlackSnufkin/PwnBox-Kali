@@ -1416,12 +1416,12 @@ if [ $? == 0 ]; then
     systemctl enable postgresql
 
     SpinUp_Workspace
-    Phishing-Tools
     Web-Tools
     Mobile-Tools
     C2-Tools
     Recon-Tools
     Wifi-Tools
+    Phishing-Tools
     Network-Tools 
     Tunneling-Tools
     Payloads-Tools 
