@@ -58,12 +58,12 @@ Install_pkg () {
     echo -e "\n$greenplus Checking PKG: $REQUIRED_PKG"
     dpkg --status $REQUIRED_PKG &> /dev/null
     if [ $? -eq 0 ]; then
-        echo -e "\n$greenplus $REQUIRED_PKG Status: Installed"
+        echo -e "\n$greenplus PKG Status: Installed"
         echo -e "\n$redstar Skiping..."
     else
-        echo -e "\n$redexclaim $REQUIRED_PKG Status: Not Installed.\n$redstar Installing: $REQUIRED_PKG."
-        if ! (apt-get install -qq -y $REQUIRED_PKG > /dev/null) then
-            echo -e "$redexclaim Error while donwloading $REQUIRED_PKG, \n$redstar trying again in 30 seconds";sleep 30;apt-get install -qq -y $REQUIRED_PKG > /dev/null
+        echo -e "\n$redexclaim PKG Status: Not Installed.\n$redstar Installing: $REQUIRED_PKG."
+        if ! (apt-get install -y $REQUIRED_PKG) then
+            echo -e "$redexclaim Error while donwloading $REQUIRED_PKG, \n$redstar trying again in 30 seconds";sleep 30;apt-get install -y $REQUIRED_PKG
         else 
             echo -e "\n$greenplus $REQUIRED_PKG Installed Successfully\n";
         fi
@@ -208,7 +208,7 @@ Update_and_install () {
     echo -e "\n$greenplus Starting to install dependencies"
     pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
-    apt remove proxychains4 spiderfoot king-phisher -y
+    apt remove proxychains4 spiderfoot -y
 
     # pimpmykali
     cd $HOME
@@ -994,13 +994,6 @@ Payloads-Tools (){
 
 Phishing-Tools () {
     echo -e "\n$greenplus Downloading & Installing Phishing-Tools"
-    
-    # king-phisher
-    cd /opt/RedTeam-ToolKit/Initial_Access/Phishing
-    GetTool https://github.com/rsmusllp/king-phisher.git
-    cd king-phisher
-    ./tools/install.sh    
-    echo -e "\n$greenplus king-phisher successfully installed"
 
     # phishmonger
     cd /opt/RedTeam-ToolKit/Initial_Access/Phishing
@@ -1423,37 +1416,21 @@ if [ $? == 0 ]; then
     systemctl enable postgresql
 
     SpinUp_Workspace
-    
-    Recon-Tools
-
-    C2-Tools
- 
-    Web-Tools
-
-    Wifi-Tools
-
-    Mobile-Tools
-   
-    Network-Tools
- 
-    Tunneling-Tools
-   
-    Payloads-Tools
-    
     Phishing-Tools
-
+    Web-Tools
+    Mobile-Tools
+    C2-Tools
+    Recon-Tools
+    Wifi-Tools
+    Network-Tools 
+    Tunneling-Tools
+    Payloads-Tools 
     BruteForce-Tools
-
     ActiveDirectory_Enumeration-Tools
-
     ActiveDirectory_CredentialDumping-Tools
-
     Active_Directory_Offensive-Tools
-
     Exploits
-
     Utils-Tools
-
     Twiking
 
     Update && apt reinstall python3-debian -y && check_reboot
