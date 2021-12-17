@@ -1218,7 +1218,7 @@ ActiveDirectory_CredentialDumping-Tools () {
 }
 
 
-Active_Directory_Offensive-Tools (){
+ActiveDirectory_Offensive-Tools (){
 
     echo -e "\n$greenplus Downloading & Installing Active-Directory Offensive-Tools "
 
@@ -1417,19 +1417,19 @@ if [ $? == 0 ]; then
     systemctl enable postgresql
 
     SpinUp_Workspace
-    Web-Tools
-    Mobile-Tools
-    C2-Tools
     Recon-Tools
+    Web-Tools
+    C2-Tools
     Wifi-Tools
     Phishing-Tools
+    Mobile-Tools
     Network-Tools 
     Tunneling-Tools
     Payloads-Tools 
     BruteForce-Tools
     ActiveDirectory_Enumeration-Tools
     ActiveDirectory_CredentialDumping-Tools
-    Active_Directory_Offensive-Tools
+    ActiveDirectory_Offensive-Tools
     Exploits
     Utils-Tools
     Twiking
