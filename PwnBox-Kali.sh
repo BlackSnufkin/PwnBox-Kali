@@ -1196,6 +1196,7 @@ ActiveDirectory_CredentialDumping-Tools () {
     echo -e "\n$greenplus spraykatz successfully installed"
 
     #lsassy
+    cd /opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
     echo -e "$greenplus starting to install lsassy "
     python3 python3 -m pip uinstall lsassy --quiet
     python3 -m pip install lsassy --quiet
