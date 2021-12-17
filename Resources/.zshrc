@@ -210,9 +210,9 @@ check_reboot () {
 	fi
 }
 
-Update-Tools (){
+Update-RedTeam-ToolKIt (){
 
-	cd /opt/Red-Team-Toolkit
+	cd /opt/RedTeam-ToolKit
 	find . -type d -name .git -exec sh -c "cd \"{}\"/../&& sleep 1; echo  && pwd &&  git pull" \;
 }
 
@@ -258,14 +258,14 @@ i() {
 
 
 alias chrome='google-chrome-stable %u'
-alias update='apt update && apt full-upgrade -y && apt autoremove -y && check_reboot'
-alias enum4linux-ng='python3 /opt/Red-Team-Toolkit/Active_Directory/Enumeration/enum4linux-ng/enum4linux-ng.py'
-alias dirsearch='python3 /opt/Red-Team-Toolkit/Web/dirsearch/dirsearch.py'
-alias rustscan='/opt/Red-Team-Toolkit/Recon/RustScan/target/release/rustscan -a'    
-alias evil-winrm='ruby /opt/Red-Team-Toolkit/C2/evil-winrm/evil-winrm.rb'
-alias enum4linux-ng='python3 /opt/Red-Team-Toolkit/Enumeration/enum4linux-ng/enum4linux-ng.py'
-alias dirsearch='python3 /opt/Red-Team-Toolkit/Web/dirsearch/dirsearch.py'   
-alias evil-winrm='ruby /opt/Red-Team-Toolkit/C2/evil-winrm/evil-winrm.rb'
+alias update='apt update && apt full-upgrade -y && apt autoremove -y && Update-RedTeam-ToolKit && check_reboot'
+alias enum4linux-ng='python3 /opt/RedTeam-ToolKit/Active_Directory/Enumeration/enum4linux-ng/enum4linux-ng.py'
+alias dirsearch='python3 /opt/RedTeam-ToolKit/Web/dirsearch/dirsearch.py'
+alias rustscan='/opt/RedTeam-ToolKit/Recon/RustScan/target/release/rustscan -a'    
+alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'
+alias enum4linux-ng='python3 /opt/RedTeam-ToolKit/Enumeration/enum4linux-ng/enum4linux-ng.py'
+alias dirsearch='python3 /opt/RedTeam-ToolKit/Web/dirsearch/dirsearch.py'   
+alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'
 alias c='clear'   
 alias off='shutdown -h now'
 alias rr='reboot'
@@ -274,16 +274,17 @@ alias fix-loginscreen='cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base
 alias set-python2='ln -sfn /usr/bin/python2 /usr/bin/python'
 alias set-python3='ln -sfn /usr/bin/python3 /usr/bin/python'   
 alias cat='bat'
-alias bloodhound-up='/opt/Red-Team-Toolkit/Active_Directory/Enumeration/BloodHound-Util/SpinUp-BloodHound.sh'
-alias impacket-env='source /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools/impacket/impacket-env/bin/activate'
-alias PrintNightmare-env='source /opt/Red-Team-Toolkit/Active_Directory/Offensive-Tools/PrintNightmare/PrintNightmare-env/bin/activate'
+alias bloodhound-up='/opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util/SpinUp-BloodHound.sh'
+alias impacket-env='source /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/impacket/impacket-env/bin/activate'
+alias PrintNightmare-env='source /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/PrintNightmare/PrintNightmare-env/bin/activate'
+alias log4j-venv='source /opt/RedTeam-ToolKit/Exploits/Log4Shell/log4j-venv/bin/activate'
 alias fuck='sudo $(history -p !!)'
 alias nmap-VulScan="nmap --script vulscan/scipag_vulscan/vulscan.nse --script-args=vulscanoutput='ID: {id} - Title: {title} ({matches})\n' --script-args=vulscan/vulscandb=exploitdb.csv -sV -sC -O -p- -f "
 alias nmap-Vulners='nmap -sV --script vulners --script-args mincvss=5.0 -O -p- -f '
 alias web-srv='python3 -m http.server 8888'
 alias Fix-Wifi='service NetworkManager start;airmon-ng stop wlan0mon'
 alias obsidian='/usr/share/obsidian/Obsidian.AppImage --no-sandbox'
-alias Pcredz='python3 /opt/Red-Team-Toolkit/Network/PCredz/Pcredz'
+alias Pcredz='python3 /opt/RedTeam-ToolKit/Network/PCredz/Pcredz'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
