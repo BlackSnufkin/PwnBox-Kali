@@ -465,7 +465,7 @@ Recon-Tools () {
     mv spiderfoot-3.5 SpiderFoot
     cd SpiderFoot
     echo -e "$greenplus starting to install spiderfoot requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus spiderfoot successfully installed"
 
     # witnessme
@@ -495,7 +495,7 @@ Recon-Tools () {
     GetTool https://github.com/opsdisk/pagodo.git
     cd pagodo
     echo -e "$greenplus starting to install pagodo requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     python3 ghdb_scraper.py -s -j -i 
     echo -e "\n$greenplus pagodo successfully installed"
 
@@ -512,14 +512,14 @@ Recon-Tools () {
     GetTool https://github.com/m8r0wn/crosslinked.git
     cd crosslinked
     echo -e "$greenplus starting to install crosslinked requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus crosslinked successfully installed"
 
     # LinkedInt
     cd /opt/RedTeam-ToolKit/Recon
     GetTool https://github.com/vysecurity/LinkedInt.git
     cd LinkedInt
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus LinkedInt successfully installed"
 
     # o365enum
@@ -1025,7 +1025,7 @@ Phishing-Tools () {
     GetTool https://github.com/werdox/phishfactory.git
     cd phishfactory
     echo -e "$greenplus starting to install phishfactory requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     python3 install.py
     echo -e "\n$greenplus phishfactory successfully installed"
 
@@ -1061,7 +1061,7 @@ BruteForce-Tools () {
     GetTool https://github.com/x90skysn3k/brutespray.git
     cd brutespray
     echo -e "$greenplus starting to install brutespray requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus brutespray successfully installed"
 
     # msspray
@@ -1074,7 +1074,7 @@ BruteForce-Tools () {
     GetTool https://github.com/byt3bl33d3r/SprayingToolkit.git
     echo -e "$greenplus starting to install SprayingToolkit requirements "
     cd SprayingToolkit
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus SprayingToolkit successfully installed"
 
     # Omnispray
@@ -1082,7 +1082,7 @@ BruteForce-Tools () {
     GetTool https://github.com/0xZDH/Omnispray.git
     cd Omnispray
     echo -e "$greenplus starting to install Omnispray requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus Omnispray successfully installed"
 
     sleep 0.5
@@ -1106,7 +1106,7 @@ ActiveDirectory_Enumeration-Tools () {
     source enum4linux-ng-env/bin/activate
     echo -e "$greenplus starting to install enum4linux-ng requirements "
     pip3 install wheel --quiet
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus Enum4linux-ng successfully installed"
     
     # Pretty ldapdomaindump output
@@ -1199,7 +1199,7 @@ ActiveDirectory_CredentialDumping-Tools () {
     GetTool https://github.com/aas-n/spraykatz.git
     cd spraykatz
     echo -e "$greenplus starting to install spraykatz requirements "
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus spraykatz successfully installed"
 
     #lsassy
@@ -1343,12 +1343,12 @@ Exploits () {
     #log4j scanner
     GetTool https://github.com/fullhunt/log4j-scan.git
     cd log4j-scan
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
     
     # log4j RCE
     GetTool https://github.com/cyberstruggle/L4sh.git
     cd L4sh
-    pip3 install -r requirements.txt --quiet
+    pip3 install --no-cache-dir -r requirements.txt --quiet
 
     # JNDI-Exploit-Ki 
     GetTool https://github.com/pimps/JNDI-Exploit-Kit.git
