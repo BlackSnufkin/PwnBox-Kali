@@ -1085,6 +1085,17 @@ BruteForce-Tools () {
     pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus Omnispray successfully installed"
 
+    # kerbute
+    cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
+    GetTool https://github.com/ropnop/kerbrute.git
+    cd kerbrute
+    make all 
+    mv dist/kerbrute_windows_amd64.exe kerbrute.exe
+    mv dist/kerbrute_linux_amd64 kerbrute
+    rm dist/kerbrute_*
+    ln -s /opt/RedTeam-ToolKit/Initial_Access/BruteForce/kerbrute/dist/kerbrute /usr/bin/kerbute
+    echo -e "\n$greenplus kerbrute successfully installed"    
+
     sleep 0.5
     echo -e "\n$greenplus BruteForce,PasswordSpray Tools successfully installed"
     sleep 0.5
