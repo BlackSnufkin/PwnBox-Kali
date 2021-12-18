@@ -1422,6 +1422,8 @@ if [ $? == 0 ]; then
     systemctl enable postgresql
 
     SpinUp_Workspace
+    Utils-Tools
+    
     Recon-Tools
     Web-Tools
     C2-Tools
@@ -1436,7 +1438,6 @@ if [ $? == 0 ]; then
     ActiveDirectory_CredentialDumping-Tools
     ActiveDirectory_Offensive-Tools
     Exploits
-    Utils-Tools
     Twiking
 
     Update && apt reinstall python3-debian -y && check_reboot
