@@ -1198,7 +1198,7 @@ ActiveDirectory_CredentialDumping-Tools () {
     #lsassy
     cd /opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
     echo -e "$greenplus starting to install lsassy "
-    python3 -m pip uinstall lsassy --quiet
+    python3 -m pip uninstall lsassy --quiet
     python3 -m pip install lsassy --quiet
     echo -e "\n$greenplus lsassy successfully installed"
 
@@ -1305,6 +1305,11 @@ ActiveDirectory_Offensive-Tools (){
     cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/KDC_Bamboozling
     GetTool https://github.com/WazeHell/sam-the-admin
     echo -e "\n$greenplus sam-the-admin successfully installed"
+
+    #noPAC
+    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/KDC_Bamboozling
+    GetTool https://github.com/Ridter/noPac.git noPac-PY
+    echo -e "\n$greenplus noPac-PY successfully installed"
 
 
 
