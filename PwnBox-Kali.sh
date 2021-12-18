@@ -8,7 +8,7 @@
 #                New Kali-Linux VM                      #
 #                                                       #
 #                                                       #
-# ***               Updated: 07/12/21               *** #
+# ***               Updated: 18/12/21               *** #
 #########################################################
 
 
@@ -206,7 +206,7 @@ Update_and_install () {
     Fix_SourceList
     Update
     echo -e "\n$greenplus Starting to install dependencies"
-    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode")
+    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libxml2-dev" "libxslt1-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
     apt remove proxychains4 spiderfoot -y
 
@@ -1423,7 +1423,7 @@ if [ $? == 0 ]; then
 
     SpinUp_Workspace
     Utils-Tools
-    
+
     Recon-Tools
     Web-Tools
     C2-Tools
