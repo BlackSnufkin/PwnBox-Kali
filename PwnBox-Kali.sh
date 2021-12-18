@@ -391,8 +391,8 @@ Obsdian () {
     set -euo pipefail
     icon_url="https://cdn.discordapp.com/icons/686053708261228577/1361e62fed2fee55c7885103c864e2a8.png"
     dl_url="https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.19/Obsidian-0.12.19.AppImage"
-    wget -q --show-progress --progress=bar:force:noscroll $dl_url -o Obsidian.AppImage
-    wget -q --show-progress --progress=bar:force:noscroll $icon_url -o obsidian.png
+    curl --location --output Obsidian.AppImage "$dl_url"
+    curl --location --output obsidian.png "$icon_url"
     mkdir --parents /usr/share/obsidian
     mv Obsidian.AppImage /usr/share/obsidian
     chmod u+x /usr/share/obsidian/Obsidian.AppImage
