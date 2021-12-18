@@ -210,7 +210,7 @@ check_reboot () {
 	fi
 }
 
-Update-RedTeam-ToolKIt (){
+Update-RedTeam-ToolKit (){
 
 	cd /opt/RedTeam-ToolKit
 	find . -type d -name .git -exec sh -c "cd \"{}\"/../&& sleep 1; echo  && pwd &&  git pull" \;

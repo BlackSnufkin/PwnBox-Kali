@@ -1126,8 +1126,7 @@ ActiveDirectory_Enumeration-Tools () {
     npm install -g electron-packager
     npm install
     npm run linuxbuild
-    echo 'exec /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound/BloodHound-linux-x64/BloodHound --no-sandbox' > /usr/bin/bloodhound
-    chmod +x /usr/bin/bloodhound
+    ln -s /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound/BloodHound-linux-x64/BloodHound /usr/bin/bloodhound
     echo -e "\n$greenplus Bloodhound successfully installed"
 
     echo -e "\n$greenplus Installing BloodHound Utils"
@@ -1163,6 +1162,8 @@ ActiveDirectory_Enumeration-Tools () {
     cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util
     echo -e "$greenplus Downloading SpinUp-BloodHound successfully installed"
     wget -q --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/theGuildHall/pwnbox/master/bloodhound/startBH.sh -O SpinUp-BloodHound.sh
+    replace-line "   bloodhound --no-sandbox" 7 SpinUp-BloodHound.sh
+    replace-line "   bloodhound --no-sandbox" 10 SpinUp-BloodHound.sh
     chmod +x SpinUp-BloodHound.sh 
     echo -e "\n$greenplus SpinUp-BloodHound successfully installed"
     
@@ -1402,6 +1403,7 @@ Twiking () {
     ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --smb; \
     ./pimpmykali.sh --grub; \
+    ./pimpmykali.sh --flameshot; \
     ./pimpmykali.sh --mirrors; \
     echo -e "\n$greenplus pimpmykali successfully installed"
     

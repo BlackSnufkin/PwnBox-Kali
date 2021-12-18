@@ -125,16 +125,7 @@ check_reboot () {
     fi
 }
 
-check_reboot () {
-    if [ -f /var/run/reboot-required ];then
-        echo  -e '[!] Reboot required \n[!] Rebooting in 5 Seconds';sleep 5;reboot -f
-    else
-        echo  -e ' \n[+] No reboot required'
-        true
-    fi
-}
-
-Update-RedTeam-ToolKIt (){
+Update-RedTeam-ToolKit (){
 
     cd /opt/RedTeam-ToolKit
     find . -type d -name .git -exec sh -c "cd \"{}\"/../&& sleep 1; echo  && pwd &&  git pull" \;
@@ -178,6 +169,7 @@ i() {
         echo "Disconnected"
     fi
 }
+
 
 
 alias chrome='google-chrome-stable %u'
