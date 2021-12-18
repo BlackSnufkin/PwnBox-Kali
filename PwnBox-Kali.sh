@@ -614,6 +614,13 @@ Recon-Tools () {
     nmap --script-updatedb
     echo -e "\n$greenplus Nmap NSE-scripts successfully installed"
 
+    # ultimate-nmap-parser
+    cd /opt/RedTeam-ToolKit/Recon/Nmap-Utils
+    GetTool https://github.com/Shifty0g/ultimate-nmap-parser/
+    cd ultimate-nmap-parser/
+    chmod +x ultimate-nmap-parser.sh
+    echo -e "\n$greenplus ultimate-nmap-parser successfully installed"
+
     sleep 0.5
     echo -e "\n$greenplus Recon Tools successfully installed"
     sleep 0.5
