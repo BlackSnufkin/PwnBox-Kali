@@ -258,12 +258,12 @@ i() {
 
 
 alias chrome='google-chrome-stable %u'
-alias update='apt update && apt full-upgrade -y && apt autoremove -y && Update-RedTeam-ToolKit && check_reboot'
+alias update='apt update && apt full-upgrade -y && apt autoremove -y && check_reboot'
+alias full-update='apt update && apt full-upgrade -y && apt autoremove -y && Update-RedTeam-ToolKit && check_reboot'
 alias enum4linux-ng='python3 /opt/RedTeam-ToolKit/Active_Directory/Enumeration/enum4linux-ng/enum4linux-ng.py'
 alias dirsearch='python3 /opt/RedTeam-ToolKit/Web/dirsearch/dirsearch.py'
 alias rustscan='/opt/RedTeam-ToolKit/Recon/RustScan/target/release/rustscan -a'    
 alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'
-alias enum4linux-ng='python3 /opt/RedTeam-ToolKit/Enumeration/enum4linux-ng/enum4linux-ng.py'
 alias dirsearch='python3 /opt/RedTeam-ToolKit/Web/dirsearch/dirsearch.py'   
 alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'
 alias c='clear'   

@@ -1089,9 +1089,10 @@ BruteForce-Tools () {
     cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
     GetTool https://github.com/ropnop/kerbrute.git
     cd kerbrute
-    make all 
-    mv dist/kerbrute_windows_amd64.exe kerbrute.exe
-    mv dist/kerbrute_linux_amd64 kerbrute
+    make linux
+    make windows
+    mv dist/kerbrute_windows_amd64.exe dist/kerbrute.exe
+    mv dist/kerbrute_linux_amd64 dist/kerbrute
     rm dist/kerbrute_*
     ln -s /opt/RedTeam-ToolKit/Initial_Access/BruteForce/kerbrute/dist/kerbrute /usr/bin/kerbrute
     echo -e "\n$greenplus kerbrute successfully installed"    
