@@ -1093,7 +1093,7 @@ BruteForce-Tools () {
     mv dist/kerbrute_windows_amd64.exe kerbrute.exe
     mv dist/kerbrute_linux_amd64 kerbrute
     rm dist/kerbrute_*
-    ln -s /opt/RedTeam-ToolKit/Initial_Access/BruteForce/kerbrute/dist/kerbrute /usr/bin/kerbute
+    ln -s /opt/RedTeam-ToolKit/Initial_Access/BruteForce/kerbrute/dist/kerbrute /usr/bin/kerbrute
     echo -e "\n$greenplus kerbrute successfully installed"    
 
     sleep 0.5
