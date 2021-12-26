@@ -206,7 +206,7 @@ Update_and_install () {
     Fix_SourceList
     Update
     echo -e "\n$greenplus Starting to install dependencies"
-    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libxml2-dev" "libxslt1-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode")
+    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libxml2-dev" "libxslt1-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode" "nim")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
     apt remove proxychains4 spiderfoot -y
 
@@ -733,7 +733,8 @@ Web-Tools (){
     cd nuclei/v2/cmd/nuclei; \
     go build; \
     mv nuclei /usr/local/bin/; \
-    nuclei -version;
+    nuclei -ud /opt/RedTeam-ToolKit/Web/Nuclei-Util/Nuclei-Templates; \
+    nuclei -version; 
     echo -e "\n$greenplus nuclei successfully installed"
     
     # Nuclei-Templates
@@ -991,6 +992,17 @@ Payloads-Tools (){
     chmod +x phantom-evasion.py
     python3 phantom-evasion.py --setup
     echo -e "\n$greenplus Phantom-Evasion successfully installed"
+
+    # NimHollow
+
+    cd /opt/RedTeam-ToolKit/Payload_Dev
+    echo -e "\n$greenplus Installing NimHollow"
+    git clone --recurse-submodules https://github.com/snovvcrash/NimHollow && cd NimHollow
+    git submodule update --init --recursive
+    nimble install winim nimcrypto
+    pip3 install -r requirements.txt
+    echo -e "\n$greenplus NimHollow successfully installed"
+
 
     sleep 0.5
     echo -e "\n$greenplus Payloads-Development Tools successfully installed"
