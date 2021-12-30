@@ -2,13 +2,13 @@
 
 #########################################################
 # ***       BlackSnufkin PwnBox-Kali                *** #
-#                   Version 3.0                         #
+#                   Version 3.2                         #
 #    Autemated the process of installing and update     #
 #                                                       #
 #                New Kali-Linux VM                      #
 #                                                       #
 #                                                       #
-# ***               Updated: 18/12/21               *** #
+# ***               Updated: 30/12/21               *** #
 #########################################################
 
 
@@ -206,7 +206,7 @@ Update_and_install () {
     Fix_SourceList
     Update
     echo -e "\n$greenplus Starting to install dependencies"
-    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libxml2-dev" "libxslt1-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode" "nim")
+    pkgs=("dkms" "build-essential" "linux-headers-amd64" "gufw" "golang" "xrdp" "docker-compose" "lcab" "checkinstall" "autoconf" "automake" "python2-dev" "autotools-dev" "m4" "python3-venv" "gnome-terminal" "plank" "cargo" "docker.io" "tor" "torbrowser-launcher" "lolcat" "xautomation" "guake" "starkiller" "open-vm-tools" "open-vm-tools-desktop" "fuse3" "libssl-dev" "libxml2-dev" "libxslt1-dev" "libffi-dev" "python3-pip" "bettercap" "npm" "python3.9-dev" "libpcap-dev" "adb" "gcc-mingw-w64" "libc6-dev" "python3.9-venv" "python3-pyqt5" "libssl-dev" "figlet" "toilet" "powershell" "libpcap0.8" "mingw-w64-tools" "mingw-w64-common" "libffi-dev" "g++-mingw-w64" "upx-ucl" "seclists" "osslsigncode" "nim" "jq" "ruby-full"  "libxml2" "ruby-dev" "libgmp-dev" "zlib1g-dev" "libssl-dev"  "python-setuptools" "libldns-dev" "python3-dnspython" "rename" "xargs" "snapd" "tree")
     for i in "${pkgs[@]}"; do Install_pkg "$i"; done
     apt remove proxychains4 spiderfoot -y
 
@@ -445,8 +445,9 @@ Recon-Tools () {
 
     # Rustscan
     echo -e "\n$greenplus Downloading & Installing Recon Tools"
+    RECON_DIR=/opt/RedTeam-ToolKit/Recon
     
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/RustScan/RustScan.git
     cd RustScan
     cargo build --release
@@ -458,7 +459,7 @@ Recon-Tools () {
 
     #SpiderFoot
     echo -e "\n$greenplus Installing SpiderFoot"
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     wget -q --show-progress --progress=bar:force:noscroll https://github.com/smicallef/spiderfoot/archive/v3.5.tar.gz
     tar zxvf v3.5.tar.gz > /dev/null
     rm -rf v3.5.tar.gz
@@ -486,12 +487,12 @@ Recon-Tools () {
     echo -e "\n$greenplus gowitness prebuilt binary successfully installed"
 
     # GoMapEnum
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/nodauf/GoMapEnum.git
     echo -e "\n$greenplus GoMapEnum successfully installed"
     
     # pagodo
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/opsdisk/pagodo.git
     cd pagodo
     echo -e "$greenplus starting to install pagodo requirements "
@@ -500,7 +501,7 @@ Recon-Tools () {
     echo -e "\n$greenplus pagodo successfully installed"
 
     # AttackSurfaceMapper
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/superhedgy/AttackSurfaceMapper.git
     cd AttackSurfaceMapper
     echo -e "$greenplus starting to install AttackSurfaceMapper requirements "
@@ -508,7 +509,7 @@ Recon-Tools () {
     echo -e "\n$greenplus AttackSurfaceMapper successfully installed"
 
     # CrossLinked
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/m8r0wn/crosslinked.git
     cd crosslinked
     echo -e "$greenplus starting to install crosslinked requirements "
@@ -516,24 +517,24 @@ Recon-Tools () {
     echo -e "\n$greenplus crosslinked successfully installed"
 
     # LinkedInt
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/vysecurity/LinkedInt.git
     cd LinkedInt
     pip3 install --no-cache-dir -r requirements.txt --quiet
     echo -e "\n$greenplus LinkedInt successfully installed"
 
     # o365enum
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/gremwell/o365enum.git
     echo -e "\n$greenplus o365enum successfully installed"
 
     #dnsrecon
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/darkoperator/dnsrecon.git
     echo -e "\n$greenplus dnsrecon successfully installed"
 
     # Reconnoitre
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     GetTool https://github.com/codingo/Reconnoitre.git
     cd Reconnoitre
     python3 setup.py install
@@ -561,7 +562,7 @@ Recon-Tools () {
     rm -rf nmap-vulners
     echo -e "\n$greenplus nmap-vulners successfully installed"
 
-    cd /opt/RedTeam-ToolKit/Recon
+    cd $RECON_DIR
     mkdir Nmap-Utils
     cd Nmap-Utils
     GetTool https://github.com/scipag/vulscan.git scipag_vulscan 
@@ -595,19 +596,19 @@ Recon-Tools () {
     echo -e "\n$greenplus vulscan successfully installed"
 
     # NSE
-    cd /opt/RedTeam-ToolKit/Recon/Nmap-Utils
+    cd $RECON_DIR/Nmap-Utils
     GetTool https://github.com/s4n7h0/NSE.git   
     cd NSE
     cp *.nse /usr/share/nmap/scripts
     
     
     # NSE-scripts
-    cd /opt/RedTeam-ToolKit/Recon/Nmap-Utils
+    cd $RECON_DIR/Nmap-Utils
     GetTool https://github.com/psc4re/NSE-scripts.git
     
     cd NSE-scripts
     cp *.nse /usr/share/nmap/scripts
-    cd /opt/RedTeam-ToolKit/Recon/Nmap-Utils 
+    cd $RECON_DIR/Nmap-Utils 
     rm /usr/share/nmap/scripts/ssl-enum-ciphers.nse
     rm -rf /opt/RedTeam-ToolKit/Recon/Nmap-Utils/NSE-scripts
     rm -rf /opt/RedTeam-ToolKit/Recon/Nmap-Utils/NSE 
@@ -615,15 +616,18 @@ Recon-Tools () {
     echo -e "\n$greenplus Nmap NSE-scripts successfully installed"
 
     # ultimate-nmap-parser
-    cd /opt/RedTeam-ToolKit/Recon/Nmap-Utils
+    cd $RECON_DIR/Nmap-Utils
     GetTool https://github.com/Shifty0g/ultimate-nmap-parser/
     cd ultimate-nmap-parser/
     chmod +x ultimate-nmap-parser.sh
     echo -e "\n$greenplus ultimate-nmap-parser successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Recon Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Recon Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $RECON_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -631,22 +635,23 @@ Recon-Tools () {
 C2-Tools (){
 
     echo -e "\n$greenplus Downloading & Installing Command & Control Tools"
-    
+    C2_DIR=/opt/RedTeam-ToolKit/C2
+
     # Evil-winrm
-    cd /opt/RedTeam-ToolKit/C2
+    cd $C2_DIR
     GetTool https://github.com/Hackplayers/evil-winrm.git 
     gem install rubyntlm winrm winrm-fs stringio logger fileutils
     echo -e "\n$greenplus Evil-winrm successfully installed"
 
     # dnscat
-    cd /opt/RedTeam-ToolKit/C2
+    cd $C2_DIR
     GetTool https://github.com/iagox86/dnscat2.git   
     cd dnscat2/server/
     bundle install
     echo -e "\n$greenplus dnscat2 successfully installed"
     
     # Pwncat
-    cd /opt/RedTeam-ToolKit/C2
+    cd $C2_DIR
     echo -e "\n$greenplus Installing Pwncat"
     python3 -m venv /opt/RedTeam-ToolKit/C2/pwncat
     /opt/RedTeam-ToolKit/C2/pwncat/bin/pip install git+https://github.com/calebstewart/pwncat
@@ -654,7 +659,7 @@ C2-Tools (){
     echo -e "\n$greenplus Pwncat successfully installed"
 
     # DeathStar-Empire
-    cd /opt/RedTeam-ToolKit/C2
+    cd $C2_DIR
     echo -e "\n$greenplus Installing DeathStar-Empire"
     echo -e "$greenplus starting to install DeathStar-Empire requirements "
     pip3 install poetry --quiet
@@ -664,7 +669,7 @@ C2-Tools (){
     echo -e "\n$greenplus DeathStar-Empire successfully installed"
     
     # Shad0w
-    cd /opt/RedTeam-ToolKit/C2
+    cd $C2_DIR
     GetTool https://github.com/bats3c/shad0w.git
     cd shad0w
     replace-line 'echo -e "\e[1;33m[++]\e[0m starting to install shad0w requirements";python3 -m pip install -r ./requirements.txt --quiet' 6 install.sh    
@@ -672,8 +677,12 @@ C2-Tools (){
     echo -e "\n$greenplus shad0w successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Command & Control Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Command & Control Tools successfully installed"
+    echo -e "\n\n"   
+    tree -d $C2_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
+
 
 }
 
@@ -682,19 +691,10 @@ Web-Tools (){
     
     # Web Tools
     echo -e "\n$greenplus Downloading & Installing Web-Tools"
-    
-    # Dirsearc
-    cd /opt/RedTeam-ToolKit/Web
-    GetTool https://github.com/maurosoria/dirsearch.git
-    echo -e "\n$greenplus Dirsearch successfully installed"
-
-    # magicRecon
-    cd /opt/RedTeam-ToolKit/Web
-    GetTool https://github.com/robotshell/magicRecon.git
-    echo -e "\n$greenplus magicRecon successfully installed"
+    WEB_DIR=/opt/RedTeam-ToolKit/Web
     
     #fuff
-    cd /opt/RedTeam-ToolKit/Web
+    cd $WEB_DIR
     GetTool https://github.com/ffuf/ffuf.git
     cd ffuf ; go get ; go build
     echo -e "\n$greenplus fuff successfully installed"
@@ -707,29 +707,124 @@ Web-Tools (){
     echo -e "\n$greenplus duplicut successfully installed"
     
     # OneListForAll
-    cd /opt/RedTeam-ToolKit/Web
+    cd $WEB_DIR
     GetTool https://github.com/six2dez/OneListForAll.git
     cd OneListForAll
     ./olfa.sh
     echo -e "\n$greenplus OneListForAll successfully installed"
     
-    # Reconky-Automated_Bash_Script
-    cd /opt/RedTeam-ToolKit/Web
-    GetTool https://github.com/ShivamRai2003/Reconky-Automated_Bash_Script.git
-    cd Reconky-Automated_Bash_Script
-    replace-line "cd /opt/RedTeam-ToolKit/Web" 26 install.sh
-    replace-line "    cd /opt/RedTeam-ToolKit/Web" 67 install.sh
-    replace-line "    mkdir Reconky-tools" 68 install.sh
-    replace-line "    cd Reconky-tools" 69 install.sh
-    replace-line "    ln -sfv /opt/RedTeam-ToolKit/Web/Reconky-tools/Sublist3r/sublist3r.py /usr/bin/sublist3r" 75 install.sh
-    replace-line "    cd /opt/RedTeam-ToolKit/Web/Reconky-tools" 81 install.sh    
-    chmod +x install.sh
+    # LazyRecon Tools
+    echo -e "\n$greenplus installing LazyRecon tools and dependencies"
+    echo -e "\n$greenplus installing bash_profile aliases from recon_profile"
+    cat ~/PwnBox-Kali/Resources/.bash_profile >> ~/.bash_profile
+    source ~/.bash_profile
+    cd $WEB_DIR/
+
+    #Don't forget to set up AWS credentials!
+    echo -e "\n$greenplus Don't forget to set up AWS credentials!"
+    apt install -y awscli
+    echo -e "\n$greenplus Don't forget to set up AWS credentials!"
+
+    cd $WEB_DIR/
+
+    #install aquatone
+    echo -e "\n$greenplus Installing Aquatone"
+    go get github.com/michenriksen/aquatone
+
+
+    #install chromium
+    echo -e "\n$greenplus Installing Chromium"
+    snap install chromium
+
+
+    GetTool https://github.com/nahamsec/JSParser.git
+    cd JSParser*
+    python3 setup.py install
+    cd $WEB_DIR/
+
+    GetTool https://github.com/aboul3la/Sublist3r.git
+    cd Sublist3r*
+    pip3 install -r requirements.txt --no-cache-dir --quiet
+    cd $WEB_DIR/
+
+
+    GetTool https://github.com/tomdev/teh_s3_bucketeers.git
+    cd $WEB_DIR/
+
+
+    GetTool https://github.com/wpscanteam/wpscan.git
+    cd wpscan*
+    gem install bundler && bundle install --without test
+    cd $WEB_DIR/
+
+
+    GetTool https://github.com/maurosoria/dirsearch.git
+    cd $WEB_DIR/
+
+
+    GetTool https://github.com/nahamsec/lazys3.git
+    cd $WEB_DIR/
+
+
+    GetTool https://github.com/jobertabma/virtual-host-discovery.git
+    cd $WEB_DIR/
+
+
+    git clone  --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+    cd $WEB_DIR/
+
+    GetTool https://github.com/guelfoweb/knock.git
+    cd $WEB_DIR/
+
+    GetTool https://github.com/BlackSnufkin/lazyrecon.git
+    cd $WEB_DIR/
+
+
+    GetTool https://github.com/blechschmidt/massdns.git
+    cd $WEB_DIR/massdns
+    make
+    cd $WEB_DIR/
+
+    GetTool https://github.com/yassineaboukir/asnlookup.git
+    cd $WEB_DIR/asnlookup
+    pip3 install -r requirements.txt --no-cache-dir --quiet
+    cd $WEB_DIR/
+
+
+    echo -e "\n$greenplus installing httprobe"
+    go get -u github.com/tomnomnom/httprobe 
+
+
+    echo -e "\n$greenplus installing unfurl"
+    go get -u github.com/tomnomnom/unfurl 
+
+
+    echo -e "\n$greenplus installing waybackurls"
+    go get github.com/tomnomnom/waybackurls
+
+    GetTool https://github.com/nahamsec/crtndstry.git
+
+    cd $WEB_DIR/
+    GetTool https://github.com/danielmiessler/SecLists.git
+    cd $WEB_DIR/SecLists/Discovery/DNS/
+    ##THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
+    cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
+    cd $WEB_DIR/
+
+    echo -e "\n$greenplus One last time: don't forget to set up AWS credentials in ~/.aws/!"
+
+    # magicRecon
+    cd $WEB_DIR/
+    GetTool https://github.com/BlackSnufkin/magicRecon.git
+    cd magicRecon
     ./install.sh
-    echo -e "\n$greenplus Reconky-Automated_Bash_Script successfully installed"
-    
+    echo -e "\n$greenplus magicRecon successfully installed"
+
+
     # nuclei
-    cd /opt/RedTeam-ToolKit/Web
+    cd $WEB_DIR
     GetTool https://github.com/projectdiscovery/nuclei.git
+    mkdir /opt/RedTeam-ToolKit/Web/Nuclei-Util
     cd nuclei/v2/cmd/nuclei; \
     go build; \
     mv nuclei /usr/local/bin/; \
@@ -739,8 +834,7 @@ Web-Tools (){
     
     # Nuclei-Templates
     echo -e "\n$greenplus Donwloading  Nuclei-Templates"
-    mkdir /opt/RedTeam-ToolKit/Web/Nuclei-Util
-    cd /opt/RedTeam-ToolKit/Web/Nuclei-Util/
+    cd $WEB_DIR/Nuclei-Util/
     (GetTool https://github.com/ARPSyndicate/kenzer-templates.git)
     (GetTool https://github.com/panch0r3d/nuclei-templates.git Nuclei-Templates1)
     (GetTool https://github.com/medbsq/ncl.git)
@@ -751,13 +845,16 @@ Web-Tools (){
     echo -e "\n$greenplus Nuclei-Templates successfully installed"
     
     # 4-ZERO-3
-    cd /opt/RedTeam-ToolKit/Web
+    cd $WEB_DIR
     GetTool https://github.com/Dheerajmadhukar/4-ZERO-3.git
     echo -e "\n$greenplus 4-ZERO-3 successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Web-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Web-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $WEB_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -766,14 +863,15 @@ Wifi-Tools (){
     
     #Wifi Tools
     echo -e "\n$greenplus Downloading & Installing Wifi-Tools"
-    
+    WIFI_DIR=/opt/RedTeam-ToolKit/Wifi
+
     # OWT
-    cd /opt/RedTeam-ToolKit/Wifi
+    cd $WIFI_DIR
     GetTool https://github.com/clu3bot/OWT.git
     echo -e "\n$greenplus OWT successfully installed"
     
     # airgeddon
-    cd /opt/RedTeam-ToolKit/Wifi
+    cd $WIFI_DIR
     echo -e "\n$greenplus Installing airgeddon"    
     if ! (git clone --depth 1 https://github.com/v1s1t0r1sh3r3/airgeddon.git) then
         echo -e "$redexclaim Error while donwloading, trying again in 30 seconds";sleep 30;git clone --depth 1 https://github.com/v1s1t0r1sh3r3/airgeddon.git
@@ -782,22 +880,26 @@ Wifi-Tools (){
     fi
     
     # websploit
-    cd /opt/RedTeam-ToolKit/Wifi
+    cd $WIFI_DIR
     GetTool https://github.com/websploit/websploit.git
     cd websploit
     python3 setup.py install &> /dev/null
     echo -e "\n$greenplus websploit successfully installed"
     
     # Wifipumpkin3
-    cd /opt/RedTeam-ToolKit/Wifi
+    cd $WIFI_DIR
     GetTool https://github.com/P0cL4bs/wifipumpkin3.git
     cd wifipumpkin3
     python3 -c "from PyQt5.QtCore import QSettings; print('PyQt5 for wifipumpkin3 ')"
     python3 setup.py install &> /dev/null
     echo -e "\n$greenplus wifipumpkin3 successfully installed"
+    
     sleep 0.5
-    echo -e "\n$greenplus Wifi-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Wifi-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $WIFI_DIR -L 1
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -806,9 +908,10 @@ Mobile-Tools (){
     
     # Mobile-Tools
     echo -e "\n$greenplus Downloading & Installing Mobile-Tools"
-    
+    MOBILE_DIR=/opt/RedTeam-ToolKit/Mobile
+
     # MobSF
-    cd /opt/RedTeam-ToolKit/Mobile
+    cd $MOBILE_DIR
     GetTool https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
     cd Mobile-Security-Framework-MobSF
     docker build -t mobsf . 
@@ -817,7 +920,7 @@ Mobile-Tools (){
     echo -e "\n$greenplus Mobile-Security-Framework-MobSF successfully installed"
 
     # Phonesploit
-    cd /opt/RedTeam-ToolKit/Mobile
+    cd $MOBILE_DIR
     GetTool https://github.com/aerosol-can/PhoneSploit.git
     cd PhoneSploit
     echo -e "$greenplus starting to install Phonesploit requirements "
@@ -825,12 +928,16 @@ Mobile-Tools (){
     echo -e "\n$greenplus Phonesploit successfully installed"
 
     # SSL pining
-    cd /opt/RedTeam-ToolKit/Mobile
+    cd $MOBILE_DIR
     GetTool https://github.com/moxie0/AndroidPinning.git    
     echo -e "\n$greenplus AndroidPinning successfully installed"
+    
     sleep 0.5
-    echo -e "\n$greenplus Mobile-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Mobile-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $MOBILE_DIR -L 1
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -838,28 +945,29 @@ Mobile-Tools (){
 Network-Tools () {
     # Networking Tools
     echo -e "\n$greenplus Downloading & Installing Network-Tools"
-    
+    NETWORK_DIR=/opt/RedTeam-ToolKit/Network    
+
     # PCredz
-    cd /opt/RedTeam-ToolKit/Network
+    cd $NETWORK_DIR
     GetTool https://github.com/lgandx/PCredz.git
     echo -e "\n$greenplus PCredz successfully installed"
     
     # mitm6
-    cd /opt/RedTeam-ToolKit/Network
+    cd $NETWORK_DIR
     echo -e "$greenplus starting to install mitm6 requirements "
     pip3 install Cython --quiet && pip3 install python-libpcap --quiet
     GetTool https://github.com/fox-it/mitm6.git
     echo -e "\n$greenplus mitm6 successfully installed"
     
     # Nmap Visulize Network
-    cd /opt/RedTeam-ToolKit/Network
+    cd $NETWORK_DIR
     GetTool https://github.com/tedsluis/nmap.git Nmap_Network-visualization                  
     cd Nmap_Network-visualization
     wget  -q --show-progress -progress=bar:force:noscroll https://gojs.net/latest/release/go.js
     echo -e "\n$greenplus Nmap_Network-visualization successfully installed"    
 
     # BruteSharkCli
-    cd /opt/RedTeam-ToolKit/Network
+    cd $NETWORK_DIR
     mkdir BruteShark
     cd BruteShark
     echo -e "\n$greenplus Downloading BruteSharkCli\n"
@@ -868,8 +976,11 @@ Network-Tools () {
     echo -e "\n$greenplus BruteSharkCli successfully installed" 
     
     sleep 0.5
-    echo -e "\n$greenplus Network-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Network-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $NETWORK_DIR -L 1
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -877,9 +988,10 @@ Network-Tools () {
 Tunneling-Tools (){
 
     echo -e "\n$greenplus Downloading & Installing Tunneling-Tools"
-    
+    TUNNLING_DIR=/opt/RedTeam-ToolKit/Tunneling
+
     # Proxychains
-    cd /opt/RedTeam-ToolKit/Tunneling
+    cd $TUNNLING_DIR
     echo -e "\n$greenplus Installing proxychains-ng "
     GetTool https://github.com/rofl0r/proxychains-ng.git
     cd proxychains-ng
@@ -892,10 +1004,10 @@ Tunneling-Tools (){
     echo -e "\n$greenplus proxychains-ng successfully installed"
 
     # Chisel
-    cd /opt/RedTeam-ToolKit/Tunneling
+    cd $TUNNLING_DIR
     echo -e "\n$greenplus Installing Chisel"
     mkdir Chisel
-    cd /opt/RedTeam-ToolKit/Tunneling/Chisel
+    cd $TUNNLING_DIR/Chisel
     wget -q --show-progress --progress=bar:force:noscroll https://github.com/jpillora/chisel/releases/download/v1.7.6/chisel_1.7.6_windows_amd64.gz -O chisel_Windows.gz
     gunzip chisel_Windows.gz &> /dev/null
     mv chisel_Windows chisel.exe 
@@ -904,7 +1016,7 @@ Tunneling-Tools (){
     echo -e "\n$greenplus chisel successfully installed"
 
     # PingTunnel
-    cd /opt/RedTeam-ToolKit/Tunneling
+    cd $TUNNLING_DIR
     echo -e "\n$greenplus Installing pingtunnel"
     mkdir pingtunnel && cd pingtunnel
     wget -q --show-progress --progress=bar:force:noscroll https://github.com/esrrhs/pingtunnel/releases/download/2.6/pingtunnel_windows_amd64.zip -O pingtunnel_windows.zip 
@@ -917,7 +1029,7 @@ Tunneling-Tools (){
 
 
     # Ptunnel-ng
-    cd /opt/RedTeam-ToolKit/Tunneling
+    cd $TUNNLING_DIR
     GetTool https://github.com/lnslbrty/ptunnel-ng.git
     cd ptunnel-ng
     wget -q --show-progress --progress=bar:force:noscroll https://github.com/lnslbrty/ptunnel-ng/releases/download/v1.42/ptunnel-ng-x64.exe -O ptunnel-ng.exe
@@ -925,8 +1037,11 @@ Tunneling-Tools (){
     echo -e "\n$greenplus ptunnel-ng successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Tunneling-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Tunneling-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $TUNNLING_DIR -L 1
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -934,14 +1049,15 @@ Tunneling-Tools (){
 Payloads-Tools (){
     
     echo -e "\n$greenplus Downloading & Installing Payloads-Development Tools"
+    PAYLOAD_DEV_DIR=/opt/RedTeam-ToolKit/Payload_Dev
     
     # Invoke-Stealth
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/JoelGMSec/Invoke-Stealth.git
     echo -e "\n$greenplus Invoke-Stealth successfully installed"
 
     # PEozer
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/phra/PEzor.git
     cd PEzor
     replace-line '(grep -q _prefix_PEzor_ ~/.zshrc || echo "export PATH=\$PATH:~/go/bin/:$INSTALL_DIR:$INSTALL_DIR/deps/donut/:$INSTALL_DIR/deps/wclang/_prefix_PEzor_/bin/") >> ~/.zshrc &&' 52 install.sh
@@ -951,12 +1067,12 @@ Payloads-Tools (){
     echo -e "\n$greenplus PEzor successfully installed"
 
     # darkarmour
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/bats3c/darkarmour.git
     echo -e "\n$greenplus darkarmour successfully installed"
 
     # ScareCrow
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/optiv/ScareCrow.git
     cd ScareCrow
     go get github.com/fatih/color
@@ -967,7 +1083,7 @@ Payloads-Tools (){
     echo -e "\n$greenplus ScareCrow successfully installed"
 
     # donloader
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/blinkenl1ghts/donloader.git
     cd donloader
     go install mvdan.cc/garble@latest
@@ -981,12 +1097,12 @@ Payloads-Tools (){
     echo -e "\n$greenplus donloader successfully installed"
 
     # Chimera
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/tokyoneon/Chimera.git
     echo -e "\n$greenplus Chimera successfully installed"
     
     # Phantom-Evasion
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     GetTool https://github.com/oddcod3/Phantom-Evasion.git
     cd Phantom-Evasion
     chmod +x phantom-evasion.py
@@ -995,7 +1111,7 @@ Payloads-Tools (){
 
     # NimHollow
 
-    cd /opt/RedTeam-ToolKit/Payload_Dev
+    cd $PAYLOAD_DEV_DIR
     echo -e "\n$greenplus Installing NimHollow"
     git clone --recurse-submodules https://github.com/snovvcrash/NimHollow && cd NimHollow
     git submodule update --init --recursive
@@ -1005,22 +1121,26 @@ Payloads-Tools (){
 
 
     sleep 0.5
-    echo -e "\n$greenplus Payloads-Development Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Payloads-Development Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $PAYLOAD_DEV_DIR -L 1
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
 
 Phishing-Tools () {
     echo -e "\n$greenplus Downloading & Installing Phishing-Tools"
+    PHISHING_DIR=/opt/RedTeam-ToolKit/Initial_Access/Phishing
 
     # phishmonger
-    cd /opt/RedTeam-ToolKit/Initial_Access/Phishing
+    cd $PHISHING_DIR
     GetTool https://github.com/fkasler/phishmonger.git
     echo -e "\n$greenplus phishmonger successfully installed"
 
     # gophish
-    cd /opt/RedTeam-ToolKit/Initial_Access/Phishing
+    cd $PHISHING_DIR
     GetTool https://github.com/gophish/gophish.git
     go get github.com/gophish/gophish
     cd gophish
@@ -1029,11 +1149,11 @@ Phishing-Tools () {
 
     # Phishing Templates
     echo -e "\n$greenplus Installing Phishing Templates"
-    cd /opt/RedTeam-ToolKit/Initial_Access/Phishing
+    cd $PHISHING_DIR
     mkdir PhishingTemplates
 
     # phishfactory
-    cd /opt/RedTeam-ToolKit/Initial_Access/Phishing/PhishingTemplates
+    cd $PHISHING_DIR/PhishingTemplates
     GetTool https://github.com/werdox/phishfactory.git
     cd phishfactory
     echo -e "$greenplus starting to install phishfactory requirements "
@@ -1041,7 +1161,7 @@ Phishing-Tools () {
     python3 install.py
     echo -e "\n$greenplus phishfactory successfully installed"
 
-    cd /opt/RedTeam-ToolKit/Initial_Access/Phishing/PhishingTemplates
+    cd $PHISHING_DIR/PhishingTemplates
     
     # Gophish_Templates
     GetTool https://github.com/criggs626/PhishingTemplates.git Gophish_PhishingTemplates
@@ -1058,8 +1178,11 @@ Phishing-Tools () {
     echo -e "\n$greenplus Phishing Templates successfully installed";
 
     sleep 0.5
-    echo -e "\n$greenplus Phishing-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Phishing-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $PHISHING_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -1067,9 +1190,10 @@ Phishing-Tools () {
 BruteForce-Tools () {
 
     echo -e "\n$greenplus Downloading & Installing BruteForce,PasswordSpray Tools"
+    BRUTEFORCE_DIR=/opt/RedTeam-ToolKit/Initial_Access/BruteForce
 
     # brutespray
-    cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
+    cd $BRUTEFORCE_DIR
     GetTool https://github.com/x90skysn3k/brutespray.git
     cd brutespray
     echo -e "$greenplus starting to install brutespray requirements "
@@ -1077,12 +1201,12 @@ BruteForce-Tools () {
     echo -e "\n$greenplus brutespray successfully installed"
 
     # msspray
-    cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
+    cd $BRUTEFORCE_DIR
     GetTool https://github.com/SecurityRiskAdvisors/msspray.git
     echo -e "\n$greenplus msspray successfully installed";
 
     # SprayingToolkit
-    cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
+    cd $BRUTEFORCE_DIR
     GetTool https://github.com/byt3bl33d3r/SprayingToolkit.git
     echo -e "$greenplus starting to install SprayingToolkit requirements "
     cd SprayingToolkit
@@ -1090,7 +1214,7 @@ BruteForce-Tools () {
     echo -e "\n$greenplus SprayingToolkit successfully installed"
 
     # Omnispray
-    cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
+    cd $BRUTEFORCE_DIR
     GetTool https://github.com/0xZDH/Omnispray.git
     cd Omnispray
     echo -e "$greenplus starting to install Omnispray requirements "
@@ -1098,7 +1222,7 @@ BruteForce-Tools () {
     echo -e "\n$greenplus Omnispray successfully installed"
 
     # kerbute
-    cd /opt/RedTeam-ToolKit/Initial_Access/BruteForce
+    cd $BRUTEFORCE_DIR
     GetTool https://github.com/ropnop/kerbrute.git
     cd kerbrute
     make linux
@@ -1110,8 +1234,12 @@ BruteForce-Tools () {
     echo -e "\n$greenplus kerbrute successfully installed"    
 
     sleep 0.5
-    echo -e "\n$greenplus BruteForce,PasswordSpray Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus BruteForce,PasswordSpray Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $BRUTEFORCE_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
+
 
 }
 
@@ -1119,10 +1247,10 @@ BruteForce-Tools () {
 ActiveDirectory_Enumeration-Tools () {
 
     echo -e "\n$greenplus Downloading & Installing Active-Directory Enumeration Tools"
-    
+    AD_ENUM_DIR=/opt/RedTeam-ToolKit/Active_Directory/Enumeration
 
     # Enum4linux-ng
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration
+    cd $AD_ENUM_DIR
     echo -e "\n$greenplus Installing Enum4linux-ng"
     GetTool https://github.com/cddmp/enum4linux-ng
     cd enum4linux-ng
@@ -1134,13 +1262,13 @@ ActiveDirectory_Enumeration-Tools () {
     echo -e "\n$greenplus Enum4linux-ng successfully installed"
     
     # Pretty ldapdomaindump output
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration
+    cd $AD_ENUM_DIR
     echo -e "\n$greenplus Downloading prettyloot.py"
     wget -q --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/mpgn/ntlmrelayx-prettyloot/master/ntlmrelayx-prettyloot.py -O prettyloot.py
     echo -e "\n$greenplus prettyloot.py successfully installed"
 
     # BloodHound
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration
+    cd $AD_ENUM_DIR
     GetTool https://github.com/BloodHoundAD/BloodHound.git
     wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
     echo 'deb https://debian.neo4j.com stable 4.0' | sudo tee /etc/apt/sources.list.d/neo4j.list
@@ -1157,24 +1285,24 @@ ActiveDirectory_Enumeration-Tools () {
     mkdir /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util
 
     # AzureHound
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util
+    cd $AD_ENUM_DIR/BloodHound-Util
     GetTool https://github.com/BloodHoundAD/AzureHound.git 
     echo -e "\n$greenplus AzureHound successfully installed"
 
     # BloodHound.py
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util
+    cd $AD_ENUM_DIR/BloodHound-Util
     GetTool https://github.com/fox-it/BloodHound.py.git BloodHound-Python
     cd BloodHound-Python 
     python setup.py install 
     echo -e "\n$greenplus BloodHound.py successfully installed"
 
     # bloodhound-quickwin 
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util  
+    cd $AD_ENUM_DIR/BloodHound-Util  
     GetTool https://github.com/kaluche/bloodhound-quickwin.git  
     echo -e "\n$greenplus bloodhound-quickwin successfully installed"
     
     # cypheroth
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util  
+    cd $AD_ENUM_DIR/BloodHound-Util  
     GetTool https://github.com/seajaysec/cypheroth.git
     echo -e "$greenplus starting to install cypheroth requirements "
     pip3 install py2neo --quiet
@@ -1183,7 +1311,7 @@ ActiveDirectory_Enumeration-Tools () {
     echo -e "\n$greenplus cypheroth successfully installed"
 
     # SpinUp-BloodHound
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util
+    cd $AD_ENUM_DIR/BloodHound-Util
     echo -e "$greenplus Downloading SpinUp-BloodHound successfully installed"
     wget -q --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/theGuildHall/pwnbox/master/bloodhound/startBH.sh -O SpinUp-BloodHound.sh
     replace-line "   bloodhound --no-sandbox" 7 SpinUp-BloodHound.sh
@@ -1192,7 +1320,7 @@ ActiveDirectory_Enumeration-Tools () {
     echo -e "\n$greenplus SpinUp-BloodHound successfully installed"
     
     # ItWasAllADream
-    cd /opt/RedTeam-ToolKit/Active_Directory/Enumeration
+    cd $AD_ENUM_DIR
     GetTool https://github.com/byt3bl33d3r/ItWasAllADream.git
     cd ItWasAllADream && poetry install
     touch start-env.sh
@@ -1200,8 +1328,11 @@ ActiveDirectory_Enumeration-Tools () {
     echo -e "\n$greenplus ItWasAllADream successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Active-Directory Enumeration Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Active-Directory Enumeration Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $AD_ENUM_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -1209,9 +1340,10 @@ ActiveDirectory_Enumeration-Tools () {
 ActiveDirectory_CredentialDumping-Tools () {
 
     echo -e "\n$greenplus Downloading & Installing Active-Directory Credential Dumping Tools"
-
+    AD_CREDS_DUMP_DIR=/opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
+    
     #pypykatz
-    cd /opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
+    cd $AD_CREDS_DUMP_DIR
     GetTool https://github.com/skelsec/pypykatz.git 
     echo -e "$greenplus starting to install pypykatz requirements "
     pip3 install minidump minikerberos aiowinreg msldap winacl --quiet
@@ -1220,7 +1352,7 @@ ActiveDirectory_CredentialDumping-Tools () {
     echo -e "\n$greenplus pypykatz successfully installed"
 
     # spraykatz
-    cd /opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
+    cd $AD_CREDS_DUMP_DIR
     GetTool https://github.com/aas-n/spraykatz.git
     cd spraykatz
     echo -e "$greenplus starting to install spraykatz requirements "
@@ -1228,14 +1360,14 @@ ActiveDirectory_CredentialDumping-Tools () {
     echo -e "\n$greenplus spraykatz successfully installed"
 
     #lsassy
-    cd /opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
+    cd $AD_CREDS_DUMP_DIR
     echo -e "$greenplus starting to install lsassy "
     python3 -m pip uninstall lsassy --quiet
     python3 -m pip install lsassy --quiet
     echo -e "\n$greenplus lsassy successfully installed"
 
     # nanodump
-    cd /opt/RedTeam-ToolKit/Active_Directory/Credential_Dumping
+    cd $AD_CREDS_DUMP_DIR
     GetTool https://github.com/helpsystems/nanodump.git
     cp -r nanodump nanodump_Opsec
     cd nanodump_Opsec
@@ -1244,8 +1376,11 @@ ActiveDirectory_CredentialDumping-Tools () {
     echo -e "\n$greenplus nanodump successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Active-Directory Credential Dumping Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Active-Directory Credential Dumping Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $AD_CREDS_DUMP_DIR -L 1 
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
@@ -1253,9 +1388,10 @@ ActiveDirectory_CredentialDumping-Tools () {
 ActiveDirectory_Offensive-Tools (){
 
     echo -e "\n$greenplus Downloading & Installing Active-Directory Offensive-Tools "
-
+    AD_OFFENSIVE_TOOLS_DIR=/opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools
+    
     # impcaket
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools
+    cd $AD_OFFENSIVE_TOOLS_DIR
     GetTool https://github.com/SecureAuthCorp/impacket.git
     cd impacket
     python3 -m venv impacket-env 
@@ -1265,7 +1401,7 @@ ActiveDirectory_Offensive-Tools (){
     echo -e "\n$greenplus impacket successfully installed"
 
     # Zerologon
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools
+    cd $AD_OFFENSIVE_TOOLS_DIR
     mkdir Zerologon
     echo -e "\n$greenplus Installing All CVE-2020-1472 aka Zerologon Tools AND Utils "
     cd Zerologon
@@ -1288,7 +1424,7 @@ ActiveDirectory_Offensive-Tools (){
 
     # PrintNightmare
     echo -e "\n$greenplus Installing All CVE-2021-1675 aka PrintNightmare Tools AND Utils "
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools
+    cd $AD_OFFENSIVE_TOOLS_DIR
     mkdir PrintNightmare
     cd PrintNightmare
     python3 -m venv PrintNightmare-env
@@ -1303,7 +1439,7 @@ ActiveDirectory_Offensive-Tools (){
 
 
     # cube0x0 impacket for printnightmare
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/PrintNightmare
+    cd $AD_OFFENSIVE_TOOLS_DIR/PrintNightmare
     GetTool https://github.com/cube0x0/impacket.git cube0x0_impacket
     cd cube0x0_impacket
     python3 ./setup.py install &> /dev/null
@@ -1311,12 +1447,12 @@ ActiveDirectory_Offensive-Tools (){
     echo -e "\n$greenplus cube0x0-impacket successfully installed"
 
     #  PrintNightmare-py
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/PrintNightmare
+    cd $AD_OFFENSIVE_TOOLS_DIR/PrintNightmare
     GetTool https://github.com/ollypwn/PrintNightmare.git PrintNightmare-py
     echo -e "\n$greenplus PrintNightmare-py successfully installed"
 
     # PetitPotam
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools
+    cd $AD_OFFENSIVE_TOOLS_DIR
     GetTool https://github.com/topotam/PetitPotam.git
     cd PetitPotam
     GetTool https://github.com/ollypwn/PetitPotam.git PetitPotam-py
@@ -1324,22 +1460,22 @@ ActiveDirectory_Offensive-Tools (){
 
 
     # kdc bamboozling
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools
+    cd $AD_OFFENSIVE_TOOLS_DIR
     echo -e "\n$greenplus Installing All CVE-2021-42278 aka KDC Bamboozling Tools AND Utils "
     mkdir KDC_Bamboozling
     
     # Pachine
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/KDC_Bamboozling
+    cd $AD_OFFENSIVE_TOOLS_DIR/KDC_Bamboozling
     GetTool https://github.com/ly4k/Pachine.git
     echo -e "\n$greenplus Pachine successfully installed"
 
     # sam the admin
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/KDC_Bamboozling
+    cd $AD_OFFENSIVE_TOOLS_DIR/KDC_Bamboozling
     GetTool https://github.com/WazeHell/sam-the-admin
     echo -e "\n$greenplus sam-the-admin successfully installed"
 
     #noPAC
-    cd /opt/RedTeam-ToolKit/Active_Directory/Offensive-Tools/KDC_Bamboozling
+    cd $AD_OFFENSIVE_TOOLS_DIR/KDC_Bamboozling
     GetTool https://github.com/Ridter/noPac.git noPac-PY
     echo -e "\n$greenplus noPac-PY successfully installed"
 
@@ -1355,19 +1491,23 @@ ActiveDirectory_Offensive-Tools (){
     echo -e "\n$greenplus Windows Binary, powershell scripts, and exploits successfully installed"
 
     sleep 0.5
-    echo -e "\n$greenplus Active-Directory Offensive-Tools successfully installed"
-    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Active-Directory Offensive-Tools successfully installed"
+    echo -e "\n\n"
+    tree -d $AD_OFFENSIVE_TOOLS_DIR -L 2
+    sleep 1
+    echo -e "\n\n\n\n"
 
 }
 
 Exploits () {
 
     echo -e "\n$greenplus Downloading & Installing Exploits"
+    LOG4J_DIR=/opt/RedTeam-ToolKit/Exploits/Log4Shell
 
     # Log4J
     echo -e "\n$greenplus Installing Log4J aka Log4Shell Tools and utils"
     mkdir /opt/RedTeam-ToolKit/Exploits/Log4Shell
-    cd /opt/RedTeam-ToolKit/Exploits/Log4Shell
+    cd $LOG4J_DIR
     python3 -m venv log4j-venv
     source log4j-venv/bin/activate
     
@@ -1377,21 +1517,29 @@ Exploits () {
     pip3 install --no-cache-dir -r requirements.txt --quiet
     
     # log4j RCE
+    cd $LOG4J_DIR
     GetTool https://github.com/cyberstruggle/L4sh.git
     cd L4sh
     pip3 install --no-cache-dir -r requirements.txt --quiet
 
-    # JNDI-Exploit-Ki 
+    # JNDI-Exploit-Ki
+    cd $LOG4J_DIR 
     GetTool https://github.com/pimps/JNDI-Exploit-Kit.git
 
     # log4rce
+    cd $LOG4J_DIR
     GetTool https://github.com/alexandre-lavoie/python-log4rce.git
     deactivate
     echo -e "\n$greenplus Log4J aka Log4Shell Tools and utils successfully installed"
 
+    sleep 0.5
+    echo -e "\n\n\n\n$greenplus Exploits successfully installed"
+    echo -e "\n\n"
+    tree -d /opt/RedTeam-ToolKit/Exploits -L 2 
+    sleep 1
+    echo -e "\n\n\n\n"
+
 }
-
-
 
 
 
@@ -1429,11 +1577,11 @@ Twiking () {
     ./pimpmykali.sh --grub; \
     ./pimpmykali.sh --flameshot; \
     ./pimpmykali.sh --mirrors; \
-    echo -e "\n$greenplus pimpmykali successfully installed"
+    echo -e "\n$greenplus pimpmykali successfully installed\n"
     
     #replace-line "autologin-user=root" 126 /etc/lightdm/lightdm.conf
     #replace-line "autologin-user-timeout=" 127 /etc/lightdm/lightdm.conf
-    
+    echo -e "\n$greenplus Running updatedb...\n"
     updatedb
     msfdb init
     sleep 0.5
@@ -1443,7 +1591,7 @@ Twiking () {
 
 
 if [ "$EUID" -ne 0 ]
-    then echo  "$redexclaim This Script must be run with sudo"
+    then echo -e "$redexclaim This Script must be run with sudo"
     exit
 fi
 
@@ -1451,13 +1599,17 @@ apt -qq list kali-root-login | grep 'installed' &> /dev/null
 if [ $? == 0 ]; then
     
     disable_power_checkde
+
+    systemctl enable snapd.service
+    service snapd start
+
     systemctl enable docker
     systemctl enable postgresql
 
     SpinUp_Workspace
 
-    Recon-Tools
     Web-Tools
+    Recon-Tools
     C2-Tools
     Wifi-Tools
     Phishing-Tools
@@ -1473,12 +1625,54 @@ if [ $? == 0 ]; then
 
     Utils-Tools
     Twiking
+    echo -e "\n\n\n\n$greenplus Done! All tools are set up in /opt/RedTeam-ToolKit"
+    echo -e "\n\n"
+
+    tree -d $RECON_DIR -L 1
+    echo -e "\n\n"
+    
+    tree -d $C2_DIR -L 1
+    echo -e "\n\n"
+    
+    tree -d $WEB_DIR -L 1
+    echo -e "\n\n"
+
+    tree -d $WIFI_DIR -L 1
+    echo -e "\n\n"
+
+    tree -d $MOBILE_DIR -L 1
+    echo -e "\n\n"
+
+    tree -d $NETWORK_DIR -L 1
+    echo -e "\n\n"
+
+    tree -d $TUNNLING_DIR -L 1
+    echo -e "\n\n"
+
+    tree -d $PAYLOAD_DEV_DIR -L 1
+    echo -e "\n\n"
+
+    tree -d /opt/RedTeam-ToolKit/Initial_Access -L 2
+    echo -e "\n\n"
+
+    tree -d /opt/RedTeam-ToolKit/Active_Directory -L 2
+    echo -e "\n\n"
+
+    tree -d /opt/RedTeam-ToolKit/Exploits -L 2    
+    echo -e "\n\n"
+
+    echo -e "$greenplus Press ENTER key to Continue..."
+    answer=x
+    until [ -z "$answer" ]; do
+    read answer
+    done
 
     Update && apt reinstall python3-debian -y && check_reboot
 
     echo -e "\n$redexclaim Rebooting in 20 seconds...";
     sleep 20
     reboot;
+ 
 
 else
     systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target;
