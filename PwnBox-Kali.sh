@@ -477,14 +477,6 @@ Recon-Tools () {
     pipx install witnessme
     echo -e "\n$greenplus witnessme successfully installed"
 
-    # gowitness
-    echo -e "\n$greenplus Installing gowitness prebuilt binary...\n"
-    wget -q --show-progress --progress=bar:force:noscroll https://github.com/sensepost/gowitness/releases -O /tmp/releases.gowitness
-    current_build=$(cat /tmp/releases.gowitness | grep -i "<a href=\"/sensepost/gowitness/releases/download/"  | grep -i -m1 linux | cut -d "\"" -f2)
-    wget -q --show-progress --progress=bar:force:noscroll https://github.com$current_build -O /usr/bin/gowitness
-    chmod +x /usr/bin/gowitness
-    rm -f /tmp/releases.gowitness > /dev/null
-    echo -e "\n$greenplus gowitness prebuilt binary successfully installed"
 
     # GoMapEnum
     cd $RECON_DIR
@@ -500,13 +492,6 @@ Recon-Tools () {
     python3 ghdb_scraper.py -s -j -i 
     echo -e "\n$greenplus pagodo successfully installed"
 
-    # AttackSurfaceMapper
-    cd $RECON_DIR
-    GetTool https://github.com/superhedgy/AttackSurfaceMapper.git
-    cd AttackSurfaceMapper
-    echo -e "$greenplus starting to install AttackSurfaceMapper requirements "
-    python3 -m pip install --no-cache-dir -r requirements.txt  --quiet
-    echo -e "\n$greenplus AttackSurfaceMapper successfully installed"
 
     # CrossLinked
     cd $RECON_DIR
@@ -533,12 +518,6 @@ Recon-Tools () {
     GetTool https://github.com/darkoperator/dnsrecon.git
     echo -e "\n$greenplus dnsrecon successfully installed"
 
-    # Reconnoitre
-    cd $RECON_DIR
-    GetTool https://github.com/codingo/Reconnoitre.git
-    cd Reconnoitre
-    python3 setup.py install
-    echo -e "\n$greenplus Reconnoitre successfully installed"
 
     # Nmap Utils & NSE Scripts
     echo -e "\n$greenplus Installing New Nmap NSE Scripts"
@@ -692,12 +671,7 @@ Web-Tools (){
     # Web Tools
     echo -e "\n$greenplus Downloading & Installing Web-Tools"
     WEB_DIR=/opt/RedTeam-ToolKit/Web
-    
-    #fuff
-    cd $WEB_DIR
-    GetTool https://github.com/ffuf/ffuf.git
-    cd ffuf ; go get ; go build
-    echo -e "\n$greenplus fuff successfully installed"
+
     
     # Duplicut
     cd /opt/RedTeam-ToolKit/Resources
@@ -713,124 +687,25 @@ Web-Tools (){
     ./olfa.sh
     echo -e "\n$greenplus OneListForAll successfully installed"
     
-    # LazyRecon Tools
-    echo -e "\n$greenplus installing LazyRecon tools and dependencies"
-    echo -e "\n$greenplus installing bash_profile aliases from recon_profile"
-    cat ~/PwnBox-Kali/Resources/.bash_profile >> ~/.bash_profile
-    source ~/.bash_profile
-    cd $WEB_DIR/
 
-    #Don't forget to set up AWS credentials!
-    echo -e "\n$greenplus Don't forget to set up AWS credentials!"
-    apt install -y awscli
-    echo -e "\n$greenplus Don't forget to set up AWS credentials!"
-
-    cd $WEB_DIR/
-
-    #install aquatone
-    echo -e "\n$greenplus Installing Aquatone"
-    go get github.com/michenriksen/aquatone
-
-
-    #install chromium
-    echo -e "\n$greenplus Installing Chromium"
-    snap install chromium
-
-
-    GetTool https://github.com/nahamsec/JSParser.git
-    cd JSParser*
-    python3 setup.py install
-    cd $WEB_DIR/
-
-    GetTool https://github.com/aboul3la/Sublist3r.git
-    cd Sublist3r*
-    pip3 install -r requirements.txt --no-cache-dir --quiet
-    cd $WEB_DIR/
-
-
-    GetTool https://github.com/tomdev/teh_s3_bucketeers.git
-    cd $WEB_DIR/
-
-
-    GetTool https://github.com/wpscanteam/wpscan.git
-    cd wpscan*
-    gem install bundler && bundle install --without test
-    cd $WEB_DIR/
-
-
-    GetTool https://github.com/maurosoria/dirsearch.git
-    cd $WEB_DIR/
-
-
-    GetTool https://github.com/nahamsec/lazys3.git
-    cd $WEB_DIR/
-
-
-    GetTool https://github.com/jobertabma/virtual-host-discovery.git
-    cd $WEB_DIR/
-
-
-    git clone  --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-    cd $WEB_DIR/
-
-    GetTool https://github.com/guelfoweb/knock.git
-    cd $WEB_DIR/
-
-    GetTool https://github.com/BlackSnufkin/lazyrecon.git
-    cd $WEB_DIR/
-
-
-    GetTool https://github.com/blechschmidt/massdns.git
-    cd $WEB_DIR/massdns
-    make
-    cd $WEB_DIR/
-
-    GetTool https://github.com/yassineaboukir/asnlookup.git
-    cd $WEB_DIR/asnlookup
-    pip3 install -r requirements.txt --no-cache-dir --quiet
-    cd $WEB_DIR/
-
-
-    echo -e "\n$greenplus installing httprobe"
-    go get -u github.com/tomnomnom/httprobe 
-
-
-    echo -e "\n$greenplus installing unfurl"
-    go get -u github.com/tomnomnom/unfurl 
-
-
-    echo -e "\n$greenplus installing waybackurls"
-    go get github.com/tomnomnom/waybackurls
-
-    GetTool https://github.com/nahamsec/crtndstry.git
-
-    cd $WEB_DIR/
-    GetTool https://github.com/danielmiessler/SecLists.git
-    cd $WEB_DIR/SecLists/Discovery/DNS/
-    ##THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
-    cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
-    cd $WEB_DIR/
-
-    echo -e "\n$greenplus One last time: don't forget to set up AWS credentials in ~/.aws/!"
-
-    # magicRecon
-    cd $WEB_DIR/
-    GetTool https://github.com/BlackSnufkin/magicRecon.git
-    cd magicRecon
-    ./install.sh
-    echo -e "\n$greenplus magicRecon successfully installed"
-
-
-    # nuclei
+    # reconftw
     cd $WEB_DIR
-    GetTool https://github.com/projectdiscovery/nuclei.git
+    GetTool https://github.com/six2dez/reconftw.git
+    cd reconftw
+    mkdir ReconFTW-Tools
+    replace-line 'tools=/opt/RedTeam-ToolKit/Web/reconftw/ReconFTW-Tools' 6 reconftw.cfg 
+    replace-line '#export GOROOT=/usr/local/go' 15 reconftw.cfg
+    replace-line '#export GOPATH=$HOME/go' 16 reconftw.cfg
+    replace-line '#export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' 17 reconftw.cfg
+    #sed -i -e '15,17s/^/# /' reconftw.cfg
+    pip3 install -r requirements.txt --quiet
+    ./install.sh
+    echo -e "\n$greenplus ReconFTW successfully installed"
+
+
+    # nuclei-templates
+    cd $WEB_DIR
     mkdir /opt/RedTeam-ToolKit/Web/Nuclei-Util
-    cd nuclei/v2/cmd/nuclei; \
-    go build; \
-    mv nuclei /usr/local/bin/; \
-    nuclei -ud /opt/RedTeam-ToolKit/Web/Nuclei-Util/Nuclei-Templates; \
-    nuclei -version; 
-    echo -e "\n$greenplus nuclei successfully installed"
     
     # Nuclei-Templates
     echo -e "\n$greenplus Donwloading  Nuclei-Templates"
@@ -1116,7 +991,7 @@ Payloads-Tools (){
     git clone --recurse-submodules https://github.com/snovvcrash/NimHollow && cd NimHollow
     git submodule update --init --recursive
     nimble install winim nimcrypto
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt --quiet
     echo -e "\n$greenplus NimHollow successfully installed"
 
 
