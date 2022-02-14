@@ -1490,11 +1490,10 @@ if [ $? == 0 ]; then
     service snapd start
     systemctl enable docker
     systemctl enable postgresql
-
-
-    Fix_Missing
+    
     SpinUp_Workspace
-
+    Fix_Missing
+    
     Web-Tools
     Recon-Tools
     C2-Tools
