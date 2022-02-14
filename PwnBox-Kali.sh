@@ -702,9 +702,9 @@ Web-Tools (){
     cd reconftw
     mkdir ReconFTW-Tools
     replace-line 'tools=/opt/RedTeam-ToolKit/Web/reconftw/ReconFTW-Tools' 6 reconftw.cfg 
-    replace-line 'export GOROOT=/usr/bin/go' 15 reconftw.cfg
-    replace-line 'export GOPATH=$HOME/go' 16 reconftw.cfg
-    replace-line 'export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' 17 reconftw.cfg
+    #replace-line 'export GOROOT=/usr/bin/go' 15 reconftw.cfg
+    #replace-line 'export GOPATH=$HOME/go' 16 reconftw.cfg
+    #replace-line 'export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' 17 reconftw.cfg
     #sed -i -e '15,17s/^/# /' reconftw.cfg
     pip3 install -r requirements.txt --quiet
     ./install.sh
