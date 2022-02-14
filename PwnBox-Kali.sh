@@ -108,6 +108,7 @@ fix_go_path() {
          eval echo -e 'export PATH=\$PATH:\$GOPATH/bin' >> /home/$findrealuser/.bashrc
        fi
     fi
+    source ~/.zshrc
 }
 
 Install_pkg () {
