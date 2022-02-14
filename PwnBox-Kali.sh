@@ -105,15 +105,12 @@ check_reboot () {
     fi
 }
 
-Fix_Missing () {
+Fix_Goloang () {
     # pimpmykali
     cd /opt/RedTeam-ToolKit/Resources
     GetTool https://github.com/Dewalt-arch/pimpmykali.git
     cd pimpmykali
-    ./pimpmykali.sh --missing; \
-    ./pimpmykali.sh --smb; \
-    ./pimpmykali.sh --grub; \
-    ./pimpmykali.sh --flameshot; \
+    ./pimpmykali.sh --go
     echo -e "\n$greenplus pimpmykali successfully installed\n"
 
 }
@@ -1455,9 +1452,7 @@ Twiking () {
     echo -e "\n$greenplus BAT successfully installed" 
 
     # pimpmykali
-    cd /opt/RedTeam-ToolKit/Resources
-    GetTool https://github.com/Dewalt-arch/pimpmykali.git
-    cd pimpmykali
+    cd /opt/RedTeam-ToolKit/Resources/pimpmykali
     ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --smb; \
     ./pimpmykali.sh --grub; \
@@ -1492,7 +1487,7 @@ if [ $? == 0 ]; then
     systemctl enable postgresql
     
     SpinUp_Workspace
-    Fix_Missing
+    Fix_Goloang
     
     Web-Tools
     Recon-Tools
