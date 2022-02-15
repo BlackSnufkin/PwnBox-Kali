@@ -739,7 +739,7 @@ Web-Tools (){
     sleep 1
     echo -e "\n\n\n\n"
     
-    ln -s /usr/bin/pip3 /usr/local/bin/pip3
+    hash -r
 
 }
 
