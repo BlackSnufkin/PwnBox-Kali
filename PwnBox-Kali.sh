@@ -519,13 +519,6 @@ Recon-Tools () {
 
     # Nmap Utils & NSE Scripts
     echo -e "\n$greenplus Installing New Nmap NSE Scripts"
-    rm -rf /usr/share/nmap/scripts
-    echo -e "$greenplus /usr/share/nmap/scripts removed "
-    cd /tmp
-    GetTool https://github.com/nmap/nmap.git     
-
-    mv  nmap/scripts /usr/share/nmap/
-    rm -rf nmap
     eval wget -q --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/onomastus/pentest-tools/master/fixed-http-shellshock.nse -O /usr/share/nmap/scripts/http-shellshock.nse 
     echo -e "\n$greenplus /usr/share/nmap/script as updated"
     echo -e "\n$greenplus New Nmap NSE Scripts successfully installed"
