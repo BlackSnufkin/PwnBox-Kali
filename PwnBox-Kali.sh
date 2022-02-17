@@ -883,10 +883,10 @@ Tunneling-Tools (){
     echo -e "\n$greenplus Installing Chisel"
     mkdir Chisel
     cd $TUNNLING_DIR/Chisel
-    wget -q --show-progress --progress=bar:force:noscroll https://github.com/jpillora/chisel/releases/download/v1.7.6/chisel_1.7.6_windows_amd64.gz -O chisel_Windows.gz
+    wget -q --show-progress --progress=bar:force:noscroll https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_amd64.gz -O chisel_Windows.gz
     gunzip chisel_Windows.gz &> /dev/null
     mv chisel_Windows chisel.exe 
-    wget -q --show-progress --progress=bar:force:noscroll https://github.com/jpillora/chisel/releases/download/v1.7.6/chisel_1.7.6_linux_amd64.gz -O chisel.gz
+    wget -q --show-progress --progress=bar:force:noscroll https://github.com/jpillora/chisel/releases/download/v1.7.6/chisel_1.7.7_linux_amd64.gz -O chisel.gz
     gunzip chisel.gz &> /dev/null
     echo -e "\n$greenplus chisel successfully installed"
 
