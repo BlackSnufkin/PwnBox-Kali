@@ -1139,16 +1139,16 @@ ActiveDirectory_Enumeration-Tools () {
     cd $AD_ENUM_DIR
     echo "deb http://httpredir.debian.org/debian stretch-backports main" | tee -a /etc/apt/sources.list.d/stretch-backports.list
     apt update
-    wget -O - https://debian.neo4j.com/neotechnology.gpg.key | apt-key add -
+    wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
     echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
     apt update
     apt install neo4j -y
-    GetTool https://github.com/BloodHoundAD/BloodHound.git
-    cd BloodHound
-    npm install -g electron-packager
-    npm install
-    npm run linuxbuild
-    ln -s /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound/BloodHound-linux-x64/BloodHound /usr/bin/bloodhound
+    wget -q --show-progress --progress=bar:force:noscroll https://github.com/BloodHoundAD/BloodHound/releases/download/4.1.0/BloodHound-linux-x64.zip
+    unzip BloodHound-linux-x64.zip
+    mv BloodHound-linux-x64 BloodHound
+    del BloodHound-linux-x64.zip
+    chmod +x BloodHound/BloodHound
+    ln -s /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound/BloodHound /usr/bin/bloodhound
     echo -e "\n$greenplus Bloodhound successfully installed"
 
     echo -e "\n$greenplus Installing BloodHound Utils"
