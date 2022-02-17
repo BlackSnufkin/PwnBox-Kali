@@ -105,16 +105,6 @@ check_reboot () {
     fi
 }
 
-Fix_Goloang () {
-    # pimpmykali
-    cd /opt/RedTeam-ToolKit/Resources
-    GetTool https://github.com/Dewalt-arch/pimpmykali.git
-    cd pimpmykali
-    ./pimpmykali.sh --go
-    echo -e "\n$greenplus pimpmykali successfully installed\n"
-
-}
-
 Update () { 
 
     apt update && apt full-upgrade -y && apt autoremove -y
@@ -1460,12 +1450,13 @@ Twiking () {
     echo -e "\n$greenplus BAT successfully installed" 
 
     # pimpmykali
-    cd /opt/RedTeam-ToolKit/Resources/pimpmykali
+    cd /opt/RedTeam-ToolKit/Resources
+    GetTool https://github.com/Dewalt-arch/pimpmykali.git
+    cd pimpmykali
     ./pimpmykali.sh --missing; \
     ./pimpmykali.sh --smb; \
     ./pimpmykali.sh --grub; \
     ./pimpmykali.sh --flameshot; \
-    ./pimpmykali.sh --mirrors; \
     echo -e "\n$greenplus pimpmykali successfully installed\n"
     
     #replace-line "autologin-user=root" 126 /etc/lightdm/lightdm.conf
@@ -1495,7 +1486,6 @@ if [ $? == 0 ]; then
     systemctl enable postgresql
     
     SpinUp_Workspace
-    Fix_Goloang
     Recon-Tools
     C2-Tools
     Wifi-Tools
