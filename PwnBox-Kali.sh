@@ -1506,8 +1506,8 @@ if [ $? == 0 ]; then
     tree -d $WIFI_DIR -L 1
     echo -e "\n\n"
 
-    tree -d $MOBILE_DIR -L 1
-    echo -e "\n\n"
+    #tree -d $MOBILE_DIR -L 1
+    #echo -e "\n\n"
 
     tree -d $NETWORK_DIR -L 1
     echo -e "\n\n"
