@@ -278,9 +278,9 @@ SpinUp_Workspace () {
     sleep 0.5
     
     # Mobile
-    echo -e "$greenplus Creating Folder: /opt/RedTeam-ToolKit/Mobile"
-    mkdir /opt/RedTeam-ToolKit/Mobile
-    sleep 0.5
+    #echo -e "$greenplus Creating Folder: /opt/RedTeam-ToolKit/Mobile"
+    #mkdir /opt/RedTeam-ToolKit/Mobile
+    #sleep 0.5
 
     # Network
     echo -e "$greenplus Creating Folder: /opt/RedTeam-ToolKit/Network"
@@ -1154,11 +1154,17 @@ ActiveDirectory_Enumeration-Tools () {
 
     # BloodHound
     cd $AD_ENUM_DIR
-    GetTool https://github.com/BloodHoundAD/BloodHound.git
-    wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
-    echo 'deb https://debian.neo4j.com stable 4.0' | sudo tee /etc/apt/sources.list.d/neo4j.list
+    echo "deb http://httpredir.debian.org/debian stretch-backports main" | tee -a /etc/apt/sources.list.d/stretch-backports.list
     apt update
+    wget -O - https://debian.neo4j.com/neotechnology.gpg.key | apt-key add -
+    echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
+    apt update
+    apt-get install apt-transport-https
+    apt-get install neo4j
+    curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+    apt-get install -y nodejs
     apt install neo4j=1:4.0.8 -y
+    GetTool https://github.com/BloodHoundAD/BloodHound.git
     cd BloodHound
     npm install -g electron-packager
     npm install
@@ -1490,13 +1496,11 @@ if [ $? == 0 ]; then
     
     SpinUp_Workspace
     Fix_Goloang
-    
-    Web-Tools
     Recon-Tools
     C2-Tools
     Wifi-Tools
     Phishing-Tools
-    Mobile-Tools
+    #Mobile-Tools
     Network-Tools 
     Tunneling-Tools
     Payloads-Tools 
@@ -1505,7 +1509,7 @@ if [ $? == 0 ]; then
     ActiveDirectory_CredentialDumping-Tools
     ActiveDirectory_Offensive-Tools
     Exploits
-
+    Web-Tools
     Utils-Tools
     Twiking
     echo -e "\n\n\n\n$greenplus Done! All tools are set up in /opt/RedTeam-ToolKit"
