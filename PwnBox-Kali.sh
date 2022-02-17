@@ -1142,11 +1142,7 @@ ActiveDirectory_Enumeration-Tools () {
     wget -O - https://debian.neo4j.com/neotechnology.gpg.key | apt-key add -
     echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
     apt update
-    apt-get install apt-transport-https
-    apt-get install neo4j
-    curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
-    apt-get install -y nodejs
-    apt install neo4j=1:4.0.8 -y
+    apt install neo4j -y
     GetTool https://github.com/BloodHoundAD/BloodHound.git
     cd BloodHound
     npm install -g electron-packager
