@@ -1146,7 +1146,7 @@ ActiveDirectory_Enumeration-Tools () {
     wget -q --show-progress --progress=bar:force:noscroll https://github.com/BloodHoundAD/BloodHound/releases/download/4.1.0/BloodHound-linux-x64.zip
     unzip BloodHound-linux-x64.zip
     mv BloodHound-linux-x64 BloodHound
-    del BloodHound-linux-x64.zip
+    rm BloodHound-linux-x64.zip
     chmod +x BloodHound/BloodHound
     ln -s /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound/BloodHound /usr/bin/bloodhound
     echo -e "\n$greenplus Bloodhound successfully installed"
