@@ -987,6 +987,11 @@ Payloads-Tools (){
     pip3 install -r requirements.txt --quiet
     echo -e "\n$greenplus NimHollow successfully installed"
 
+    cd $PAYLOAD_DEV_DIR
+    echo -e "\n$greenplus Installing Shhhloader"
+    GetTool https://github.com/icyguider/Shhhloader
+    echo -e "\n$greenplus Shhhloader successfully installed"
+    
 
     sleep 0.5
     echo -e "\n\n\n\n$greenplus Payloads-Development Tools successfully installed"
