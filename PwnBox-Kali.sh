@@ -638,13 +638,6 @@ C2-Tools (){
     poetry install
     echo -e "\n$greenplus DeathStar-Empire successfully installed"
     
-    # Shad0w
-    cd $C2_DIR
-    git clone --recurse-submodules https://github.com/bats3c/shad0w.git
-    cd shad0w
-    replace-line 'echo -e "\e[1;33m[++]\e[0m starting to install shad0w requirements";python3 -m pip install -r ./requirements.txt --quiet' 6 install.sh    
-    ./install.sh
-    echo -e "\n$greenplus shad0w successfully installed"
 
     sleep 0.5
     echo -e "\n\n\n\n$greenplus Command & Control Tools successfully installed"
@@ -992,7 +985,14 @@ Payloads-Tools (){
     GetTool https://github.com/icyguider/Shhhloader
     echo -e "\n$greenplus Shhhloader successfully installed"
     
-
+    cd $PAYLOAD_DEV_DIR
+    echo -e "\n$greenplus Installing Nimcrypt2"
+    GetTool https://github.com/icyguider/Nimcrypt2.git
+    nimble install docopt ptr_math strenc
+    cd Nimcrypt2
+    nim c -d=release --cc:gcc --embedsrc=on --hints=on --app=console --cpu=amd64 --out=nimcrypt nimcrypt.nim
+    echo -e "\n$greenplus Nimcrypt2 successfully installed"
+    
     sleep 0.5
     echo -e "\n\n\n\n$greenplus Payloads-Development Tools successfully installed"
     echo -e "\n\n"
