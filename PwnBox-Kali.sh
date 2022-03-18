@@ -640,7 +640,7 @@ C2-Tools (){
     
     # Shad0w
     cd $C2_DIR
-    GetTool https://github.com/bats3c/shad0w.git
+    git clone --recurse-submodules https://github.com/bats3c/shad0w.git
     cd shad0w
     replace-line 'echo -e "\e[1;33m[++]\e[0m starting to install shad0w requirements";python3 -m pip install -r ./requirements.txt --quiet' 6 install.sh    
     ./install.sh
