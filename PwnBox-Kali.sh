@@ -76,7 +76,7 @@ GetTool () {
 
     if [ "$#" -eq 1 ]; then
         name=$(echo $1 | awk -F '/' '{print $5}' | awk -F'.' '{print $1}')
-        echo -e "\n$greenplus Installing: $name \n$greenplus Location: $PWD/$name \n" 
+        echo -e "\n$greenplus Downloading: $name \n$greenplus Location: $PWD/$name \n" 
     
         if ! (git clone $1 ) then
             echo -e "$redexclaim Error while donwloading $name, \n$redstar trying again in 30 seconds";sleep 30;git clone $1 $2
@@ -85,7 +85,7 @@ GetTool () {
         fi
     else
         name=$(echo $1 | awk -F '/' '{print $5}' | awk -F'.' '{print $1}')
-        echo -e "\n$greenplus Installing: $name \n$greenplus Alternate Name: $2 \n$greenplus Location: $PWD/$2 \n" 
+        echo -e "\n$greenplus Downloading: $name \n$greenplus Alternate Name: $2 \n$greenplus Location: $PWD/$2 \n" 
         
         if ! (git clone $1 $2) then
             echo -e "$redexclaim Error while donwloading $name, \n$redstar trying again in 30 seconds";sleep 30;git clone $1 $2
@@ -980,11 +980,15 @@ Payloads-Tools (){
     pip3 install -r requirements.txt --quiet
     echo -e "\n$greenplus NimHollow successfully installed"
 
+    # Shhhloader
+
     cd $PAYLOAD_DEV_DIR
     echo -e "\n$greenplus Installing Shhhloader"
     GetTool https://github.com/icyguider/Shhhloader
     echo -e "\n$greenplus Shhhloader successfully installed"
     
+    # Nimcrypt2
+
     cd $PAYLOAD_DEV_DIR
     echo -e "\n$greenplus Installing Nimcrypt2"
     GetTool https://github.com/icyguider/Nimcrypt2.git
@@ -993,6 +997,14 @@ Payloads-Tools (){
     nim c -d=release --cc:gcc --embedsrc=on --hints=on --app=console --cpu=amd64 --out=nimcrypt nimcrypt.nim
     echo -e "\n$greenplus Nimcrypt2 successfully installed"
     
+    # Alaris
+    cd $PAYLOAD_DEV_DIR
+    echo -e "\n$greenplus Installing Alaris"
+    GetTool https://github.com/cribdragg3r/Alaris
+    cd Alaris 
+    pip3 install --no-cache-dir -r requirements.txt --quiet
+    echo -e "\n$greenplus Alaris successfully installed"
+
     sleep 0.5
     echo -e "\n\n\n\n$greenplus Payloads-Development Tools successfully installed"
     echo -e "\n\n"
