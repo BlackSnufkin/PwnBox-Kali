@@ -1168,8 +1168,40 @@ ActiveDirectory_Enumeration-Tools () {
     ln -s /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound/BloodHound /usr/bin/bloodhound
     echo -e "\n$greenplus Bloodhound successfully installed"
 
+    _popd() {
+    popd 2>&1 > /dev/null
+    }
+
     echo -e "\n$greenplus Installing BloodHound Utils"
     mkdir /opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util
+
+    downloadRawFile "https://github.com/ShutdownRepo/Exegol/raw/master/sources/bloodhound/customqueries.json" /tmp/customqueries1.json
+    downloadRawFile "https://github.com/CompassSecurity/BloodHoundQueries/raw/master/customqueries.json" /tmp/customqueries2.json
+    downloadRawFile "https://github.com/ZephrFish/Bloodhound-CustomQueries/raw/main/customqueries.json" /tmp/customqueries3.json
+    downloadRawFile "https://github.com/ly4k/Certipy/raw/main/customqueries.json" /tmp/customqueries4.json
+
+    python3 - << 'EOT'
+import json
+from pathlib import Path
+merged, dups = {'queries': []}, set()
+for jf in sorted((Path('/tmp')).glob('customqueries*.json')):
+    with open(jf, 'r') as f:
+        for query in json.load(f)['queries']:
+            if 'queryList' in query.keys():
+                qt = tuple(q['query'] for q in query['queryList'])
+                if qt not in dups:
+                    merged['queries'].append(query)
+                    dups.add(qt)
+with open(Path.home() / '.config' / 'bloodhound' / 'customqueries.json', 'w') as f:
+    json.dump(merged, f, indent=4)
+EOT
+    rm /tmp/customqueries*.json
+
+    downloadRawFile "https://github.com/ShutdownRepo/Exegol/raw/master/sources/bloodhound/config.json" ~/.config/bloodhound/config.json
+    sed -i 's/"password": "exegol4thewin"/"password": "bloodhound"/g' ~/.config/bloodhound/config.json
+
+    _popd
+
 
     # AzureHound
     cd $AD_ENUM_DIR/BloodHound-Util
