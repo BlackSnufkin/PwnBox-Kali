@@ -997,14 +997,6 @@ Payloads-Tools (){
     nim c -d=release --cc:gcc --embedsrc=on --hints=on --app=console --cpu=amd64 --out=nimcrypt nimcrypt.nim
     echo -e "\n$greenplus Nimcrypt2 successfully installed"
     
-    # Alaris
-    cd $PAYLOAD_DEV_DIR
-    echo -e "\n$greenplus Installing Alaris"
-    GetTool https://github.com/cribdragg3r/Alaris
-    cd Alaris 
-    pip3 install --no-cache-dir -r requirements.txt --quiet
-    echo -e "\n$greenplus Alaris successfully installed"
-
     sleep 0.5
     echo -e "\n\n\n\n$greenplus Payloads-Development Tools successfully installed"
     echo -e "\n\n"
