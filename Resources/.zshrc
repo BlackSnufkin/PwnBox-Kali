@@ -16,7 +16,7 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 export PROMPT_EOL_MARK=""
 
 #Setup path
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:~/.local/bin:/snap/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:~/.local/bin:/snap/bin:/opt/RedTeam-ToolKit/Payload_Dev/PEzor:$PATH
 
 # configure key keybindings
 bindkey -e                                        # emacs key bindings
@@ -256,23 +256,46 @@ i() {
 }
 
 
+gc () {
+
+    if [ "$#" -eq 1 ]; then
+        name=$(echo $1 | awk -F '/' '{print $5}' | awk -F'.' '{print $1}')
+        echo -e "\n$greenplus Downloading: $name \n$greenplus Location: $PWD/$name \n" 
+    
+        if ! (git clone $1 ) then
+            echo -e "$redexclaim Error while donwloading $name, \n$redstar trying again in 30 seconds";sleep 30;git clone $1 $2
+        else
+            echo -e "\n$greenplus $name donwloaded successfully\n";
+        fi
+    else
+        name=$(echo $1 | awk -F '/' '{print $5}' | awk -F'.' '{print $1}')
+        echo -e "\n$greenplus Downloading: $name \n$greenplus Alternate Name: $2 \n$greenplus Location: $PWD/$2 \n" 
+        
+        if ! (git clone $1 $2) then
+            echo -e "$redexclaim Error while donwloading $name, \n$redstar trying again in 30 seconds";sleep 30;git clone $1 $2
+        else
+            echo -e "\n$greenplus $2 Donwloaded Successfully\n";
+        fi  
+    fi
+}
+
+
 
 alias chrome='google-chrome-stable %u'
 alias update='apt update && apt full-upgrade -y && apt autoremove -y && check_reboot'
 alias full-update='apt update && apt full-upgrade -y && apt autoremove -y && Update-RedTeam-ToolKit && check_reboot'
 alias enum4linux-ng='python3 /opt/RedTeam-ToolKit/Active_Directory/Enumeration/enum4linux-ng/enum4linux-ng.py'
-alias dirsearch='python3 /opt/RedTeam-ToolKit/Web/dirsearch/dirsearch.py'
 alias rustscan='/opt/RedTeam-ToolKit/Recon/RustScan/target/release/rustscan -a'    
-alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'
-alias dirsearch='python3 /opt/RedTeam-ToolKit/Web/dirsearch/dirsearch.py'   
+alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'   
 alias evil-winrm='ruby /opt/RedTeam-ToolKit/C2/evil-winrm/evil-winrm.rb'
 alias c='clear'   
 alias off='shutdown -h now'
 alias rr='reboot'
 alias del='rm -rf "@$"'
 alias bc='bat'
+alias ch='chmod +x "@$'
 alias fix-vm='apt reinstall open-vm-tools-desktop open-vm-tools fuse && reboot'
-alias fix-loginscreen='cp /root/Pictures/loginscreen.jpg /usr/share/desktop-base/kali-theme/login'
+alias fix-loginscreen='cp /root/Pictures/loginscreen.png /usr/share/desktop-base/kali-theme/login/background'
 alias set-python2='ln -sfn /usr/bin/python2 /usr/bin/python'
 alias set-python3='ln -sfn /usr/bin/python3 /usr/bin/python'   
 alias bloodhound-up='/opt/RedTeam-ToolKit/Active_Directory/Enumeration/BloodHound-Util/SpinUp-BloodHound.sh'
