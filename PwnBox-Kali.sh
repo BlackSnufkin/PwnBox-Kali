@@ -1148,9 +1148,6 @@ ActiveDirectory_Enumeration-Tools () {
     cd $AD_ENUM_DIR
     echo "deb http://httpredir.debian.org/debian stretch-backports main" | tee -a /etc/apt/sources.list.d/stretch-backports.list
     apt update
-    wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
-    echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
-    apt update
     apt install neo4j -y
     wget -q --show-progress --progress=bar:force:noscroll https://github.com/BloodHoundAD/BloodHound/releases/download/4.2.0/BloodHound-linux-x64.zip
     unzip BloodHound-linux-x64.zip
