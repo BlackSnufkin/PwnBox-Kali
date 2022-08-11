@@ -1152,7 +1152,7 @@ ActiveDirectory_Enumeration-Tools () {
     echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
     apt update
     apt install neo4j -y
-    wget -q --show-progress --progress=bar:force:noscroll https://github.com/BloodHoundAD/BloodHound/releases/download/4.1.0/BloodHound-linux-x64.zip
+    wget -q --show-progress --progress=bar:force:noscroll https://github.com/BloodHoundAD/BloodHound/releases/download/4.2.0/BloodHound-linux-x64.zip
     unzip BloodHound-linux-x64.zip
     mv BloodHound-linux-x64 BloodHound
     rm BloodHound-linux-x64.zip
